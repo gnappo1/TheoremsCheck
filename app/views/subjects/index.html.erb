@@ -1,0 +1,7 @@
+<h1>Subjects:</h1>
+
+<ul>
+  <% @subjects.each do |s| %>
+    <li><%= link_to s.name, s %></li><br>
+  <% end %>
+</ul>

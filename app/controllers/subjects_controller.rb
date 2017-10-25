@@ -18,7 +18,7 @@ class SubjectsController < ApplicationController
     if @subject.save
       redirect_to subjects_path, notice: 'Subject was successfully created.'
     else
-      render 'new', notice: 'Oops! There was a problem creating the Subject.'
+      render 'new', notice: 'Oops!'
     end
   end
 
@@ -29,7 +29,7 @@ class SubjectsController < ApplicationController
     if @subject.update(subject_params)
       redirect_to @subject, notice: 'Subject was successfully updated!'
     else
-      render 'edit', notice: 'Oops! There was a problem updating the Subject.'
+      render 'edit', notice: 'Oops!'
     end
   end
 
