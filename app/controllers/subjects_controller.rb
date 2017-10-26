@@ -8,18 +8,16 @@ class SubjectsController < ApplicationController
   end
 
   def show
+    @area = @subject.areas.build
   end
 
-  def new
-    @subject = Subject.new
-  end
 
   def create
     @subject = Subject.new(subject_params)
     if @subject.save
       redirect_to subjects_path, notice: 'Subject was successfully created.'
     else
-      render 'new', notice: 'Oops!'
+      redirect_to subjects_path, notice: 'Oops!'
     end
   end
 

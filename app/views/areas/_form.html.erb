@@ -1,0 +1,30 @@
+<%= form_for([@area.subject, @area]) do |f| %>
+  <% if @area.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@area.errors.count, "error") %> prohibited this Area from being saved:</h2>
+      <ul>
+      <% area.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <br><br>
+  <div class="form-group">
+    <%= f.label :name, class: "col-md-4 control-label" %>
+    <div class="col-md-4">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+
+  <br><br>
+  <div class="form-group">
+    <%= f.label :subject_id, class: "col-md-4 control-label" %>
+    <div class="col-md-4">
+      <%= f.collection_select :subject_id, Subject.all, :id, :name, :include_blank => "Select Subject" %><br><br>
+    </div>
+  </div>
+
+  <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+<% end %>

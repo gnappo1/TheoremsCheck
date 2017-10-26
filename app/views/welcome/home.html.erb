@@ -3,12 +3,20 @@
 <h3>Here you can review and keep track of a large number of theorems, find the best quotes ...</h3>
 
 
-<h4>Please login or signup!</h4>
+<h4>Please signup or login:</h4>
 
-<ul>
-  <li><%= link_to "Sign In", new_user_session_path %></li>
-  <li><%= link_to "Sign Up", new_user_registration_path %></li>
-  <li><%= link_to "Sign in With Facebook", user_facebook_omniauth_authorize_path %></li>
-  <li><%= link_to "Sign in With Github", user_github_omniauth_authorize_path %></li>
-  <li><%= link_to "Sign in With Twitter", user_twitter_omniauth_authorize_path %></li>
-</ul>
+<div class="user-access">
+  <ul>
+    <li><%= link_to "Sign In", new_user_session_path %></li>
+    <li><%= link_to "Sign Up", new_user_registration_path %></li>
+    <a class="btn btn-social-icon btn-twitter" href="user_twitter_omniauth_authorize_path">
+      <span class="fa fa-twitter"></span>
+    </a>
+    <a class="btn btn-social-icon btn-facebook" href=user_facebook_omniauth_authorize_path>
+      <span class="fa fa-facebook"></span>
+    </a>
+    <a class="btn btn-social-icon btn-github" href=user_github_omniauth_authorize_path>
+      <span class="fa fa-github"></span>
+    </a>
+  </ul>
+</div>

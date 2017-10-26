@@ -35,12 +35,17 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  background-color: #eee;
+  background-color: none;
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
+  color: black;
   }
 section {
   @extend .row;
   margin-top: 20px;
+  }
+
+  body {
+    background-image: url("https://media.istockphoto.com/vectors/network-design-elements-vector-id501576094");
   }

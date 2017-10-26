@@ -1,41 +1,53 @@
 class AreasController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_area, only: [:show, :edit, :update, :destroy]
+  #before_action :set_area, only: [:show, :edit, :update, :destroy]
   before_action :check_admin, only: [:edit, :destroy]
 
   def index
-    @areas = Area.all
+    @subject = Subject.find(params[:subject_id])
+    @areas = @subject.areas
   end
 
   def show
+    @subject = Subject.find(params[:subject_id])
+    @area = @subject.areas.find(params[:id])
   end
 
   def new
-    @area = Subject.find(params[subject_id]).build
+    @subject = Subject.find(params[:subject_id])
+    @area = @subject.areas.build
   end
 
   def create
-    @area = Area.new(area_params)
+    @subject = Subject.find(params[:subject_id])
+    @area = @subject.areas.create(area_params)
     if @area.save
-      redirect_to areas_path, notice: 'Area was successfully created.'
+      redirect_to subject_area_path(@area.subject, @area), notice: 'Area was successfully created.'
     else
-      render 'new', notice: 'Oops!'
+      redirect_to @subject, notice: 'Oops!'
     end
   end
 
   def edit
+    @subject = Subject.find(params[:subject_id])
+    @area = @subject.areas.find(params[:id])
   end
 
   def update
+    @subject = Subject.find(params[:subject_id])
+    @area = @subject.areas.find(params[:id])
     if @area.update(area_params)
-      redirect_to @area, notice: 'Area was successfully updated!'
+      redirect_to subject_area_path(@area.subject, @area), notice: 'Area was successfully updated!'
     else
       render 'edit', notice: 'Oops!'
     end
   end
 
   def destroy
+    @subject = Subject.find(params[:subject_id])
+    @area = @subject.areas.find(params[:id])
     @area.destroy
+    redirect_to subject_areas_path(@subject)
   end
 
   private
@@ -48,4 +60,3 @@ class AreasController < ApplicationController
     params.require(:area).permit(:name, :subject_id)
   end
 end
-#aggiustare creazione nuova area direttamente dentro ad un subject: @area = Subject.find(params[:subject_id]).build()
