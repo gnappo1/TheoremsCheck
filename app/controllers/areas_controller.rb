@@ -1,4 +1,5 @@
 class AreasController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_area, only: [:show, :edit, :update, :destroy]
   before_action :check_admin, only: [:edit, :destroy]
 
@@ -10,7 +11,7 @@ class AreasController < ApplicationController
   end
 
   def new
-    @area = Area.new
+    @area = Subject.find(params[subject_id]).build
   end
 
   def create
@@ -47,3 +48,4 @@ class AreasController < ApplicationController
     params.require(:area).permit(:name, :subject_id)
   end
 end
+#aggiustare creazione nuova area direttamente dentro ad un subject: @area = Subject.find(params[:subject_id]).build()
