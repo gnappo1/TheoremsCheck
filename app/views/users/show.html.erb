@@ -1,0 +1,24 @@
+<% if current_user = @user %>
+  <h1>Welcome, <%= current_user.email %></h1>
+<% else %>
+  <h1> <%= @user.email %>'s Profile</h1>
+<% end %>
+
+<div id="user-creations">
+  <div id="areas">
+    <h3>Number of Areas added: </h3>
+  </div>
+  <div id="scientists">
+    <h3>Number of Scientists added: </h3>
+  </div>
+  <div id="theorems">
+    <h3>Number of Theorems added: </h3>
+  </div>
+</div>
+
+<div id="saved-theorems">
+  <h3>Favourites: </h3><br>
+  <ul>
+
+  </ul>
+</div>
