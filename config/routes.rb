@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :scientists
   resources :subjects, except: :new do
     resources :areas, except: :new
   end
