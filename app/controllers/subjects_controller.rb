@@ -17,7 +17,7 @@ class SubjectsController < ApplicationController
     if @subject.save
       redirect_to subjects_path, notice: 'Subject was successfully created.'
     else
-      redirect_to subjects_path, notice: 'Oops!'
+      redirect_to subjects_path, notice: "Oops! Name can't be blank!"
     end
   end
 
