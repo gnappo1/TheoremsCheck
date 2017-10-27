@@ -9,7 +9,7 @@
     <ul>
       <% @subject.areas.each do |a| %>
         <% if a.id %>
-          <h4><%= link_to a.name, subject_area_path(@subject, a) %></h4><br><br>
+          <h3><%= link_to a.name, subject_area_path(@subject, a) %></h3><br><br>
         <% end %>
       <% end %>
     </ul>
@@ -19,5 +19,6 @@
 <br><br>
 
 <div class="container-fluid text-center" id="new-area-form">
+  <strong><h3>Add new Area:</h3></strong>
   <%= render partial: 'areas/form', locals: {subject: @subject, area: @area} %>
 </div>
