@@ -5,6 +5,7 @@ class ScientistsController < ApplicationController
 
   def index
     @scientists = Scientist.all
+    @scientist = Scientist.new
   end
 
   def show
@@ -12,11 +13,12 @@ class ScientistsController < ApplicationController
 
 
   def create
-    @scientist = Scientist.new(subject_params)
+    @scientist = Scientist.new(scientist_params)
+    raise @scientist.inspect
     if @scientist.save
-      redirect_to scientist_path, notice: 'Scientist was successfully created.'
+      redirect_to @scientist, notice: 'Scientist was successfully created.'
     else
-      redirect_to scientist_path, notice: "Oops!"
+      redirect_to scientists_path, notice: @scientist.errors.full_messages.first
     end
   end
 

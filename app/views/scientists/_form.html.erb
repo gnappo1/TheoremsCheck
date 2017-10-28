@@ -1,0 +1,48 @@
+<% if @scientist.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@scientist.errors.count, "error") %>
+      prohibited this Scientist from being saved:
+    </h2>
+    <ul>
+    <% @scientist.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<br>
+
+<%= form_for @scientist, :html => {:class => "form-horizontal center"} do |f| %>
+  <div class="form-group">
+    <h4><%= f.label :full_name, "Full Name", class: "col-md-4 control-label" %></h4>
+    <div class="col-md-4">
+      <%= f.text_field :full_name, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <h4><%= f.label :date_of_birth, "Year of birth (No abbreviations are allowed ): ", class: "col-md-4 control-label" %></h4>
+    <div class="col-md-4">
+      <%= f.date_field :date_of_birth, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <h4><%= f.label :date_of_death, "Year of death (Leave blank if still alive): ", class: "col-md-4 control-label" %></h4>
+    <div class="col-md-4">
+      <%= f.date_field :date_of_death, max: what_year_is_it?, :include_blank => true, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="btn-group" data-toggle="buttons-radio">
+    <%= f.label :gender, "Male" %>
+    <%= f.radio_button :gender, "Male" %>
+    <%= f.label :gender, "Female"%>
+    <%= f.radio_button :gender, "Female" %>
+  </div>
+
+  <%= f.hidden_field :created_by, :value => current_user.email %>
+
+  <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+<% end %>

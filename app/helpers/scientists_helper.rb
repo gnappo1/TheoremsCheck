@@ -1,6 +1,10 @@
 module ScientistsHelper
 
   def still_alive?
-    "Still among us!" unless @scientist.date_of_death
+    return "Still among us!" unless @scientist.date_of_death
+  end
+
+  def what_year_is_it?
+    Time.now.year
   end
 end

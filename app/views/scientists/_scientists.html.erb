@@ -1,0 +1,11 @@
+<div class="scientists">
+  <ul>
+    <% @scientists.each do |s| %>
+      <li><h3><%= link_to s.full_name, s %></h3></li><br>
+      <% if current_user.admin? %>
+        <p>Created by: <%= s.created_by %></p>
+        <li><%= link_to "Edit", edit_scientist_path(s) %> - <%= link_to "Destroy", s, method: :delete, data: {confirm: "Are you sure?"} %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
