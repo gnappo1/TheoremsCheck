@@ -1,15 +1,17 @@
-<% if subject.errors.any? %>
+<% if @subject.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(subject.errors.count, "error") %> prohibited this Subject from being saved:</h2>
+    <h2>
+      <%= pluralize(@subject.errors.count, "error") %>
+      prohibited this Subject from being saved:
+    </h2>
     <ul>
-    <% subject.errors.full_messages.each do |msg| %>
+    <% @subject.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
   </div>
 <% end %>
-
-<br><br>
+<br>
 
 <%= form_for subject, :html => {:class => "form-horizontal center"} do |f| %>
   <div class="form-group">
@@ -20,6 +22,6 @@
   </div>
 
   <%= f.hidden_field :created_by, :value => current_user.email %>
-  
+
   <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
 <% end %>

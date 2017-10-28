@@ -1,0 +1,15 @@
+<div id="areas">
+  <% if @subject.areas.count > 0 %>
+    <ul>
+      <% @subject.areas.each do |a| %>
+        <% if a.id %>
+          <h3><%= link_to a.name, subject_area_path(@subject, a) %></h3><br>
+          <% if current_user.admin? %>
+            <p>Created by: <%= a.created_by %></p>
+            <li><%= link_to "Edit", edit_subject_area_path(@subject, a) %> - <%= link_to "Destroy", subject_area_path(@subject, a), method: :delete, data: {confirm: "Are you sure?"} %></li>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

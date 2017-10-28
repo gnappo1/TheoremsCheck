@@ -2,21 +2,11 @@
 
 <br><br>
 
-<div class="subjects">
-  <ul>
-    <% @subjects.each do |s| %>
-      <li><h3><%= link_to s.name, s %></h3></li><br>
-      <% if current_user.admin? %>
-        <p>Created by: <%= s.created_by %></p>
-        <li><%= link_to "Edit", edit_subject_path(s) %> - <%= link_to "Destroy", destroy_subject_path(s), method: :delete %></li>
-      <% end %>
-    <% end %>
-  </ul>
-</div>
+<%= render partial: 'subjects', locals: {subjects: @subjects} %>
 
 <br><br>
 
 <div class="container-fluid text-center" id="new-subject-form">
   <strong><h3>Add new Subject:</h3></strong>
-  <%= render partial: 'form', locals: {subject: Subject.new} %>
+  <%= render partial: 'form', locals: {subject: @subject} %>
 </div>

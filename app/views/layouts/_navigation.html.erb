@@ -11,6 +11,7 @@
       <% if user_signed_in? %>
         <%= link_to 'Home', root_path, class: 'navbar-brand' %>
         <%= link_to "Subjects", subjects_path, class: 'navbar-brand' %>
+        <%= link_to "Scientists", scientists_path, class: 'navbar-brand' %>
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'navbar-brand'%>
       <% end %>
     </div>

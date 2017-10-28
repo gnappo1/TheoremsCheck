@@ -16,7 +16,7 @@ class AreasController < ApplicationController
     if @area.save
       redirect_to subject_area_path(@area.subject, @area), notice: 'Area was successfully created.'
     else
-      redirect_to @subject, notice: "Oops! Name can't be blank!"
+      redirect_to @subject, notice: @area.errors.full_messages.first
     end
   end
 
@@ -33,7 +33,7 @@ class AreasController < ApplicationController
 
   def destroy
     @area.destroy
-    redirect_to subject_areas_path(@subject)
+    redirect_to @subject
   end
 
   private

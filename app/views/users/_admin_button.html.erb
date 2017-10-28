@@ -1,0 +1,3 @@
+<% if !@user.admin %>
+  <%= button_to "Make admin!", { action: "make_admin" }, class: "btn btn-primary" %>
+<% end %>

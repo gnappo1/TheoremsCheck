@@ -1,0 +1,11 @@
+<div class="subjects">
+  <ul>
+    <% @subjects.each do |s| %>
+      <li><h3><%= link_to s.name, s %></h3></li><br>
+      <% if current_user.admin? %>
+        <p>Created by: <%= s.created_by %></p>
+        <li><%= link_to "Edit", edit_subject_path(s) %> - <%= link_to "Destroy", s, method: :delete, data: {confirm: "Are you sure?"} %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

@@ -5,6 +5,7 @@ class SubjectsController < ApplicationController
 
   def index
     @subjects = Subject.all
+    @subject = Subject.new
   end
 
   def show
@@ -17,7 +18,7 @@ class SubjectsController < ApplicationController
     if @subject.save
       redirect_to subjects_path, notice: 'Subject was successfully created.'
     else
-      redirect_to subjects_path, notice: "Oops! Name can't be blank!"
+      redirect_to subjects_path, notice: @subject.errors.full_messages.first
     end
   end
 

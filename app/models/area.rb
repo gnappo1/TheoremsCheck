@@ -1,4 +1,4 @@
 class Area < ApplicationRecord
   belongs_to :subject
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
 end
