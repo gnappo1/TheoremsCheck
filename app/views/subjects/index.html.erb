@@ -7,6 +7,7 @@
     <% @subjects.each do |s| %>
       <li><h3><%= link_to s.name, s %></h3></li><br>
       <% if current_user.admin? %>
+        <p>Created by: <%= s.created_by %></p>
         <li><%= link_to "Edit", edit_subject_path(s) %> - <%= link_to "Destroy", destroy_subject_path(s), method: :delete %></li>
       <% end %>
     <% end %>

@@ -26,5 +26,7 @@
     </div>
   </div>
 
+  <%= f.hidden_field :created_by, :value => current_user.email %>
+
   <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
 <% end %>
