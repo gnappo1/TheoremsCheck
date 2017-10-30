@@ -4,7 +4,7 @@ module UsersHelper
     @user.update(admin: true)
   end
 
-  def user?
-    current_user === @user
+  def user_greetings
+    @user ? ("Welcome, " + @user.email) : (@user.email + "'s Profile")
   end
 end

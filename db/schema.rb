@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171028081850) do
+ActiveRecord::Schema.define(version: 20171030074847) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -31,9 +31,8 @@ ActiveRecord::Schema.define(version: 20171028081850) do
 
   create_table "scientists", force: :cascade do |t|
     t.string   "full_name"
-    t.date     "date_of_birth"
-    t.date     "date_of_death"
-    t.string   "gender"
+    t.integer  "year_of_birth"
+    t.integer  "year_of_death"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "created_by"

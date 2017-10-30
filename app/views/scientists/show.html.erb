@@ -1,6 +1,5 @@
 <h1><%= @scientist.full_name %></h1>
 
-<li><h3>Date of Birth: <%= @scientist.date_of_birth %> - Date of Death: <%= @scientist.still_alive? %></h3></li><br>
-<li><h3>Gender: <%= @scientist.gender %></h3></li>
+<h3>(Year of Birth: <%= @scientist.birth_before_christ? %> - Year of Death: <%= @scientist.death_before_christ? %>)</h3><br>
 
 <br><br>

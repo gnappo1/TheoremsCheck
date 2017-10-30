@@ -14,7 +14,6 @@ class ScientistsController < ApplicationController
 
   def create
     @scientist = Scientist.new(scientist_params)
-    raise @scientist.inspect
     if @scientist.save
       redirect_to @scientist, notice: 'Scientist was successfully created.'
     else
@@ -45,6 +44,6 @@ class ScientistsController < ApplicationController
   end
 
   def scientist_params
-    params.require(:scientist).permit(:full_name, :date_of_birth, :date_of_death, :gender)
+    params.require(:scientist).permit(:full_name, :year_of_birth, :year_of_death)
   end
 end

@@ -22,8 +22,6 @@
     </div>
   </div>
 
-  <% f.hidden_field :subject_id, :value => @subject.id %>
-
   <% f.hidden_field :created_by, :value => current_user.email %>
 
   <%= f.submit "Submit", class: "btn btn-default btn-primary" %>

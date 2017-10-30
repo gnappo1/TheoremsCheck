@@ -1,0 +1,16 @@
+// Place all the styles related to the Subjects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#user-creations {
+  position: fixed;
+  width:30%;
+	height:100px;
+  top: 100px;
+  right: 100px;
+	background:#d3d3d3;
+	margin:40px auto;
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+}
