@@ -1,0 +1,2 @@
+class TheoremsController < ApplicationController
+end
