@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+
+  resources :scientists, except: :new do
+    resources :theorems, only: :show
+  end
   resources :theorems
-  resources :scientists
   resources :subjects, except: :new do
     resources :areas, except: :new
   end
