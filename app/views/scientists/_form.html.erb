@@ -42,56 +42,63 @@
   <h3>Create the first theorem: </h3>
 
   <%= f.fields_for :theorems do |theorem| %>
-  <div class="form-group">
-    <%= theorem.label :name, "Theorem Name", class: "col-md-1 control-label" %>
-    <div class="col-md-4">
-      <%= theorem.text_field :name, :required => true %>
+    <div class="form-group">
+      <%= theorem.label :name, "Theorem Name", class: "col-md-1 control-label" %>
+      <div class="col-md-4">
+        <%= theorem.text_field :name, :required => true %>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <%= theorem.label :statement, class: "col-md-1 control-label" %>
-    <div class="col-md-4">
-      <%= theorem.text_area :statement, :required => true %>
+    <div class="form-group">
+      <%= theorem.label :statement, class: "col-md-1 control-label" %>
+      <div class="col-md-4">
+        <%= theorem.text_area :statement, :required => true %>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <%= theorem.label :demonstration, class: "col-md-1 control-label" %>
-    <div class="col-md-4">
-      <%= theorem.text_area :demonstration %>
+    <div class="form-group">
+      <%= theorem.label :demonstration, class: "col-md-1 control-label" %>
+      <div class="col-md-4">
+        <%= theorem.text_area :demonstration %>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <%= theorem.label :area_id, class: "col-md-1 control-label" %>
-    <div class="col-md-4">
-      <%= theorem.collection_select :area_id, Area.all, :id, :name, :include_blank => "Select Area" %>
+    <%= theorem.hidden_field :created_by, :value => current_user.email %>
+
+    <div class="form-group">
+      <%= theorem.label :area_id, class: "col-md-1 control-label" %>
+      <div class="col-md-4">
+        <%= theorem.collection_select :area_id, Area.all, :id, :name, :include_blank => "Select Area" %>
+      </div>
     </div>
-  </div>
 
     <%= theorem.fields_for :area do |area| %>
-    <div class="form-group">
-      <%= area.label :name, "Or Create New Area", class: "col-md-1 control-label" %>
-      <div class="col-md-4">
-        <%= area.text_field :name %>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <%= area.label :subject_id, class: "col-md-1 control-label" %>
-      <div class="col-md-4">
-        <%= area.collection_select :subject_id, Subject.all, :id, :name, :include_blank => "Select Subject" %>
-      </div>
-    </div>
-
-      <%= area.fields_for :subject do |subject| %>
       <div class="form-group">
-        <%= subject.label :name, "Or Create New Subject", class: "col-md-1 control-label" %>
+        <%= area.label :name, "Or Create New Area", class: "col-md-1 control-label" %>
         <div class="col-md-4">
-          <%= subject.text_field :name %>
+          <%= area.text_field :name %>
         </div>
       </div>
+
+      <div class="form-group">
+        <%= area.label :subject_id, class: "col-md-1 control-label" %>
+        <div class="col-md-4">
+          <%= area.collection_select :subject_id, Subject.all, :id, :name, :include_blank => "Select Subject" %>
+        </div>
+      </div>
+
+      <%= area.hidden_field :created_by, :value => current_user.email %>
+
+      <%= area.fields_for :subject do |subject| %>
+        <div class="form-group">
+          <%= subject.label :name, "Or Create New Subject", class: "col-md-1 control-label" %>
+          <div class="col-md-4">
+            <%= subject.text_field :name %>
+          </div>
+        </div>
+
+        <%= subject.hidden_field :created_by, :value => current_user.email %>
+
       <% end %>
     <% end %>
   <% end %>

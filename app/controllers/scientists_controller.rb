@@ -21,9 +21,8 @@ class ScientistsController < ApplicationController
 
   def create
     @scientist = Scientist.new(scientist_params)
-    binding.pry
     if @scientist.save
-      redirect_to @scientist, notice: 'Scientist was successfully created.'
+      redirect_to @scientist, notice: 'Scientist, Theorem and area were successfully created.'
     else
       render :new
     end
@@ -34,7 +33,7 @@ class ScientistsController < ApplicationController
 
   def update
     if @scientist.update(scientist_params)
-      redirect_to @scientist, notice: 'Scientist was successfully updated!'
+      redirect_to @scientist, notice: 'Scientist, Theorem and area were successfully updated!'
     else
       render 'edit', notice: 'Oops!'
     end
@@ -53,6 +52,6 @@ class ScientistsController < ApplicationController
   end
 
   def scientist_params
-    params.require(:scientist).permit(:full_name, :year_of_birth, :year_of_death, :created_by, theorems_attributes: [:id, :name, :statement, :demonstration, :scientist_id, :area_id, :subject_id, area_attributes:[:id, :name, :subject_id, subject_attributes: [:id, :name]]])
+    params.require(:scientist).permit(:full_name, :year_of_birth, :year_of_death, :created_by, theorems_attributes: [:id, :name, :statement, :demonstration, :created_by, :scientist_id, :area_id, :subject_id, area_attributes:[:id, :name, :created_by, :subject_id, subject_attributes: [:id, :name, :created_by]]])
   end
 end

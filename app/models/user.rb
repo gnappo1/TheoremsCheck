@@ -49,4 +49,16 @@ class User < ApplicationRecord
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
+
+  def areas_added
+    Area.all.where({created_by: self.email}).count
+  end
+
+  def scientists_added
+    Scientist.all.where({created_by: self.email}).count
+  end
+
+  def theorems_added
+    Theorem.all.where({created_by: self.email}).count
+  end
 end
