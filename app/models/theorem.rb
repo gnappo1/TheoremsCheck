@@ -1,7 +1,25 @@
 class Theorem < ApplicationRecord
   belongs_to :scientist
   belongs_to :area
+  belongs_to :subject
 
   validates_presence_of :statement
   validates :name, presence: true, uniqueness: { case_sensitive: false }
+
+  def area_attributes=(area_attributes)
+    area_attributes.each do |k, v|
+      @area = Area.new(name: v['name'], subject_id: v[':subject_id'])
+      if v['subject_id'].empty?
+        @subject = Subject.new(v['subject_attributes'])
+        if @subject.save
+          @area.subject = @subject
+          @area.save
+        end
+      else
+        @area.subject = Subject.find_by(id: v['subject_id'])
+        self.subject = @area.subject
+        @area.save
+      end
+    end
+  end
 end

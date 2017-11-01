@@ -1,7 +1,8 @@
 <h1>Scientists: </h1>
 
+<%= button_to "New Scientist", new_scientist_path, class: "btn btn-primary", :method => :get %>
+<br><br>
+
 <%= render partial: 'scientists', locals: {scientists: @scientists} %>
 
 <br><br>
-
-<%= render partial: 'form', locals: {scientist: @scientist} %>

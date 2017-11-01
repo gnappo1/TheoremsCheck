@@ -1,10 +1,40 @@
 class Scientist < ApplicationRecord
   has_many :theorems
   has_many :areas, through: :theorems
+  has_many :subjects, through: :theorems
 
   validates :full_name, presence: true, uniqueness: { case_sensitive: false }
   validates :year_of_birth, presence: true
   validate :year_of_birth_cannot_be_in_the_future
+
+  def theorems_attributes=(theorems_attributes)
+    theorems_attributes.each do |k, v|
+      @theorem = self.theorems.build(name: v['name'])
+      @theorem.statement = v['statement']
+      @theorem.demonstration = v['demonstration']
+      if v['area_id'].empty?
+        @area = Area.new(v['area_attributes'])
+        if v['area_attributes']['subject_id'].empty?
+          @subject = Subject.new(v['area_attributes']['subject_attributes'])
+          @area.subject = @subject
+          @area.save
+          @theorem.subject = @area.subject
+          @theorem.save
+        else
+          @area.save
+          @theorem.area = @area
+          @theorem.subject = @area.subject
+          @theorem.save
+        end
+      else
+        @area = Area.find_by(id: v['area_id'])
+        @theorem.area = @area
+        @theorem.subject = @area.subject
+        @theorem.save
+      end
+    end
+  end
+
 
   def year_of_birth_cannot_be_in_the_future
     if year_of_birth > Date.today.year

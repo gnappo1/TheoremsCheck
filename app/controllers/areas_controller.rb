@@ -6,15 +6,17 @@ class AreasController < ApplicationController
 
   def index
     @areas = @subject.areas
+    @area = Area.new
+    @subject = @area.build_subject
   end
 
   def show
   end
 
   def create
-    @area = @subject.areas.create(area_params)
+    @area = Area.new(area_params)
     if @area.save
-      redirect_to subject_area_path(@area.subject, @area), notice: 'Area was successfully created.'
+      redirect_to subject_area_path(@subject, @area), notice: 'Area was successfully created.'
     else
       redirect_to @subject, notice: @area.errors.full_messages.first
     end
@@ -39,15 +41,15 @@ class AreasController < ApplicationController
   private
 
   def set_subject
-    @subject = Subject.find(params[:subject_id])
+    @subject = Subject.find_by(id: params[:subject_id])
   end
 
   def set_subject_area
-    @subject = Subject.find(params[:subject_id])
-    @area = @subject.areas.find(params[:id])
+    @subject = Subject.find_by(id: params[:subject_id])
+    @area = @subject.areas.find_by(id: params[:id])
   end
 
   def area_params
-    params.require(:area).permit(:name, :subject_id)
+    params.require(:area).permit(:name, :subject_id, subject_params: [:id, :name])
   end
 end
