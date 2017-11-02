@@ -50,6 +50,6 @@ class TheoremsController < ApplicationController
   end
 
   def theorem_params
-    params.require(:theorem).permit(:name, :statement, :demonstration, :scientist_id, :area_id, area_attributes: [:id, :name, :subject_id, subject_attributes: [:id, :name]])
+    params.require(:theorem).permit(:name, :statement, :demonstration, :created_by, :scientist_id, :area_id, area_attributes: [:id, :name, :created_by, :subject_id, subject_attributes: [:id, :name, :created_by]])
   end
 end

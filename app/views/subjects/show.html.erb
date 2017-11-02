@@ -1,11 +1,13 @@
 <h1><%= @subject.name %></h1>
 
-<br><br>
+<br><br><br><br><br><br><br>
 
 <%= render partial: 'areas', locals: {subject: @subject} %>
 <br><br>
 
-<div class="container-fluid text-center" id="new-area-form">
-  <strong><h3>Add new Area:</h3></strong>
-  <%= render partial: 'areas/form', locals: {subject: @subject, area: @area} %>
+<div class="frame">
+  <div class="container-fluid text-center" id="new-area-form">
+    <strong><h3>Add new Area:</h3></strong>
+    <%= render partial: 'areas/form', locals: {subject: @subject, area: @area} %>
+  </div>
 </div>

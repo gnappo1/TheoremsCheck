@@ -34,7 +34,10 @@ class SubjectsController < ApplicationController
   end
 
   def destroy
+    @subject.areas.each{|a| a.destroy}
+    @subject.theorems.each{|t| t.destroy}
     @subject.destroy
+    redirect_to subjects_path
   end
 
   private
@@ -44,6 +47,6 @@ class SubjectsController < ApplicationController
   end
 
   def subject_params
-    params.require(:subject).permit(:name)
+    params.require(:subject).permit(:name, :created_by)
   end
 end

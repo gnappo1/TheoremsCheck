@@ -1,12 +1,14 @@
 <h1>Subjects:</h1>
 
-<br><br>
+<br><br><br><br><br><br><br><br>
 
 <%= render partial: 'subjects', locals: {subjects: @subjects} %>
 
 <br><br>
 
-<div class="container-fluid text-center" id="new-subject-form">
-  <strong><h3>Add new Subject:</h3></strong>
-  <%= render partial: 'form', locals: {subject: @subject} %>
+<div class="frame">
+  <div class="container-fluid text-center" id="new-subject-form">
+    <strong><h3>Add new Subject:</h3></strong>
+    <%= render partial: 'form', locals: {subject: @subject} %>
+  </div>
 </div>

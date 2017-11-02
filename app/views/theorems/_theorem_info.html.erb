@@ -1,0 +1,19 @@
+<h1><%= @theorem.name %></h1>
+
+<br><br>
+<div class="frame">
+  <div id="theorem-info">
+
+    <h3>Statement: </h3><h4><%= @theorem.statement %></h4><br>
+
+    <h3>Demonstration: </h3><h4><%= @theorem.no_proof? %></h4><br>
+
+    <h3>Scientist: </h3><h4><%= link_to @theorem.scientist.full_name, @theorem.scientist %></h4><br>
+
+    <h3>Subject: </h3><h4><%= link_to @theorem.subject.name, @theorem.subject %></h4><br>
+
+    <h3>Area: </h3><h4><%= link_to @theorem.area.name, subject_area_path(@theorem.subject, @theorem.area) %></h4><br>
+
+    <h3>Added by: </h3><h4><%= @theorem.created_by %></h3>
+  </div>
+</div>

@@ -1,17 +1,19 @@
-<div id="areas">
-  <% if @subject.areas.count > 0 %>
-    <ul>
-      <% @subject.areas.each do |a| %>
-        <% if a.id %>
-          <li><h3><%= link_to a.name, subject_area_path(@subject, a) %></h3></li><br>
-          <div class="admin-info">
-            <% if current_user.admin? %>
-              <strong><p>Created by: <%= a.created_by %></p></strong>
-              <strong><%= link_to "Edit", edit_subject_area_path(@subject, a) %> - <%= link_to "Destroy", subject_area_path(@subject, a), method: :delete, data: {confirm: "Are you sure?"} %></strong>
-            <% end %>
-          </div>
+<div class="frame">
+  <div id="areas">
+    <% if @subject.areas.count > 0 %>
+      <ul>
+        <% @subject.areas.each do |a| %>
+          <% if a.id %>
+            <li><h3><%= link_to a.name, subject_area_path(@subject, a) %></h3></li><br>
+            <div class="admin-info">
+              <% if current_user.admin? %>
+                <strong><p>Created by: <%= a.created_by %></p></strong>
+                <strong><%= link_to "Edit", edit_subject_area_path(@subject, a), class: "btn btn-primary btn-xs" %>  <%= button_to "Destroy", subject_area_path(@subject, a), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong></strong>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </ul>
-  <% end %>
+      </ul>
+    <% end %>
+  </div>
 </div>

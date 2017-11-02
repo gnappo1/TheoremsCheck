@@ -1,13 +1,15 @@
-<div class="subjects">
-  <ul>
-    <% @subjects.each do |s| %>
-      <li><h3><%= link_to s.name, s %></h3></li><br>
-      <div class="admin-info">
-        <% if current_user.admin? %>
-          <strong><p>Created by: <%= s.created_by %></p></strong>
-          <strong><%= link_to "Edit", edit_subject_path(s) %> - <%= link_to "Destroy", s, method: :delete, data: {confirm: "Are you sure?"} %></strong>
-        <% end %>
-      </div>
-    <% end %>
-  </ul>
+<div class="frame">
+  <div class="subjects">
+    <ul>
+      <% @subjects.each do |s| %>
+        <li><h3><%= link_to s.name, s %></h3></li>
+        <div class="admin-info">
+          <% if current_user.admin? %>
+            <strong><p>Created by: <%= s.created_by %></p></strong>
+            <strong><%= link_to "Edit", edit_subject_path(s), class: "btn btn-primary btn-xs" %>  <%= button_to "Destroy", s, class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong></strong>
+          <% end %>
+        </div>
+      <% end %>
+    </ul>
+  </div>
 </div>

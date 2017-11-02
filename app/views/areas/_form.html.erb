@@ -13,7 +13,7 @@
 <% end %>
 <br>
 
-<%= form_for([@subject, @area]) do |f| %>
+<%= form_for([@subject, @area]), :html => {:class => "form-horizontal center"}  do |f| %>
 
   <div class="form-group">
     <%= f.label :name, class: "col-md-4 control-label" %>

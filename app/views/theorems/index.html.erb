@@ -1,7 +1,1 @@
-<h1>Theorems:</h1>
-
-<ul>
-  <% @theorems.each do |t| %>
-    <li><%= link_to t.name, t %></li>
-  <% end %>
-</ul>
+<%= render partial: 'theorems_display', locals: {theorems: @theorems} %>

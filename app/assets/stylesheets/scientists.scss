@@ -5,3 +5,25 @@
 .btn-group label {
   text-align: center;
 }
+
+input[type=text] {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.scientists {
+  border: 3px solid black ;
+  width: 100%;
+  background-color: white;
+  color: black;
+  padding: 5px;
+}
+
+#button {
+  float:right;
+  display:block;
+  margin-right:10px;
+  clear:left;
+}

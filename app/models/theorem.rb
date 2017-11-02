@@ -8,7 +8,7 @@ class Theorem < ApplicationRecord
 
   def area_attributes=(area_attributes)
     area_attributes.each do |k, v|
-      @area = Area.new(name: v['name'], subject_id: v[':subject_id'])
+      @area = Area.new(name: v['name'], subject_id: v['subject_id'])
       if v['subject_id'].empty?
         @subject = Subject.new(v['subject_attributes'])
         if @subject.save
@@ -21,5 +21,9 @@ class Theorem < ApplicationRecord
         @area.save
       end
     end
+  end
+
+  def no_proof?
+    self.demonstration.empty? ? (return "No demonstration yet!") : self.demonstration
   end
 end

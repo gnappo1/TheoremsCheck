@@ -1,9 +1,7 @@
 <h1><%= @area.name %></h1>
 
-<div id="theorems">
-  <ul>
+<br><br><br><br><br><br><br><br>
 
-  </ul>
-</div>
+<%= render partial: 'theorems', locals: {area: @area, theorems:@theorems} %>
 
-<%= link_to "Back", @subject, class: "btn btn-primary" %>
+<%= link_to "Back", @subject, class: "btn btn-primary", id: "button"%>

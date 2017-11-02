@@ -13,7 +13,7 @@
 <% end %>
 <br>
 
-<%= form_for subject, :html => {:class => "form-horizontal center"} do |f| %>
+<%= form_for @subject, :html => {:class => "form-horizontal center"} do |f| %>
   <div class="form-group">
     <h4><%= f.label :name, class: "col-md-4 control-label" %></h4>
     <div class="col-md-4">
@@ -23,5 +23,5 @@
 
   <%= f.hidden_field :created_by, :value => current_user.email %>
 
-  <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+  <%= f.submit "Submit", class: "btn btn-default btn-primary", id: "button" %>
 <% end %>

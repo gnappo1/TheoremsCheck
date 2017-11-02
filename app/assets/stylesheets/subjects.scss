@@ -2,15 +2,58 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.edit-subject-form{
+  border: 3px solid black ;
+  width: 100%;
+  background-color: white;
+  color: black;
+  padding: 5px;
+}
 
 #new-subject-form {
+  border: 3px solid black ;
+  width: 100%;
+  background-color: white;
+  color: black;
+  padding: 5px;
+  text-align: center;
+}
+
+#new-area-form {
+  border: 3px solid black ;
+  width: 100%;
+  background-color: white;
+  color: black;
+  padding: 5px;
   text-align: center;
 }
 
 .subjects {
+  border: 3px solid black ;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  padding: 5px;
+  background-color: white;
   color: black;
 }
 
-.form-horizontal {
-  text-align: center;
+#areas {
+  border: 3px solid black ;
+  width: 100%;
+  padding: 5px;
+  background-color: white;
+  color: black;
+}
+input#button.btn.btn-default.btn-primary {
+  bottom: 10px;
+}
+
+
+input#subject_name.form-control {
+  width: 80%;
+}
+
+input#area_name.form-control {
+  width: 80%;
 }

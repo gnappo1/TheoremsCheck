@@ -4,13 +4,8 @@ class AreasController < ApplicationController
   before_action :set_subject_area, only: [:show, :edit, :update, :destroy]
   before_action :check_admin, only: [:edit, :destroy]
 
-  def index
-    @areas = @subject.areas
-    @area = Area.new
-    @subject = @area.build_subject
-  end
-
   def show
+    @theorems = @area.theorems
   end
 
   def create
@@ -34,6 +29,7 @@ class AreasController < ApplicationController
   end
 
   def destroy
+    @area.theorems.each{|t| t.destroy}
     @area.destroy
     redirect_to @subject
   end
@@ -50,6 +46,6 @@ class AreasController < ApplicationController
   end
 
   def area_params
-    params.require(:area).permit(:name, :subject_id, subject_params: [:id, :name])
+    params.require(:area).permit(:name, :subject_id, :created_by, subject_params: [:id, :name, :created_by])
   end
 end
