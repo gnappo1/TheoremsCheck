@@ -43,7 +43,7 @@ class SubjectsController < ApplicationController
   private
 
   def set_subject
-    @subject = Subject.find(params[:id])
+    @subject = Subject.find_by(id: params[:id]) ||   @subject = Subject.find_by(id: params[:subject_id])
   end
 
   def subject_params

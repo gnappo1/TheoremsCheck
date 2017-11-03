@@ -3,8 +3,26 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #theorem-info {
   border: 3px solid black ;
-  width: 60%;
+  width: 100%;
   margin: auto;
   padding: 2px;
   background-color: white;
+  text-align: center;
+}
+
+.all-theorems {
+  border: 3px solid black ;
+  width: 100%;
+  background-color: white;
+  color: black;
+  padding: 5px;
+}
+
+.new-theorem-form {
+  text-align: center;
+  border: 3px solid black ;
+  width: 100%;
+  background-color: white;
+  color: black;
+  padding: 5px;
 }

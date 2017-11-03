@@ -9,7 +9,7 @@ class AreasController < ApplicationController
   end
 
   def create
-    @area = Area.new(area_params)
+    @area = @subject.areas.build(area_params)
     if @area.save
       redirect_to subject_area_path(@subject, @area), notice: 'Area was successfully created.'
     else
@@ -46,6 +46,6 @@ class AreasController < ApplicationController
   end
 
   def area_params
-    params.require(:area).permit(:name, :subject_id, :created_by, subject_params: [:id, :name, :created_by])
+    params.require(:area).permit(:name, :subject_id, :created_by, subject_attributes: [:id, :name, :created_by])
   end
 end

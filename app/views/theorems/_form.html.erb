@@ -1,0 +1,85 @@
+<% if @theorem.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@theorem.errors.count, "error") %>
+      prohibited this Theorem from being saved:
+    </h2>
+    <ul>
+    <% @theorem.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<br>
+
+<%= form_for [@scientist, @theorem], :html => {:class => "form-horizontal center"} do |f| %>
+  <div class="form-group">
+    <h4><%= f.label :name, class: "col-md-4 control-label" %></h4>
+    <div class="col-md-4">
+      <%= f.text_field :name, :required => true, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <h4><%= f.label :statement, class: "col-md-4 control-label" %></h4>
+    <div class="col-md-4">
+      <%= f.text_field :statement, :required => true, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <h4><%= f.label :demonstration, class: "col-md-4 control-label" %></h4>
+    <div class="col-md-4">
+      <%= f.text_field :demonstration, class: "form-control" %>
+    </div>
+  </div>
+
+  <br>
+
+  <%= f.hidden_field :created_by, :value => current_user.email %>
+
+  <h3>Select Area: </h3>
+
+  <div class="form-group">
+    <%= f.label :area_id, class: "col-md-4 control-label" %>
+    <div class="col-md-4">
+      <%= f.collection_select :area_id, Area.all, :id, :name, :include_blank => "Select Area" %>
+    </div>
+  </div>
+
+  <h3>Or create a new one: </h3>
+
+  <%= f.fields_for @area do |area| %>
+    <div class="form-group">
+      <%= area.label :name, "New Area", class: "col-md-4 control-label" %>
+      <div class="col-md-4">
+        <%= area.text_field :name, class: "form-control"  %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= area.label :subject_id, class: "col-md-4 control-label" %>
+      <div class="col-md-4">
+        <%= area.collection_select :subject_id, Subject.all, :id, :name, :include_blank => "Select Subject" %>
+      </div>
+    </div>
+
+    <%= area.hidden_field :created_by, :value => current_user.email %>
+
+    <%= area.fields_for @subject do |subject| %>
+      <div class="form-group">
+        <%= subject.label :name, "Or Create New Subject", class: "col-md-4 control-label" %>
+        <div class="col-md-4">
+          <%= subject.text_field :name %>
+        </div>
+      </div>
+
+      <%= subject.hidden_field :created_by, :value => current_user.email %>
+
+    <% end %>
+
+  <% end %>
+
+  <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+<% end %>

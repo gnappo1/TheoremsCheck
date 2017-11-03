@@ -1,3 +1,9 @@
 <h1>Edit <%= @scientist.full_name %></h1>
 
-<%= render partial: 'form', locals: {scientist: @scientist} %>
+<br><br><br><br><br><br><br><br>
+
+<div class="frame">
+  <div class="new-scientist-form">
+    <%= render partial: 'edit_form', locals: {scientist: @scientist} %>
+  </div>
+</div>

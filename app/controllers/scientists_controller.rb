@@ -15,7 +15,7 @@ class ScientistsController < ApplicationController
     @scientist = Scientist.new
     @theorem = @scientist.theorems.build
     @area = @theorem.build_area
-    @subject = @theorem.build_subject
+    @Subject = @theorem.build_subject
   end
 
 
@@ -33,7 +33,7 @@ class ScientistsController < ApplicationController
 
   def update
     if @scientist.update(scientist_params)
-      redirect_to @scientist, notice: 'Scientist, Theorem and area were successfully updated!'
+      redirect_to @scientist, notice: 'Scientist was successfully updated!'
     else
       render 'edit', notice: 'Oops!'
     end
@@ -52,6 +52,6 @@ class ScientistsController < ApplicationController
   end
 
   def scientist_params
-    params.require(:scientist).permit(:full_name, :year_of_birth, :year_of_death, :created_by, theorems_attributes: [:id, :name, :statement, :demonstration, :created_by, :scientist_id, :area_id, :subject_id, area_attributes:[:id, :name, :created_by, :subject_id, subject_attributes: [:id, :name, :created_by]]])
+    params.require(:scientist).permit(:full_name, :year_of_birth, :year_of_death, :created_by, theorems_attributes: [:id, :name, :statement, :demonstration, :created_by, :scientist_id, :subject_id, :area_id, area_attributes:[:id, :name, :created_by, :subject_id, subject_attributes: [:id, :name, :created_by]]])
   end
 end

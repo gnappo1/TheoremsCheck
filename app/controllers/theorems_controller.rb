@@ -12,18 +12,18 @@ class TheoremsController < ApplicationController
 
   def new
     @scientist = Scientist.find_by(id: params[:scientist_id])
-    @theorem = Theorem.new
-    @theorem.build_area
-    @theorem.build_subject
+    @theorem = @scientist.theorems.build
+    @area = @theorem.build_area
+    @subject = @area.build_subject
   end
 
   def create
     @scientist = Scientist.find_by(id: params[:scientist_id])
-    @theorem = Theorem.new(theorem_params)
+    @theorem = @scientist.theorems.build(theorem_params)
     if @theorem.save
       redirect_to scientist_theorem_path(@scientist, @theorem), notice: 'Theorem was successfully created.'
     else
-      redirect_to theorems_path, notice: 'Oops'
+      redirect_to @scientist, notice: @theorem.errors.full_messages.first
     end
   end
 
@@ -50,6 +50,6 @@ class TheoremsController < ApplicationController
   end
 
   def theorem_params
-    params.require(:theorem).permit(:name, :statement, :demonstration, :created_by, :scientist_id, :area_id, area_attributes: [:id, :name, :created_by, :subject_id, subject_attributes: [:id, :name, :created_by]])
+    params.require(:theorem).permit(:name, :statement, :demonstration, :created_by, :scientist_id, :subject_id, :area_id, area_attributes: [:id, :name, :created_by, :subject_id, subject_attributes: [:id, :name, :created_by]])
   end
 end

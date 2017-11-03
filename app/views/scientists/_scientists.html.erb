@@ -1,7 +1,7 @@
 <div class="frame">
   <div class="scientists">
     <ul>
-      <%= link_to "New Scientist", new_scientist_path, class: "btn btn-primary", id: "button", :method => :get %>
+      <%= link_to "New Scientist", new_scientist_path, class: "btn btn-primary", id: "button-top-right", :method => :get %>
       <% @scientists.each do |s| %>
         <li><h3><%= link_to s.full_name, s %></h3></li><br>
         <div class="admin-info">

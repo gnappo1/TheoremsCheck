@@ -1,14 +1,18 @@
 <div class="frame">
   <div id="theorems">
-    <h2>Theorems: </h2>
+    <% if @theorems.count > 0 %>
+      <h2>Theorems: </h2>
 
-    <ul>
-      <% @theorems.each do |t| %>
-        <li><h3><%= link_to t.name, scientist_theorem_path(t.scientist, t) %></h3></li>
-        <h4><%= truncate t.statement %></h4><br>
-        <strong><p>Scientist: <%= link_to t.scientist.full_name, t.scientist %></p></strong>
-        <p>----------------------------------------</p>
-      <% end %>
-    </ul>
+      <ul>
+        <% @theorems.each do |t| %>
+          <li><h3><%= link_to t.name, scientist_theorem_path(t.scientist, t) %></h3></li>
+          <h4><%= truncate t.statement %></h4><br>
+          <strong><p>Scientist: <%= link_to t.scientist.full_name, t.scientist %></p></strong>
+          <p>----------------------------------------</p>
+        <% end %>
+      </ul>
+    <% else %>
+      <h3 class="center">Currently there are no theorems under this specific area</h3>
+    <% end %>
   </div>
 </div>

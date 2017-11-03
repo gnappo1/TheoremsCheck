@@ -21,6 +21,41 @@ input[type=text] {
   padding: 5px;
 }
 
-#button {
-  display:inline;;
+.centered, .new-scientist-form {
+  text-align: center;
+  border: 3px solid black ;
+  width: 100%;
+  background-color: white;
+  color: black;
+  padding: 5px;
 }
+
+.scientist-theorems {
+  border: 3px solid black ;
+  width: 100%;
+  background-color: white;
+  color: black;
+  padding: 5px;
+  min-height: 60px;
+}
+
+.frame-too {
+  border: 5px solid black ;
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 10px;
+  background-color: #00FE7F;
+}
+
+a#button-top-right.btn.btn-primary {
+  float: right;
+  margin-right: 5px;
+  position: -webkit-sticky;
+  position: sticky;
+}
+ input#centered.btn.btn-default.btn.btn-primary {
+   left: 40%;
+   position: relative;
+   margin-bottom: 5px;
+ }

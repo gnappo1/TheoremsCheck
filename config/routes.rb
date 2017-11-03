@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :scientists do
-    resources :theorems, only: [:show, :create, :destroy]
+    resources :theorems
   end
   resources :theorems
 

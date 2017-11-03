@@ -12,18 +12,19 @@ class Scientist < ApplicationRecord
       @theorem = self.theorems.build(name: v['name'])
       @theorem.statement = v['statement']
       @theorem.demonstration = v['demonstration']
+      @theorem.created_by = v['created_by']
       if v['area_id'].empty?
         @area = Area.new(v['area_attributes'])
-        if v['area_attributes']['subject_id'].empty?
+        if v['area_attributes']['subject_id'].nil?
           @subject = Subject.new(v['area_attributes']['subject_attributes'])
           @area.subject = @subject
           @area.save
-          @theorem.subject = @area.subject
+          @theorem.subject = @subject
           @theorem.save
         else
           @area.save
           @theorem.area = @area
-          @theorem.subject = @area.subject
+          @theorem.subject = Subject.find_by(id: v['area_attributes']['subject_id'])
           @theorem.save
         end
       else
@@ -34,7 +35,6 @@ class Scientist < ApplicationRecord
       end
     end
   end
-
 
   def year_of_birth_cannot_be_in_the_future
     if year_of_birth > Date.today.year

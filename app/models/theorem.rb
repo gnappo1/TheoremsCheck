@@ -8,8 +8,8 @@ class Theorem < ApplicationRecord
 
   def area_attributes=(area_attributes)
     area_attributes.each do |k, v|
-      @area = Area.new(name: v['name'], subject_id: v['subject_id'])
-      if v['subject_id'].empty?
+      @area = Area.new(name: v['name'])
+      if v['subject_id'].nil?
         @subject = Subject.new(v['subject_attributes'])
         if @subject.save
           @area.subject = @subject
@@ -17,7 +17,6 @@ class Theorem < ApplicationRecord
         end
       else
         @area.subject = Subject.find_by(id: v['subject_id'])
-        self.subject = @area.subject
         @area.save
       end
     end
