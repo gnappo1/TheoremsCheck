@@ -7,7 +7,7 @@
 }
 
 input[type=text] {
-    width: 60%;
+    width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
@@ -22,8 +22,5 @@ input[type=text] {
 }
 
 #button {
-  float:right;
-  display:block;
-  margin-right:10px;
-  clear:left;
+  display:inline;;
 }

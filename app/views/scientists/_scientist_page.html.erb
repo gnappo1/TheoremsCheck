@@ -1,6 +1,7 @@
 <div class="frame">
-  <div class="scientists">
+  <div class="scientist-theorems">
     <ul>
+      <h3>(Year of Birth: <%= @scientist.birth_before_christ? %> - Year of Death: <%= @scientist.death_before_christ? %>)</h3><br>
       <%= link_to "New Scientist", new_scientist_path, class: "btn btn-primary", id: "button", :method => :get %>
       <% @scientists.each do |s| %>
         <li><h3><%= link_to s.full_name, s %></h3></li><br>

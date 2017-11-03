@@ -35,7 +35,6 @@ img {
   }
 .form-centered {
   @extend .col-md-6;
-  @extend .text-center;
   }
 .submit {
   @extend .btn;
@@ -67,8 +66,9 @@ section {
 	text-transform: uppercase;
 	font-size: 6vw;
 	line-height: 1;
-	margin: 10px;
+	margin: 10px 10px 30px 10px;
   padding: 10px;
+  margin-bottom: 10px;
   text-align: center;
 	top: 18%;
 	left: 50%;
@@ -114,10 +114,10 @@ section {
 
   .frame {
     border: 5px solid black ;
-    top: 50%;
-    left: 50%;
     width: 60%;
-    margin: auto;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
     padding: 10px;
-    background-color: white;
+    background-color: #00FE7F;
   }

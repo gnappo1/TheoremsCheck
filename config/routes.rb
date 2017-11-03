@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'welcome#home'
 
   resources :subjects, except: :new do
-    resources :areas, except: [:index, :new]
+    resources :areas, except: :index
   end
 
   resources :scientists do

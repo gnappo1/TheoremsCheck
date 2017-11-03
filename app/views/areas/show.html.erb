@@ -4,4 +4,6 @@
 
 <%= render partial: 'theorems', locals: {area: @area, theorems:@theorems} %>
 
-<%= link_to "Back", @subject, class: "btn btn-primary", id: "button"%>
+<div class="back-button">
+  <%= link_to "Back", @subject, class: "btn btn-primary big-btn", id: "button"%>
+</div>
