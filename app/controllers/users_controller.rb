@@ -22,15 +22,15 @@ class UsersController < ApplicationController
   end
 
   def areas_created
-    @areas = Area.where(:created_by => @user.email).sort! { |a,b| a.name.downcase <=> b.name.downcase }
+    @areas = Area.where(:created_by => @user.email).sort { |a,b| a.name.downcase <=> b.name.downcase }
   end
 
   def subjects_created
-    @subjects = Subject.where(:created_by => @user.email).order(name: :desc).sort! { |a,b| a.name.downcase <=> b.name.downcase }
+    @subjects = Subject.where(:created_by => @user.email).order(name: :desc).sort { |a,b| a.name.downcase <=> b.name.downcase }
   end
 
   def scientists_created
-    @scientists = Scientist.where(:created_by => @user.email).sort! { |a,b| a.full_name.downcase <=> b.full_name.downcase }
+    @scientists = Scientist.where(:created_by => @user.email).sort { |a,b| a.full_name.downcase <=> b.full_name.downcase }
   end
 
   def theorems_created
