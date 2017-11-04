@@ -1,16 +1,38 @@
 // Place all the styles related to the Subjects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.frame-top-right {
+  border: 5px solid black ;
+  width: 30%;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  background-color: #00FE7F;
+}
 
 #user-creations {
-  position: fixed;
-  width:30%;
-	height:100px;
-  top: 100px;
-  right: 100px;
-	background:#d3d3d3;
-	margin:40px auto;
-  -moz-box-shadow:    3px 3px 5px 6px #ccc;
-  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-  box-shadow:         3px 3px 5px 6px #ccc;
+  text-align: center;
+  border: 3px solid black ;
+  width: 100%;
+  background-color: white;
+  color: black;
+  padding: 5px;
+}
+
+#saved-theorems {
+  text-align: center;
+  border: 3px solid black ;
+  width: 100%;
+  background-color: white;
+  color: black;
+  padding: 5px;
+}
+
+.areas-created {
+  text-align: center;
+  border: 3px solid black ;
+  width: 100%;
+  background-color: white;
+  color: black;
 }

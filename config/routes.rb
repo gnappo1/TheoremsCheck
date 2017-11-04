@@ -14,5 +14,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
   resources :users, only: [:index, :show, :destroy]
   post '/users/:id/make_admin', to: 'users#make_admin'
+  get '/users/:id/areas_created', to: 'users#areas_created'
+  get '/users/:id/subjects_created', to: 'users#subjects_created'
+  get '/users/:id/theorems_created', to: 'users#theorems_created'
+  get '/users/:id/scientists_created', to: 'users#scientists_created'
 
 end

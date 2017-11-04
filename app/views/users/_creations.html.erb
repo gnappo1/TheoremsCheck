@@ -1,0 +1,7 @@
+<ul>
+  <% @areas.each do |a| %>
+    <% if a.subject_id %>
+      <h3><%= link_to a.name, subject_area_path(a.subject, a) %></h3><br><br>
+    <% end %>
+  <% end %>
+</ul>

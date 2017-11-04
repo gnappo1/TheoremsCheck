@@ -50,15 +50,19 @@ class User < ApplicationRecord
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
 
-  def areas_added
+  def subjects_added_count
+    Subject.all.where({created_by: self.email}).count
+  end
+
+  def areas_added_count
     Area.all.where({created_by: self.email}).count
   end
 
-  def scientists_added
+  def scientists_added_count
     Scientist.all.where({created_by: self.email}).count
   end
 
-  def theorems_added
+  def theorems_added_count
     Theorem.all.where({created_by: self.email}).count
   end
 end

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
   before_filter :authorize_user!, only: [:show]
   before_filter :check_admin, only: [:index]
-  before_filter :set_user, only: [:show, :destroy, :make_admin]
+  before_filter :set_user, only: [:show, :destroy, :make_admin, :areas_created, :subjects_created, :scientists_created, :theorems_created]
   include UsersHelper
 
   def index
@@ -19,6 +19,22 @@ class UsersController < ApplicationController
   def make_admin
     admin!
     redirect_to @user, success: "Successfully changed into admin!"
+  end
+
+  def areas_created
+    @areas = Area.where(:created_by => @user.email)
+  end
+
+  def subjects_created
+    @subjects = Subject.find(:all, :conditions => [ "created_by = ?", @user.email])
+  end
+
+  def scientists_created
+    @scientists = Scientist.find(:all, :conditions => [ "created_by = ?", @user.email])
+  end
+
+  def theorems_created
+    @theorems = Theorem.find(:all, :conditions => [ "created_by = ?", @user.email])
   end
 
   private

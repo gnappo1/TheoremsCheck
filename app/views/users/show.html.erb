@@ -1,24 +1,23 @@
-<h2><%= user_greetings %></h2>
+<h1><%= user_greetings %></h1>
 
-<br><br>
+<br><br><br><br><br><br><br><br>
 
-<div class="diamond" id="user-creations">
-  <div id="user-areas">
-    <strong><h4>Number of Areas added: <%= @user.areas_added %></h4></strong>
-  </div>
-  <div id="user-scientists">
-    <strong><h4>Number of Scientists added: <%= @user.scientists_added %></h4></strong>
-  </div>
-  <div id="user-theorems">
-    <strong><h4>Number of Theorems added: <%= @user.theorems_added %></h4></strong>
+<div class="frame-top-right">
+  <div id="user-creations">
+    <strong><h4>Number of Subjects added: <%= link_to @user.subjects_added_count %></h4></strong>
+    <strong><h4>Number of Areas added: <%= link_to @user.areas_added_count, { action: "areas_created" }  %></h4></strong>
+    <strong><h4>Number of Scientists added: <%= @user.scientists_added_count %></h4></strong>
+    <strong><h4>Number of Theorems added: <%= @user.theorems_added_count %></h4></strong>
   </div>
 </div>
 
 <%= render partial: 'admin_button', locals: {user: @user} %>
 
-<div id="saved-theorems">
-  <h3>Favourites: </h3><br>
-  <ul>
+<div class="frame">
+  <div id="saved-theorems">
+    <h3>Favourites: </h3><br>
+    <ul>
 
-  </ul>
+    </ul>
+  </div>
 </div>
