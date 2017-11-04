@@ -4,7 +4,7 @@ class ScientistsController < ApplicationController
   before_action :check_admin, only: [:edit, :destroy]
 
   def index
-    @scientists = Scientist.all
+    @scientists = Scientist.order(full_name: :desc)
   end
 
   def show

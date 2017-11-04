@@ -7,7 +7,7 @@
     <strong><h4>Number of Subjects added: <%= link_to @user.subjects_added_count %></h4></strong>
     <strong><h4>Number of Areas added: <%= link_to @user.areas_added_count, { action: "areas_created" }  %></h4></strong>
     <strong><h4>Number of Scientists added: <%= @user.scientists_added_count %></h4></strong>
-    <strong><h4>Number of Theorems added: <%= @user.theorems_added_count %></h4></strong>
+    <strong><h4>Number of Theorems added: <%= link_to @user.theorems_added_count, { action: "theorems_created" }  %></h4></strong>
   </div>
 </div>
 

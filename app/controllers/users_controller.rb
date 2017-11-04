@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   include UsersHelper
 
   def index
-    @users = User.all
+    @users = User.order(created_at: :desc)
   end
 
   def show
@@ -22,19 +22,19 @@ class UsersController < ApplicationController
   end
 
   def areas_created
-    @areas = Area.where(:created_by => @user.email)
+    @areas = Area.where(:created_by => @user.email).sort! { |a,b| a.name.downcase <=> b.name.downcase }
   end
 
   def subjects_created
-    @subjects = Subject.find(:all, :conditions => [ "created_by = ?", @user.email])
+    @subjects = Subject.where(:created_by => @user.email).order(name: :desc).sort! { |a,b| a.name.downcase <=> b.name.downcase }
   end
 
   def scientists_created
-    @scientists = Scientist.find(:all, :conditions => [ "created_by = ?", @user.email])
+    @scientists = Scientist.where(:created_by => @user.email).sort! { |a,b| a.full_name.downcase <=> b.full_name.downcase }
   end
 
   def theorems_created
-    @theorems = Theorem.find(:all, :conditions => [ "created_by = ?", @user.email])
+    @theorems = Theorem.where(:created_by => @user.email).sort { |a,b| a.name.downcase <=> b.name.downcase }
   end
 
   private

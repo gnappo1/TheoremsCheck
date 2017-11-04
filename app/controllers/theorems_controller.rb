@@ -5,9 +5,9 @@ class TheoremsController < ApplicationController
 
   def index
     if scientist?
-      @theorems = @scientist.theorems
+      @theorems = @scientist.theorems.sort! { |a,b| a.name.downcase <=> b.name.downcase }
     else
-      @theorems = Theorem.all
+      @theorems = Theorem.order(name: :desc)
     end
   end
 

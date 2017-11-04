@@ -1,0 +1,7 @@
+<ul>
+  <% @theorems.each do |t| %>
+    <h3><%= link_to t.name, scientist_theorem_path(t.scientist, t) %></h3><br>
+    <h3>Scientist: </h3><h4><%= link_to t.scientist.full_name, t.scientist %></h4><br>
+    <p>----------------------------------------</p>
+  <% end %>
+</ul>
