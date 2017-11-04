@@ -25,4 +25,5 @@ class Theorem < ApplicationRecord
   def no_proof?
     self.demonstration.empty? ? (return "No demonstration yet!") : self.demonstration
   end
+
 end

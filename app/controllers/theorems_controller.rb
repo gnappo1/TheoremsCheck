@@ -4,7 +4,11 @@ class TheoremsController < ApplicationController
   before_action :check_admin, only: [:edit, :destroy]
 
   def index
-    @theorems = Theorem.all
+    if scientist?
+      @theorems = @scientist.theorems
+    else
+      @theorems = Theorem.all
+    end
   end
 
   def show
@@ -44,6 +48,10 @@ class TheoremsController < ApplicationController
   end
 
   private
+
+  def scientist?
+    @scientist = Scientist.find_by(id: params[:id]) || @scientist = Scientist.find_by(id: params[:scientist_id])
+  end
 
   def set_theorem
     @theorem = Theorem.find(params[:id])

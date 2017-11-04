@@ -2,4 +2,6 @@
 
 <br><br><br><br><br><br><br><br>
 
-<%= render partial: 'scientist_page', locals: {scientist: @scientist} %>
+<%= render partial: 'scientist_page', locals: {scientist: @scientist} %><br>
+
+<%= link_to "See all theorems", scientist_theorems_path(@scientist), class: "btn btn-primary big-btn", id: "index-button"%>

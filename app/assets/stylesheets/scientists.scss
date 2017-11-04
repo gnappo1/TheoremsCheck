@@ -55,7 +55,14 @@ a#button-top-right.btn.btn-primary {
   position: sticky;
 }
  input#centered.btn.btn-default.btn.btn-primary {
-   left: 40%;
    position: relative;
    margin-bottom: 5px;
+ }
+
+ a#index-button.btn.btn-primary {
+   margin-top: 20px;
+   width: 130px;
+   display: flex;
+   margin-right: auto;
+   margin-left: auto;
  }

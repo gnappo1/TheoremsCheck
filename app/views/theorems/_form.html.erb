@@ -50,7 +50,7 @@
 
   <h3>Or create a new one: </h3>
 
-  <%= f.fields_for @area do |area| %>
+  <%= f.fields_for :area do |area| %>
     <div class="form-group">
       <%= area.label :name, "New Area", class: "col-md-4 control-label" %>
       <div class="col-md-4">
@@ -67,7 +67,7 @@
 
     <%= area.hidden_field :created_by, :value => current_user.email %>
 
-    <%= area.fields_for @subject do |subject| %>
+    <%= area.fields_for :subject do |subject| %>
       <div class="form-group">
         <%= subject.label :name, "Or Create New Subject", class: "col-md-4 control-label" %>
         <div class="col-md-4">
