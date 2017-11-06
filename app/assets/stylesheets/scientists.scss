@@ -13,6 +13,28 @@ input[type=text] {
     box-sizing: border-box;
 }
 
+.save-favorites-button input[type=submit] {
+    color: black;
+    border-color : black;
+    background-color: #6ff66f;
+    box-sizing: border-box;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.unsave-favorites-button input[type=submit] {
+    color: black;
+    border-color : black;
+    background-color: #f85032;
+    box-sizing: border-box;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
 .scientists {
   border: 3px solid black ;
   width: 100%;
@@ -59,10 +81,16 @@ a#button-top-right.btn.btn-primary {
    margin-bottom: 5px;
  }
 
- a#index-button.btn.btn-primary {
+ a#index-button.btn.btn-primary, .favorites-button {
    margin-top: 20px;
    width: 130px;
    display: flex;
    margin-right: auto;
    margin-left: auto;
  }
+
+a.button.btn-default {
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+}

@@ -1,0 +1,10 @@
+  <% if scientist_save? %>
+    <div class="save-favorites-button">
+      <%= button_to "Save", :action => 'save_scientist', class: "btn btn-primary" %>
+    </div>
+  <% else %>
+    <div class="unsave-favorites-button">
+      <%= button_to "Remove from Favorites", :action => 'unsave_scientist', class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

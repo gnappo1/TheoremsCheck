@@ -1,6 +1,6 @@
 class ScientistsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_scientist, only: [:show, :edit, :update, :destroy]
+  before_action :set_scientist, only: [:show, :edit, :update, :destroy, :save_scientist, :unsave_scientist]
   before_action :check_admin, only: [:edit, :destroy]
 
   def index
@@ -45,10 +45,26 @@ class ScientistsController < ApplicationController
     redirect_to scientists_path
   end
 
+  def save_scientist
+    if current_user.add_to_fav(@scientist)
+      redirect_to @scientist, notice: @scientist.full_name + " successfully added to Favorites"
+    else
+      redirect_to scientists_path, alert: "Oops! You already saved this scientist!"
+    end
+  end
+
+  def unsave_scientist
+    if current_user.remove_from_fav(@scientist)
+      redirect_to @scientist, notice: @scientist.full_name + " successfully removed from Favorites"
+    else
+      redirect_to scientists_path, alert: "Oops! Something went wrong!"
+    end
+  end
+
   private
 
   def set_scientist
-    @scientist = Scientist.find(params[:id])
+    @scientist = Scientist.find(params[:id]) || @scientist = Scientist.find(params[:scientist_id])
   end
 
   def scientist_params

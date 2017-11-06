@@ -17,7 +17,9 @@
   <div id="saved-theorems">
     <h3>Favourites: </h3><br>
     <ul>
-
+      <% current_user.scientists.each do |s| %>
+        <h3><%= link_to s.full_name, s %></h3>
+      <% end %>
     </ul>
   </div>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101212352) do
+ActiveRecord::Schema.define(version: 20171105203707) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 20171101212352) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "created_by"
+  end
+
+  create_table "scientists_users", id: false, force: :cascade do |t|
+    t.integer "user_id",      null: false
+    t.integer "scientist_id", null: false
+    t.index ["scientist_id", "user_id"], name: "index_scientists_users_on_scientist_id_and_user_id"
+    t.index ["user_id", "scientist_id"], name: "index_scientists_users_on_user_id_and_scientist_id"
   end
 
   create_table "subjects", force: :cascade do |t|

@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   end
   resources :theorems
 
+  post '/scientists/:id/unsave_scientist' => 'scientists#unsave_scientist', :as => :unsave_scientis
+  post '/scientists/:id/save_scientist' => 'scientists#save_scientist', :as => :save_scientist
+
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
   resources :users, only: [:index, :show, :destroy]
   post '/users/:id/make_admin', to: 'users#make_admin'
