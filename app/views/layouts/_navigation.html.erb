@@ -1,19 +1,23 @@
 <%# navigation styled for Bootstrap 3.0 %>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <% if user_signed_in? %>
-        <%= link_to 'Home', root_path, class: 'navbar-brand' %>
-        <%= link_to "Subjects", subjects_path, class: 'navbar-brand' %>
-        <%= link_to "Scientists", scientists_path, class: 'navbar-brand' %>
-        <%= link_to "Theorems", theorems_path, class: 'navbar-brand' %>
-        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'navbar-brand'%>
-      <% end %>
-    </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <%= render 'layouts/navigation_links' %>
+<section class="navigation">
+  <div class="nav-container">
+    <nav>
+      <div class="nav-mobile">
+        <a id="nav-toggle" href="#!"><span></span></a>
+      </div>
+      <ul class="nav-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/subjects">Subjects</a></li>
+        <li><a href="/scientists">Scientists</a>
+        <li><a href="/theorems">Theorems</a>
+        <li><a href="#!">Favorites</a>
+          <ul class="nav-dropdown">
+            <li><a href="#!">Scientists</a></li>
+            <li><a href="#!">Theorems</a></li>
+          </ul>
+        </li>
+        <li><a href="destroy_user_session_path">Sign Out</a></li>
       </ul>
-    </div>
+    </nav>
   </div>
-</nav>
+</section>

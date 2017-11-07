@@ -13,6 +13,10 @@ $purple:#6e1f58;
 
 $outline: 2px;
 
+$content-width: 1000px;
+$breakpoint: 800px;
+$nav-height: 60px;
+
 // make all images responsive by default
 img {
   @extend .img-responsive;
@@ -43,17 +47,16 @@ img {
   }
 // apply styles to HTML elements
 // to make views framework-neutral
-main {
-  @extend .container;
-  background-color: none;
-  padding-bottom: 80px;
-  width: 100%;
-  margin-top: 51px; // accommodate the navbar
-  color: black;
-  }
-section {
-  @extend .row;
-  margin-top: 20px;
+  main {
+    @extend .container;
+    background-color: none;
+    padding-bottom: 80px;
+    width: 100%;
+    margin-top: 51px; // accommodate the navbar
+    color: black;
+    }
+  section {
+    @extend .row;
   }
 
   body {
@@ -82,35 +85,12 @@ section {
 			-1px 2px 0 black, 0 3px 0 $purple, 1px 4px 0 $purple, 2px 5px 0px $purple,
 			2px -1px 0 $purple, 3px 0 0 $purple, 4px 1px 0 $purple, 5px 2px 0px $purple, 6px 3px 0 $purple, 7px 4px 0 $purple,
 		10px 10px 4px #dac249;
-}
+  }
 
   .button_to,
    .button_to div {
     display: inline;
   }
-
-  .navbar-inverse {
-    background-color: black;
-    border-color: #090909;
-  }
-
-  .navbar-inverse .navbar-brand {
-    font-family: 'Futura';
-    text-transform: uppercase;
-    color: #f7ff00;
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
-    text-align: center;
-  }
-
-  .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:active {
-   -webkit-stroke-width: 5.3px;
-   -webkit-stroke-color: #FFFFFF;
-   -webkit-fill-color: #FFFFFF;
-   text-shadow: 1px 0px 20px yellow;
-   -webkit-transition: width 0.3s; /*Safari & Chrome*/
-   transition: width 0.3s;
-   -moz-transition: width 0.3s; /* Firefox 4 */
-   }
 
   .frame {
     border: 5px solid black ;
@@ -121,3 +101,71 @@ section {
     padding: 10px;
     background-color: #00FE7F;
   }
+
+  nav {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        float: left;
+        position: relative;
+        a {
+          display: block;
+          padding: 0 20px;
+          line-height: $nav-height;
+          border-color: #090909;
+          text-decoration: none;
+          font-family: 'Futura';
+          text-transform: uppercase;
+          color: #f7ff00;
+          text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+          text-align: center;
+          &:hover {
+            -webkit-stroke-width: 5.3px;
+            -webkit-stroke-color: #FFFFFF;
+            -webkit-fill-color: #FFFFFF;
+            text-shadow: 1px 0px 20px yellow;
+            -webkit-transition: width 0.3s; /*Safari & Chrome*/
+            transition: width 0.3s;
+            -moz-transition: width 0.3s; /* Firefox 4 */
+            color: white;
+          }
+          &:not(:only-child):after {
+            color: #f7ff00;
+            padding-left: 4px;
+            content: ' ▾';
+          }
+        } // Dropdown list
+        ul li {
+          min-width: 190px;
+          a {
+            padding: 15px;
+            line-height: 20px;
+            background: black;
+          }
+        }
+      }
+  }
+}
+
+.nav-dropdown {
+  position: absolute;
+  z-index: 1;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  display: none;
+}
+
+.navigation {
+  height: $nav-height;
+  background: black;
+}
+
+.nav-container {
+  max-width: $content-width;
+  margin: 0 auto;
+  background-color: black;
+}
