@@ -67,7 +67,7 @@ class QuotesController < ApplicationController
   end
 
   def theorem_params
-    params.require(:quote).permit(:text, :scientist_id)
+    params.require(:quote).permit(:text, :scientist_id, :created_by)
   end
 
 end
