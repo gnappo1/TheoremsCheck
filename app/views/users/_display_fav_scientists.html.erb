@@ -2,6 +2,12 @@
 
 <br>
 
-<% current_user.scientists.each do |s| %>
+<% current_user.scientists.take(3).each do |s| %>
   <h4><%= link_to s.full_name, s %></h4><br>
+<% end %>
+
+<br>
+
+<% if conditions %>
+  <%= link_to "See more", {controller: 'welcome', action: 'fav_scientists' }, class: 'btn btn-primary' %>
 <% end %>

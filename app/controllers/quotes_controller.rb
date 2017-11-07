@@ -1,7 +1,7 @@
 class QuotesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_quote, only: [:show, :edit, :update, :destroy, :save_quote, :unsave_quote]
-  before_action :set_scientist, only: [:new, :create]
+  before_action :set_scientist, only: [:new, :create, :destroy]
   before_action :check_admin, only: [:edit, :destroy]
 
   def index
@@ -22,7 +22,7 @@ class QuotesController < ApplicationController
   def create
     @quote = @scientist.quotes.build(quote_params)
     if @quote.save
-      redirect_to @quote, notice: 'Quote was successfully created.'
+      redirect_to @scientist, notice: 'Quote was successfully created.'
     else
       render 'new'
     end
@@ -41,7 +41,7 @@ class QuotesController < ApplicationController
 
   def destroy
     @quote.destroy
-    redirect_to quotes_path
+    redirect_to @scientist
   end
 
   def save_quote
@@ -63,10 +63,10 @@ class QuotesController < ApplicationController
   end
 
   def set_quote
-    @quote = Quote.find(params[:id])
+    @quote = Quote.find_by(id: params[:id])
   end
 
-  def theorem_params
+  def quote_params
     params.require(:quote).permit(:text, :scientist_id, :created_by)
   end
 

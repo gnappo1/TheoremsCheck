@@ -1,6 +1,3 @@
-<div class="frame-too">
-  <h3><div class="centered">(Year of Birth: <%= @scientist.birth_before_christ? %> - Year of Death: <%= @scientist.death_before_christ? %>)</div></h3><br>
-</div>
 <div class="frame">
   <div class="scientist-theorems">
     <ul>
@@ -8,14 +5,14 @@
       <% if @scientist.theorems.count == 0  %>
         <h3>No theorems to display</h3>
       <% else %>
-        <% @scientist.theorems.each do |t| %>
+        <% @scientist.theorems.take(3).each do |t| %>
           <% if t.id %>
             <li><h3><%= link_to t.name, scientist_theorem_path(@scientist, t) %></h3></li>
             <h4><%= truncate t.statement %></h4><br>
             <div class="admin-info">
               <% if current_user.admin? %>
                 <strong><p>Created by: <%= t.created_by %></p></strong>
-                <strong><%= link_to "Edit", edit_scientist_theorem_path(@scientist, t), class: "btn btn-primary btn-xs" %>  <%= button_to "Destroy", [@scientist, t], class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong></strong>
+                <strong><%= link_to "Edit", edit_scientist_theorem_path(@scientist, t), class: "btn btn-primary btn-xs" %>  <%= button_to "Destroy", [@scientist, t], class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong>
               <% end %>
             </div>
             <p>----------------------------------------</p>

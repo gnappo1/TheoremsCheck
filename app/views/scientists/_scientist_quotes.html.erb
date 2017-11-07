@@ -1,0 +1,24 @@
+<ul>
+  <%= link_to "New Quote", new_scientist_quote_path(@scientist, @quote), class: "btn btn-primary", id: "button-top-right"%>
+  <% if @scientist.quotes.count == 0  %>
+    <h3>No quotes to display</h3>
+  <% else %>
+    <% @scientist.quotes.take(3).each do |q| %>
+      <h4><%= link_to (truncate q.text), scientist_quote_path(@scientist, q) %></h4>
+      By: <strong><%= link_to @scientist.full_name, @scientist %></strong>
+      <div class="admin-info">
+        <% if current_user.admin? %>
+          <strong><p>Created by: <%= q.created_by %></p></strong>
+          <strong><%= link_to "Edit", edit_scientist_quote_path(@scientist, q), class: "btn btn-primary btn-xs" %>  <%= button_to "Destroy", [@scientist, q], class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong>
+        <% end %>
+      </div>
+      <p>----------------------------------------</p>
+    <% end %>
+  <% end %>
+</ul>
+
+<% if condition("scientists") %>
+  <%= link_to "See all quotes", scientist_quotes_path(@scientist), class: "btn btn-primary big-btn", id: "button-bottom-right"%>
+<% end %>
+
+<br><br>

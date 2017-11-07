@@ -2,6 +2,12 @@
 
 <br>
 
-<% current_user.theorems.each do |t| %>
+<% current_user.theorems.take(3).each do |t| %>
   <h4><%= link_to t.name, t %></h4><br>
+<% end %>
+
+<br>
+
+<% if conditions %>
+  <%= link_to "See more", {controller: 'welcome', action: 'fav_theorems' }, class: 'btn btn-primary' %>
 <% end %>
