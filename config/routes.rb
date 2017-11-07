@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :scientists do
     resources :quotes
   end
-  
+  resources :quotes
+
   resources :scientists do
     resources :theorems
   end
