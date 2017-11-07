@@ -1,0 +1,7 @@
+<h2>Scientists:</h2>
+
+<br>
+
+<% current_user.scientists.each do |s| %>
+  <h4><%= link_to s.full_name, s %></h4><br>
+<% end %>

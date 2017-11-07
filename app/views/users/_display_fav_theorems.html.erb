@@ -1,0 +1,7 @@
+<h2>Theorems:</h2>
+
+<br>
+
+<% current_user.theorems.each do |t| %>
+  <h4><%= link_to t.name, t %></h4><br>
+<% end %>

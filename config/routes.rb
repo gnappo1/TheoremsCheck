@@ -18,10 +18,11 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
   resources :users, only: [:index, :show, :destroy]
-  post '/users/:id/make_admin', to: 'users#make_admin'
-  get '/users/:id/areas_created', to: 'users#areas_created'
-  get '/users/:id/subjects_created', to: 'users#subjects_created'
-  get '/users/:id/theorems_created', to: 'users#theorems_created'
-  get '/users/:id/scientists_created', to: 'users#scientists_created'
-
+  post '/users/:id/make_admin' => 'users#make_admin'
+  get '/users/:id/areas_created' => 'users#areas_created'
+  get '/users/:id/subjects_created' => 'users#subjects_created'
+  get '/users/:id/theorems_created' => 'users#theorems_created'
+  get '/users/:id/scientists_created' => 'users#scientists_created'
+  get '/fav_theorems' => 'welcome#fav_theorems'
+  get '/fav_scientists' => 'welcome#fav_scientists'
 end

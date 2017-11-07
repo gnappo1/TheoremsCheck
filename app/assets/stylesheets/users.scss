@@ -51,6 +51,7 @@ header {
 #saved-theorems > div {
     float: left;
     width: 50%;
+    height: 100%;
     border-top-style: solid;
     border-top-color: black;
     border-top-width: 5px;
@@ -65,9 +66,9 @@ header {
 }
 
 @media (min-width: 630px) { /*breakpoint*/
-    #left {
-      border-right-style: solid;
-      border-right-color: black;
-      border-right-width: 5px;
+    #right {
+      border-left-style: solid;
+      border-left-color: black;
+      border-left-width: 5px;
     }
 }
