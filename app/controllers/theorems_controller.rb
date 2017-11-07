@@ -1,10 +1,11 @@
 class TheoremsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_theorem, only: [:show, :edit, :update, :destroy, :save_theorem, :unsave_theorem]
+  before_action :set_scientist, only: [:new, :create]
   before_action :check_admin, only: [:edit, :destroy]
 
   def index
-    if scientist?
+    if set_scientist
       @theorems = @scientist.theorems.sort! { |a,b| a.name.downcase <=> b.name.downcase }
     else
       @theorems = Theorem.order(name: :desc)
@@ -15,14 +16,12 @@ class TheoremsController < ApplicationController
   end
 
   def new
-    @scientist = Scientist.find_by(id: params[:scientist_id])
     @theorem = @scientist.theorems.build
     @area = @theorem.build_area
     @subject = @area.build_subject
   end
 
   def create
-    @scientist = Scientist.find_by(id: params[:scientist_id])
     @theorem = @scientist.theorems.build(theorem_params)
     if @theorem.save
       redirect_to scientist_theorem_path(@scientist, @theorem), notice: 'Theorem was successfully created.'
@@ -61,7 +60,7 @@ class TheoremsController < ApplicationController
 
   private
 
-  def scientist?
+  def set_scientist
     @scientist = Scientist.find_by(id: params[:id]) || @scientist = Scientist.find_by(id: params[:scientist_id])
   end
 
