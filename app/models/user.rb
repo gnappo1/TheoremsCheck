@@ -2,6 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_and_belongs_to_many :scientists
+  has_and_belongs_to_many :theorems
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
@@ -67,13 +68,23 @@ class User < ApplicationRecord
     Theorem.all.where({created_by: self.email}).count
   end
 
-  def add_to_fav(scientist)
-    if !self.scientists.include?(scientist)
-      self.scientists << scientist
+  def add_to_fav(resource)
+    if resource.class == Scientist
+      if !self.scientists.include?(resource)
+        self.scientists << resource
+      end
+    elsif resource.class == Theorem
+      if !self.theorems.include?(resource)
+        self.theorems << resource
+      end
     end
   end
 
-  def remove_from_fav(scientist)
-    self.scientists.delete(scientist)
+  def remove_from_fav(resource)
+    if resource.class == Scientist
+      self.scientists.delete(resource)
+    elsif resource.class == Theorem
+      self.theorems.delete(resource)
+    end
   end
 end

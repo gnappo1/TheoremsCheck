@@ -6,7 +6,6 @@ class AreasController < ApplicationController
 
   def show
     @theorems = @area.theorems
-    binding.pry
   end
 
   def create

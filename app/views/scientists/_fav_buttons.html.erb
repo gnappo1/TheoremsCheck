@@ -1,4 +1,4 @@
-  <% if scientist_save? %>
+  <% if resource_save?(resource) %>
     <div class="save-favorites-button">
       <%= button_to "Save", :action => 'save_scientist', class: "btn btn-primary" %>
     </div>

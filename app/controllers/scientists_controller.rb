@@ -48,16 +48,12 @@ class ScientistsController < ApplicationController
   def save_scientist
     if current_user.add_to_fav(@scientist)
       redirect_to @scientist, notice: @scientist.full_name + " successfully added to Favorites"
-    else
-      redirect_to scientists_path, alert: "Oops! You already saved this scientist!"
     end
   end
 
   def unsave_scientist
     if current_user.remove_from_fav(@scientist)
       redirect_to @scientist, notice: @scientist.full_name + " successfully removed from Favorites"
-    else
-      redirect_to scientists_path, alert: "Oops! Something went wrong!"
     end
   end
 

@@ -1,0 +1,17 @@
+<div id="left">
+		<h2>Scientists:</h2>
+    <ul>
+      <% current_user.scientists.each do |s| %>
+        <p><%= link_to s.full_name, s %></p>
+      <% end %>
+    </ul>
+	</div>
+
+	<div id="right">
+		<h2>Theorems:</h2>
+    <ul>
+      <% current_user.theorems.each do |t| %>
+        <p><%= link_to t.name, t %></p>
+      <% end %>
+    </ul>
+	</div>

@@ -1,6 +1,6 @@
 class TheoremsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_theorem, only: [:show, :edit, :update, :destroy]
+  before_action :set_theorem, only: [:show, :edit, :update, :destroy, :save_theorem, :unsave_theorem]
   before_action :check_admin, only: [:edit, :destroy]
 
   def index
@@ -45,6 +45,18 @@ class TheoremsController < ApplicationController
   def destroy
     @theorem.destroy
     redirect_to theorems_path
+  end
+
+  def save_theorem
+    if current_user.add_to_fav(@theorem)
+      redirect_to @theorem, notice: @theorem.name + " successfully added to Favorites"
+    end
+  end
+
+  def unsave_theorem
+    if current_user.remove_from_fav(@theorem)
+      redirect_to @theorem, notice: @theorem.name + " successfully removed from Favorites"
+    end
   end
 
   private

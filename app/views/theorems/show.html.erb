@@ -1,5 +1,9 @@
 <h1><%= @theorem.name %></h1>
 
-<br><br><br><br><br><br><br>
+<br><br><br><br><br>
+
+<%= render partial: "fav_buttons", locals: {resource: @theorem} %>
+
+<br><br>
 
 <%= render partial: 'theorem_info', locals: {theorem: @theorem } %>
