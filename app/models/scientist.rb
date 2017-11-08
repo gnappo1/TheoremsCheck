@@ -1,5 +1,6 @@
 class Scientist < ApplicationRecord
   has_many :theorems
+  has_many :corollaries, through: :theorems
   has_many :areas, through: :theorems
   has_many :subjects, through: :theorems
   has_and_belongs_to_many :users

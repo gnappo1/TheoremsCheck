@@ -36,6 +36,7 @@ class SubjectsController < ApplicationController
   def destroy
     @subject.areas.each{|a| a.destroy}
     @subject.theorems.each{|t| t.destroy}
+    @subject.corollaries.each{|c| c.destroy}
     @subject.destroy
     redirect_to subjects_path
   end

@@ -30,6 +30,7 @@ class AreasController < ApplicationController
 
   def destroy
     @area.theorems.each{|t| t.destroy}
+    @area.corollaries.each{|c| c.destroy}
     @area.destroy
     redirect_to @subject
   end

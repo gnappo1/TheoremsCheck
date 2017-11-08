@@ -1,5 +1,6 @@
 class Corollary < ApplicationRecord
   belongs_to :theorem
+  belongs_to :scientist
   belongs_to :area
   belongs_to :subject
   has_and_belongs_to_many :users
