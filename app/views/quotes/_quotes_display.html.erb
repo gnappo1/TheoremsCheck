@@ -6,7 +6,7 @@
       <strong>By: <%= link_to q.scientist.full_name, q.scientist %></strong>
       <div class="admin-info">
         <% if current_user.admin? %>
-          <strong><p>Created by: <%= q.created_by %></p></strong>
+          <strong><p>Created by: <%= link_to q.created_by, user_by_email(q.created_by) %></p></strong>
           <strong><%= link_to "Edit", edit_scientist_quote_path(q.scientist, q), class: "btn btn-primary btn-xs" %>  <%= button_to "Destroy", [q.scientist, q], class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong>
         <% end %>
       </div>

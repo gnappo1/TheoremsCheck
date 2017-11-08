@@ -41,6 +41,7 @@ class ScientistsController < ApplicationController
 
   def destroy
     @scientist.theorems.each{ |t| t.destroy }
+    @scientist.quotes.each{ |q| q.destroy }
     @scientist.destroy
     redirect_to scientists_path
   end
