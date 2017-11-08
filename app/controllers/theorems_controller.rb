@@ -42,6 +42,7 @@ class TheoremsController < ApplicationController
   end
 
   def destroy
+    @theorem.corollaries.each{|c| c.destroy}
     @theorem.destroy
     redirect_to theorems_path
   end
