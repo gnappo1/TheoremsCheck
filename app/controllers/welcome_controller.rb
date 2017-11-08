@@ -13,4 +13,9 @@ class WelcomeController < ApplicationController
     @scientists = current_user.scientists.sort { |a,b| a.full_name.downcase <=> b.full_name.downcase }
     render '/users/fav_scientists'
   end
+
+  def jolly
+    @quote = Quote.all.sample
+    render '/quotes/jolly'
+  end
 end

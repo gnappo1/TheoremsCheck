@@ -2,6 +2,11 @@
 
 <br><br><br><br><br><br><br><br>
 
+<div class="back-button">
+  <%= render partial: 'admin_button', locals: {user: @user} %>
+</div>
+
+
 <div class="frame-top-right">
   <div id="user-creations">
     <strong><h4>Number of Subjects added: <%= link_to @user.subjects_added_count, { action: "subjects_created" } %></h4></strong>
@@ -11,7 +16,6 @@
   </div>
 </div>
 
-<%= render partial: 'admin_button', locals: {user: @user} %>
 
 <div class="frame">
   <div id="saved-theorems">

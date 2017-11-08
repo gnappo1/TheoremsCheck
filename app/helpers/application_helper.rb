@@ -7,4 +7,8 @@ module ApplicationHelper
       !current_user.theorems.include?(resource)
     end
   end
+
+  def user_by_email(email)
+    @user = User.find_by(email: email)
+  end
 end

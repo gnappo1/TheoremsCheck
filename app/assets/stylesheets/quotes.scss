@@ -1,11 +1,17 @@
 // Place all the styles related to the Quotes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.new-quote-form, .all-quotes {
+.new-quote-form, .all-quotes, .show-quote {
   text-align: center;
   border: 3px solid black ;
   width: 100%;
   background-color: white;
   color: black;
   padding: 5px;
+}
+
+#back-button {
+  width: 120px;
+  margin-left: auto;
+  margin-right: auto;
 }

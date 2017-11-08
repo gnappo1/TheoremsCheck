@@ -6,18 +6,36 @@
         <a id="nav-toggle" href="#!"><span></span></a>
       </div>
       <ul class="nav-list">
-        <li><a href="/">Home</a></li>
-        <li><a href="/subjects">Subjects</a></li>
-        <li><a href="/scientists">Scientists</a>
-        <li><a href="/theorems">Theorems</a>
-        <li><a href="#!">Favorites</a>
-          <ul class="nav-dropdown">
-            <li><a href='/fav_scientists'>Scientists</a></li>
-            <li><a href='/fav_theorems'>Theorems</a></li>
-          </ul>
-        </li>
-        <li><a href="/quotes">Quotes</a>
-        <li><a href="destroy_user_session_path">Sign Out</a></li>
+        <% if user_signed_in? %>
+          <li><a href="/">Home</a></li>
+          <% if current_user.admin? %>
+             <li><a href="/users">Users</a></li>
+          <% end %>
+          <li><a href="/subjects">Subjects</a></li>
+          <li><a href="/scientists">Scientists</a>
+          <li><a href="/theorems">Theorems</a>
+          <li><a href="#!">Favorites</a>
+            <ul class="nav-dropdown">
+              <li><a href='/fav_scientists'>Scientists</a></li>
+              <li><a href='/fav_theorems'>Theorems</a></li>
+            </ul>
+          </li>
+          <li><a href="/quotes">Quotes</a>
+          <li><a href="/jolly">Jolly Quote</a>
+          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
+          <a class="btn btn-social-icon btn-twitter" id="inner" href="user_twitter_omniauth_authorize_path">
+            <span class="fa fa-twitter"></span>
+          </a>
+          <a class="btn btn-social-icon btn-facebook" id="inner" href=user_facebook_omniauth_authorize_path>
+            <span class="fa fa-facebook"></span>
+          </a>
+          <a class="btn btn-social-icon btn-github" id="inner" href=user_github_omniauth_authorize_path>
+            <span class="fa fa-github"></span>
+          </a>
+        <% end %>
       </ul>
     </nav>
   </div>

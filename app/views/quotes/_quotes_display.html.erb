@@ -3,7 +3,7 @@
 
     <% @quotes.each do |q| %>
       <h4><%= link_to (truncate q.text), scientist_quote_path(q.scientist, q) %></h4>
-      By: <strong><%= link_to q.scientist.full_name, q.scientist %></strong>
+      <strong>By: <%= link_to q.scientist.full_name, q.scientist %></strong>
       <div class="admin-info">
         <% if current_user.admin? %>
           <strong><p>Created by: <%= q.created_by %></p></strong>

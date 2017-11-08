@@ -170,10 +170,33 @@ img {
   background-color: black;
 }
 
-#fav-scientists {
+#fav-scientists, .intro {
   text-align: center;
   border: 3px solid black ;
   width: 100%;
   background-color: white;
   color: black;
+}
+
+.item img {
+  max-width: 540px;
+  max-height: 480px;
+}
+
+#inner {
+  display: inline-block;
+  float: right;
+  margin-top: 10px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+div#middle.checkbox label {
+  display: middle;
+}
+
+form.button_to {
+  display: inline;
+  margin-left: auto;
+  margin-right: auto;
 }

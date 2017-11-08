@@ -6,9 +6,9 @@ class QuotesController < ApplicationController
 
   def index
     if set_scientist
-      @quotes = @scientist.quotes
+      @quotes = @scientist.quotes.order(scientist_id: :desc)
     else
-      @quotes = Quote.all
+      @quotes = Quote.all.order(scientist_id: :desc)
     end
   end
 

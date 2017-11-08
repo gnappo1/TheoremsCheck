@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :quotes
   end
   resources :quotes
+  get '/jolly' => 'welcome#jolly', :as => :jolly
 
   resources :scientists do
     resources :theorems

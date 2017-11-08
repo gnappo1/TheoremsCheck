@@ -1,7 +1,13 @@
 <h1>Our Users:</h1>
 
-<ul>
-  <% @users.each do |user| %>
-    - <li><%= link_to user.email, user_path(user) %></li><br><br>
-  <% end %>
-</ul>
+<br><br><br><br><br>
+
+<div class="frame">
+  <div class="index">
+    <ul>
+      <% @users.each do |user| %>
+        <h4><%= link_to user.email, user %></h4>
+      <% end %>
+    </ul>
+  </div>
+</div>

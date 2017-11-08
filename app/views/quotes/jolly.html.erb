@@ -1,0 +1,10 @@
+<h1>Quote</h1>
+
+<br><br><br><br>
+
+<%= render partial: '/quotes/quote_display', locals: { quote: @quote} %>
+
+<br>
+<div id="back-button">
+  <%= link_to 'Jolly button', jolly_path, id: "button", class: "btn btn-primary" %>
+</div>

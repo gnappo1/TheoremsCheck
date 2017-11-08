@@ -1,0 +1,7 @@
+<div class="frame">
+  <div class="show-quote">
+    <h3 id="quoteText"><%= @quote.text %></h3>
+    <strong>By: <h4 id="quoteScientist"><%= link_to @quote.scientist.full_name, @quote.scientist %></h4></strong>
+    <strong>Created By: </strong><h4 id="createdBy"><%= link_to @quote.created_by, user_by_email(@quote.created_by) %></h4>
+  </div>
+</div>

@@ -3,6 +3,7 @@
   <% if @scientist.quotes.count == 0  %>
     <h3>No quotes to display</h3>
   <% else %>
+    <h3>Quotes:</h3><br>
     <% @scientist.quotes.take(3).each do |q| %>
       <h4><%= link_to (truncate q.text), scientist_quote_path(@scientist, q) %></h4>
       By: <strong><%= link_to @scientist.full_name, @scientist %></strong>
