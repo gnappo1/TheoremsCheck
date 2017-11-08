@@ -63,6 +63,6 @@ class CorollariesController < ApplicationController
   end
 
   def corollary_params
-    params.require(:corollary).permit(:name, :statement, :demonstration, :theorem_id, :created_by)
+    params.require(:corollary).permit(:name, :statement, :demonstration, :theorem_id, :area_id, :subject_id, :created_by)
   end
 end
