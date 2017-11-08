@@ -15,7 +15,10 @@ Rails.application.routes.draw do
   resources :scientists do
     resources :theorems
   end
-  resources :theorems
+
+  resources :theorems do
+    resources :corollaries
+  end
 
   post '/scientists/:id/unsave_scientist' => 'scientists#unsave_scientist', :as => :unsave_scientist
   post '/scientists/:id/save_scientist' => 'scientists#save_scientist', :as => :save_scientist

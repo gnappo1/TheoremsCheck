@@ -1,0 +1,2 @@
+class Corollary < ApplicationRecord
+end

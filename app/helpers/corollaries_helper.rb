@@ -1,0 +1,2 @@
+module CorollariesHelper
+end
