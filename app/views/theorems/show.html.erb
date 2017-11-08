@@ -4,6 +4,8 @@
 
 <%= render partial: "fav_buttons", locals: {resource: @theorem} %>
 
-<br><br>
+<%= render partial: 'theorem_info', locals: {theorem: @theorem } %><br>
 
-<%= render partial: 'theorem_info', locals: {theorem: @theorem } %>
+<div class="back-button">
+  <%= link_to "See Corollaries", theorem_corollaries_path(@theorem), class: "btn btn-primary", id: "button"%>
+</div>

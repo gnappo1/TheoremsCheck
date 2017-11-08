@@ -1,0 +1,9 @@
+<h1>Edit <%= @corollary.name %>:</h1>
+
+<br><br><br><br><br><br><br>
+
+<div class="frame">
+  <div class="intro">
+    <%= render partial: 'form', locals: { corollary: @corollary, theorem: @theorem} %>
+  </div>
+</div>

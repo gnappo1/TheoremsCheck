@@ -18,7 +18,7 @@ class CorollariesController < ApplicationController
   def create
     @corollary = @theorem.corollaries.build(corollary_params)
     if @corollary.save
-      redirect_to (@theorem, @corollary), notice: 'Corollary was successfully created.'
+      redirect_to theorem_corollary_path(@theorem, @corollary), notice: 'Corollary was successfully created.'
     else
       render 'new'
     end
@@ -29,7 +29,7 @@ class CorollariesController < ApplicationController
 
   def update
     if @corollary.update(corollary_params)
-      redirect_to (@theorem, @corollary), notice: 'Corollary was successfully updated!'
+      redirect_to theorem_corollary_path(@theorem, @corollary), notice: 'Corollary was successfully updated!'
     else
       render 'edit'
     end

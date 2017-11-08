@@ -1,4 +1,5 @@
 class Theorem < ApplicationRecord
+  has_many :corollaries
   belongs_to :scientist
   belongs_to :area
   belongs_to :subject

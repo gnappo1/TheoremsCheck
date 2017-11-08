@@ -1,0 +1,19 @@
+<div class="frame">
+  <div class="intro">
+    <% if !@corollaries.empty? %>
+      <ul>
+        <% @corollaries.each do |c| %>
+          <h3><%= link_to c.name, c %></h3><br><br>
+          <div class="corollary-statement"><%= truncate c.statement %></div><br>
+          <% if current_user.admin? %>
+            <strong><p>Created by: <%= link_to c.created_by, user_by_email(c.created_by) %></p></strong>
+            <strong><%= link_to "Edit", edit_scientist_corollary_path(c.scientist, c), class: "btn btn-primary btn-xs" %>  <%= button_to "Destroy", corollary_path(c), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong>
+          <% end %>
+          <p>----------------------------------------</p>
+        <% end %>
+      </ul>
+    <% else %>
+      <h3 style="text_align: middle;">No Corollaries to display</h3>
+    <% end %>
+  </div>
+</div>
