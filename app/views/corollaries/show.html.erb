@@ -1,0 +1,11 @@
+<h1><%= @corollary.name %></h1>
+
+<br><br><br><br><br>
+
+<%= render partial: "/theorems/fav_buttons", locals: {resource: @corollary} %>
+
+<%= render partial: 'corollary_info', locals: {corollary: @corollary } %><br>
+
+<div class="back-button">
+  <%= link_to "Back", theorem_corollaries_path(@theorem), class: "btn btn-primary", id: "button"%>
+</div>

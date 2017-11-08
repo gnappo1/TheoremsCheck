@@ -3,7 +3,7 @@
 
     <h3>Statement: </h3><h4><%= @theorem.statement %></h4><br>
 
-    <h3>Demonstration: </h3><h4><%= @theorem.no_proof? %></h4><br>
+    <h3>Demonstration: </h3><h4><%= no_proof?(@theorem) %></h4><br>
 
     <h3>Scientist: </h3><h4><%= link_to @theorem.scientist.full_name, @theorem.scientist %></h4><br>
 

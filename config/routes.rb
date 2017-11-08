@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     resources :corollaries
   end
 
+  post '/corollaries/:id/unsave_corollary' => 'corollaries#unsave_corollary', :as => :unsave_corollary
+  post '/corollaries/:id/save_corollary' => 'corollaries#save_corollary', :as => :save_corollary
   post '/scientists/:id/unsave_scientist' => 'scientists#unsave_scientist', :as => :unsave_scientist
   post '/scientists/:id/save_scientist' => 'scientists#save_scientist', :as => :save_scientist
   post '/theorems/:id/unsave_theorem' => 'theorems#unsave_theorem', :as => :unsave_theorem

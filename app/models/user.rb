@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_and_belongs_to_many :scientists
   has_and_belongs_to_many :theorems
+  has_and_belongs_to_many :corollaries
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
@@ -77,6 +78,10 @@ class User < ApplicationRecord
       if !self.theorems.include?(resource)
         self.theorems << resource
       end
+    elsif resource.class == Corollary
+      if !self.corollaries.include?(resource)
+        self.corollaries << resource
+      end
     end
   end
 
@@ -85,6 +90,8 @@ class User < ApplicationRecord
       self.scientists.delete(resource)
     elsif resource.class == Theorem
       self.theorems.delete(resource)
+    elsif resource.class == Corollary
+      self.corollaries.delete(resource)
     end
   end
 end

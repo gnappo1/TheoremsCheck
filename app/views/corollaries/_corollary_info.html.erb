@@ -1,0 +1,18 @@
+<div class="frame">
+  <div id="theorem-info">
+
+    <h3>Statement: </h3><h4><%= @corollary.statement %></h4><br>
+
+    <h3>Demonstration: </h3><h4><%= no_proof?(@corollary) %></h4><br>
+
+    <h3>Theorem: </h3><h4><%= link_to @corollary.theorem.name, @corollary.theorem %></h4><br>
+
+    <h3>Scientist: </h3><h4><%= link_to @corollary.scientist.full_name, @corollary.scientist %></h4><br>
+
+    <h3>Subject: </h3><h4><%= link_to @corollary.subject.name, @corollary.subject %></h4><br>
+
+    <h3>Area: </h3><h4><%= link_to @corollary.area.name, subject_area_path(@corollary.subject, @corollary.area) %></h4><br>
+
+    <h3>Added by: </h3><h4><%= link_to @corollary.created_by, user_by_email(@corollary.created_by) %></h3>
+  </div>
+</div>

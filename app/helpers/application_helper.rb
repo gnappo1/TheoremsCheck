@@ -11,4 +11,18 @@ module ApplicationHelper
   def user_by_email(email)
     @user = User.find_by(email: email)
   end
+
+  def save(resource)
+    str = "save_"
+    return str + resource.class.name.downcase
+  end
+
+  def unsave(resource)
+    str = "unsave_"
+    return str + resource.class.name.downcase
+  end
+
+  def no_proof?(resource)
+    resource.demonstration.empty? ? (return "No demonstration yet!") : resource.demonstration
+  end
 end
