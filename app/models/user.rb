@@ -78,10 +78,6 @@ class User < ApplicationRecord
       if !self.theorems.include?(resource)
         self.theorems << resource
       end
-    elsif resource.class == Corollary
-      if !self.corollaries.include?(resource)
-        self.corollaries << resource
-      end
     end
   end
 
@@ -90,8 +86,6 @@ class User < ApplicationRecord
       self.scientists.delete(resource)
     elsif resource.class == Theorem
       self.theorems.delete(resource)
-    elsif resource.class == Corollary
-      self.corollaries.delete(resource)
     end
   end
 end

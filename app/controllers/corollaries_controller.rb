@@ -1,6 +1,6 @@
 class CorollariesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_corollary, only: [:show, :edit, :update, :destroy, :save_corollary, :unsave_corollary]
+  before_action :set_corollary, only: [:show, :edit, :update, :destroy]
   before_action :set_theorem, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   before_action :check_admin, only: [:edit, :destroy]
 
@@ -41,18 +41,6 @@ class CorollariesController < ApplicationController
   def destroy
     @corollary.destroy
     redirect_to theorem_corollaries_path(@theorem)
-  end
-
-  def save_corollary
-    if current_user.add_to_fav(@corollary)
-      redirect_to theorem_corollary_path(@corollary.theorem, @corollary), notice: "Corollary successfully added to Favorites"
-    end
-  end
-
-  def unsave_corollary
-    if current_user.remove_from_fav(@corollary)
-      redirect_to theorem_corollary_path(@corollary.theorem, @corollary), notice: "Corollary successfully removed from Favorites"
-    end
   end
 
   private
