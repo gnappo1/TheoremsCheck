@@ -1,0 +1,8 @@
+<div class="frame" style="width: 300px;">
+  <div class="search-scientists">
+    <%= form_tag(scientists_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Scientists by Name" %>
+      <%= submit_tag "Search", class: "btn btn-primary", id: "button"%>
+    <% end %>
+  </div>
+</div>

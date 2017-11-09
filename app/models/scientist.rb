@@ -13,28 +13,34 @@ class Scientist < ApplicationRecord
 
   def theorems_attributes=(theorems_attributes)
     theorems_attributes.each do |k, v|
-      @theorem = self.theorems.build(name: v['name'])
-      @theorem.statement = v['statement']
-      @theorem.demonstration = v['demonstration']
-      @theorem.created_by = v['created_by']
-      if v['area_id'].empty?
-        @area = Area.new(v['area_attributes'])
-        if v['area_attributes']['subject_id'].nil?
-          @subject = Subject.new(v['area_attributes']['subject_attributes'])
-          @area.subject = @subject
-          @area.save
-          @theorem.subject = @subject
-          @theorem.save
+      if v['scientist_id']
+        @theorem = self.theorems.build(name: v['name'])
+        @theorem.statement = v['statement']
+        @theorem.demonstration = v['demonstration']
+        @theorem.created_by = v['created_by']
+        if v['area_id'].empty?
+          @area = Area.new(v['area_attributes'])
+          if v['area_attributes']['subject_id'].nil?
+            @subject = Subject.new(v['area_attributes']['subject_attributes'])
+            @area.subject = @subject
+            @area.save
+            @theorem.subject = @subject
+            @theorem.save
+          else
+            @area.save
+            @theorem.area = @area
+            @theorem.subject = Subject.find_by(id: v['area_attributes']['subject_id'])
+            @theorem.save
+          end
         else
-          @area.save
+          @area = Area.find_by(id: v['area_id'])
           @theorem.area = @area
-          @theorem.subject = Subject.find_by(id: v['area_attributes']['subject_id'])
+          @theorem.subject = @area.subject
           @theorem.save
         end
       else
-        @area = Area.find_by(id: v['area_id'])
-        @theorem.area = @area
-        @theorem.subject = @area.subject
+        @scientist = Scientist.new(v['scientist_attributes'])
+        @theorem.scientist = @scientist
         @theorem.save
       end
     end

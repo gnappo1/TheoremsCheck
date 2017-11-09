@@ -24,6 +24,17 @@ class Theorem < ApplicationRecord
     end
   end
 
+  def scientist_attributes=(scientist_attributes)
+    scientist_attributes.each do |k, v|
+      @scientist = Scientist.new(full_name: v['full_name'])
+      @scientist.year_of_birth = v['year_of_birth']
+      @scientist.year_of_death = v['year_of_death']
+      @scientist.created_by = v['created_by']
+      @scientist.save
+    end
+  end
+
+
   def self.search(search)
    where("name LIKE ?", "%#{search}%")
   end

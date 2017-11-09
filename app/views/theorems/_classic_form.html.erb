@@ -1,0 +1,112 @@
+<% if @theorem.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@theorem.errors.count, "error") %>
+      prohibited this Theorem from being saved:
+    </h2>
+    <ul>
+    <% @theorem.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<br>
+
+<%= form_for @theorem, :html => {:class => "form-horizontal center"} do |f| %>
+  <div class="form-group">
+    <h4><%= f.label :name, class: "col-md-4 control-label" %></h4>
+    <div class="col-md-4">
+      <%= f.text_field :name, :required => true, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <h4><%= f.label :statement, class: "col-md-4 control-label" %></h4>
+    <div class="col-md-4">
+      <%= f.text_field :statement, :required => true, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <h4><%= f.label :demonstration, class: "col-md-4 control-label" %></h4>
+    <div class="col-md-4">
+      <%= f.text_field :demonstration, class: "form-control" %>
+    </div>
+  </div>
+
+  <br>
+
+  <%= f.hidden_field :created_by, :value => current_user.email %>
+
+  <h3>Select Scientist: </h3>
+
+  <div class="form-group">
+    <%= f.label :scientist_id, class: "col-md-4 control-label" %>
+    <div class="col-md-4">
+      <%= f.collection_select :scientist_id, Scientist.all, :id, :full_name, :include_blank => "Select Scientist" %>
+    </div>
+  </div>
+
+  <h3>Or create a new one: </h3>
+
+  <%= f.fields_for :scientist do |scientist| %>
+    <div class="form-group">
+      <h4><%= scientist.label :full_name, "Full Name", class: "col-md-4 control-label" %></h4>
+      <div class="col-md-4">
+        <%= scientist.text_field :full_name, placeholder: "Name, Middle Name, Last Name", class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <h4><%= scientist.label :year_of_birth, "Year of birth (YYYY): ", class: "col-md-4 control-label" %></h4>
+      <div class="col-md-4">
+        <%= scientist.number_field :year_of_birth, placeholder: 'Use negative numbers for BC years', class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <h4><%= scientist.label :year_of_death, "Year of death (YYYY): ", class: "col-md-4 control-label" %></h4>
+      <div class="col-md-4">
+        <%= scientist.number_field :year_of_death, placeholder: 'Leave blank if still alive', max: what_year_is_it?, :include_blank => true, class: "form-control" %>
+      </div>
+    </div>
+
+    <br>
+
+    <%= scientist.hidden_field :created_by, :value => current_user.email %>
+  <% end %>
+
+
+  <h3>Select Area: </h3>
+
+  <div class="form-group">
+    <%= f.label :area_id, class: "col-md-4 control-label" %>
+    <div class="col-md-4">
+      <%= f.collection_select :area_id, Area.all, :id, :name, :include_blank => "Select Area" %>
+    </div>
+  </div>
+
+  <h3>Or create a new one: </h3>
+
+  <%= f.fields_for :area do |area| %>
+    <div class="form-group">
+      <%= area.label :name, "New Area", class: "col-md-4 control-label" %>
+      <div class="col-md-4">
+        <%= area.text_field :name, class: "form-control"  %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= area.label :subject_id, class: "col-md-4 control-label" %>
+      <div class="col-md-4">
+        <%= area.collection_select :subject_id, Subject.all, :id, :name, :include_blank => "Select Subject" %>
+      </div>
+    </div>
+
+    <%= area.hidden_field :created_by, :value => current_user.email %>
+
+  <% end %>
+
+  <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+<% end %>

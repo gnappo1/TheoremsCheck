@@ -18,17 +18,21 @@ class TheoremsController < ApplicationController
   end
 
   def new
-    @theorem = @scientist.theorems.build
-    @area = @theorem.build_area
-    @subject = @area.build_subject
+    if @scientist
+      @theorem = @scientist.theorems.build
+      @area = @theorem.build_area
+      @subject = @area.build_subject
+    else
+      @theorem = Theorem.new
+    end
   end
 
   def create
-    @theorem = @scientist.theorems.build(theorem_params)
+    @theorem = Theorem.new(theorem_params)
     if @theorem.save
-      redirect_to scientist_theorem_path(@scientist, @theorem), notice: 'Theorem was successfully created.'
+      redirect_to theorem_path(@theorem), notice: 'Theorem was successfully created.'
     else
-      redirect_to @scientist, notice: @theorem.errors.full_messages.first
+      render 'new', notice: @theorem.errors.full_messages.first
     end
   end
 
@@ -72,6 +76,6 @@ class TheoremsController < ApplicationController
   end
 
   def theorem_params
-    params.require(:theorem).permit(:name, :statement, :demonstration, :created_by, :scientist_id, :subject_id, :area_id, area_attributes: [:id, :name, :created_by, :subject_id, subject_attributes: [:id, :name, :created_by]])
+    params.require(:theorem).permit(:name, :statement, :demonstration, :created_by, :scientist_id, :subject_id, :area_id, area_attributes: [:id, :name, :created_by, :subject_id, subject_attributes: [:id, :name, :created_by]], scientist_attributes: [:id, :full_name, :year_of_birth, :year_of_death, :created_by ])
   end
 end
