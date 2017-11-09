@@ -1,5 +1,20 @@
 <h1>Theorems:</h1>
 
-<br><br><br><br><br><br><br>
+<br><br><br><br>
 
-<%= render partial: 'theorems_display', locals: {theorems: @theorems} %>
+<div class="frame" style="width: 300px;">
+  <div class="search-scientists">
+    <%= form_tag(theorems_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Theorems by Name" %>
+      <%= submit_tag "Search", class: "btn btn-primary", id: "button"%>
+    <% end %>
+  </div>
+</div>
+
+<br><br>
+
+<% if @theorems.present? %>
+  <%= render partial: 'theorems_display', locals: {theorems: @theorems} %>
+<% else %>
+  <p>There are no theorems containing the term(s) <%= params[:search] %>.</p>
+<% end %>

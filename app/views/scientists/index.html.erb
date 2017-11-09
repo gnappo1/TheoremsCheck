@@ -1,7 +1,20 @@
 <h1>Scientists: </h1>
 
-<br><br><br><br><br><br>
+<br><br><br><br>
 
-<%= render partial: 'scientists', locals: {scientists: @scientists} %>
+<div class="frame" style="width: 300px;">
+  <div class="search-scientists">
+    <%= form_tag(scientists_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Scientists by Name" %>
+      <%= submit_tag "Search", class: "btn btn-primary", id: "button"%>
+    <% end %>
+  </div>
+</div>
 
 <br><br>
+
+<% if @scientists.present? %>
+  <%= render partial: 'scientists', locals: {scientists: @scientists} %>
+<% else %>
+  <p>There are no scientists containing the term(s) <%= params[:search] %>.</p>
+<% end %>

@@ -68,4 +68,8 @@ class Scientist < ApplicationRecord
     end
   end
 
+  def self.search(search)
+   where("full_name LIKE ?", "%#{search}%")
+  end
+
 end

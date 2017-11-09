@@ -5,7 +5,9 @@ class TheoremsController < ApplicationController
   before_action :check_admin, only: [:edit, :destroy]
 
   def index
-    if set_scientist
+    if params[:search]
+      @theorems = Theorem.search(params[:search]).order(name: :desc)
+    elsif set_scientist
       @theorems = @scientist.theorems.sort { |a,b| a.name.downcase <=> b.name.downcase }
     else
       @theorems = Theorem.order(name: :desc)

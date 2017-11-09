@@ -4,7 +4,11 @@ class ScientistsController < ApplicationController
   before_action :check_admin, only: [:edit, :destroy]
 
   def index
-    @scientists = Scientist.order(full_name: :desc)
+    if params[:search]
+      @scientists = Scientist.search(params[:search]).order(full_name: :desc)
+    else
+      @scientists = Scientist.order(full_name: :desc)
+    end
   end
 
   def show
