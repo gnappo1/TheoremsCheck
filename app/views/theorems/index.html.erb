@@ -8,9 +8,19 @@
 
 <% if @theorems.present? %>
   <%= render partial: 'theorems_display', locals: {theorems: @theorems} %>
-<% else %>
-  <p>There are no theorems containing the term(s) <%= params[:search] %>.</p>
-<% end %>
+  <% elsif !@theorems.present? &&  params[:search] %>
+    <div class="frame">
+      <div id="theorem-info" style="text-align: center;">
+        <h3>There are no theorems containing the term(s) "<%= params[:search] %>".</h3>
+      </div>
+    </div>
+  <% else %>
+  <div class="frame">
+    <div id="theorem-info" style="text-align: center;">
+      <h3>Currently there are no theorems to show</h3>
+    </div>
+  </div>
+  <% end %>
 
 <br><br>
 

@@ -70,11 +70,10 @@ input[type=text] {
   background-color: #00FE7F;
 }
 
-a#button-top-right.btn.btn-primary {
+a#button-top-right.btn.btn-primary, a#button-bottom-right.btn.btn-primary {
   float: right;
   margin-right: 5px;
   position: -webkit-sticky;
-  position: sticky;
 }
  input#centered.btn.btn-default.btn.btn-primary {
    position: relative;
@@ -89,15 +88,8 @@ a#button-top-right.btn.btn-primary {
    margin-left: auto;
  }
 
-a.button.btn-default, input#button.btn.btn-primary {
+a.button.btn-default, input#button.btn.btn-primary,  #button-center {
   display: flex;
   margin-right: auto;
   margin-left: auto;
-}
-
-#button-bottom-right {
-  width: 120px;
-  float: right;
-  margin-right: 15px;
-  margin-bottom: 30px;
 }

@@ -1,5 +1,9 @@
 <ul>
-  <% @scientists.each do |s| %>
-      <h3><%= link_to s.full_name, s %></h3><br>
+  <% if !@scientists.empty? %>
+    <% @scientists.each do |s| %>
+        <h3><%= link_to s.full_name, s %></h3><br>
+    <% end %>
+  <% else %>
+    <h3>Currently there are no Scientists added from you</h3>
   <% end %>
 </ul>

@@ -4,7 +4,7 @@ class SubjectsController < ApplicationController
   before_action :check_admin, only: [:edit, :destroy]
 
   def index
-    @subjects = Subject.order(name: :desc)
+    @subjects = Subject.order(name: :asc)
     @subject = Subject.new
   end
 

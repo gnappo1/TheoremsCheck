@@ -45,7 +45,10 @@ group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platform: :mri
  end
-gem 'pg', group: :production
+ group :production do
+   gem 'rails_12factor'
+   gem 'pg'
+ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

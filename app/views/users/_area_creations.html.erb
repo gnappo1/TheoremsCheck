@@ -1,9 +1,13 @@
 <ul>
-  <% @areas.each do |a| %>
-    <% if a.subject_id %>
-      <h3><%= link_to a.name, subject_area_path(a.subject, a) %></h3><br>
-      <h3>Subject: </h3><h4><%= link_to a.subject.name, a.subject %></h4><br>
-      <div id="line"></div>
+  <% if !@areas.empty? %>
+    <% @areas.each do |a| %>
+      <% if a.subject_id %>
+        <h3><%= link_to a.name, subject_area_path(a.subject, a) %></h3><br>
+        <h3>Subject: </h3><h4><%= link_to a.subject.name, a.subject %></h4><br>
+        <div id="line" style="margin-right: auto; margin-left:auto;"></div>
+      <% end %>
     <% end %>
+  <% else %>
+    <h3>Currently there are no Areas added from you</h3>
   <% end %>
 </ul>

@@ -1,15 +1,18 @@
 <div class="frame">
   <div class="scientists">
     <ul>
-      <%= link_to "New Scientist", new_scientist_path, class: "btn btn-primary", id: "button-top-right" %>
-      <% @scientists.each do |s| %>
-        <li><h3><%= link_to s.full_name, s %></h3></li><br>
-        <div class="admin-info">
-          <% if current_user.admin? %>
-            <strong><p>Created by: <%= link_to s.created_by, user_by_email(s.created_by) %></p></strong>
-            <strong><%= link_to "Edit", edit_scientist_path(s), class: "btn btn-primary btn-xs" %>  <%= button_to "Destroy", s, class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong></strong>
-          <% end %>
-        </div>
+      <% if !@scientists.empty? %>
+        <% @scientists.each do |s| %>
+          <li><h3><%= link_to s.full_name, s %></h3></li><br>
+          <div class="admin-info">
+            <% if current_user.admin? %>
+              <strong><p>Created by: <%= link_to s.created_by, user_by_email(s.created_by) %></p></strong>
+              <strong><%= link_to "Edit", edit_scientist_path(s), class: "btn btn-primary btn-xs" %>  <%= button_to "Destroy", s, class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong></strong>
+            <% end %>
+          </div>
+        <% end %>
+      <% else %>
+        <h3>Currently there are no scientists to show</h3>
       <% end %>
     </ul>
   </div>

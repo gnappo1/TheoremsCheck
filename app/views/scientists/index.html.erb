@@ -8,6 +8,20 @@
 
 <% if @scientists.present? %>
   <%= render partial: 'scientists', locals: {scientists: @scientists} %>
+<% elsif !@scientists.present? &&  params[:search] %>
+  <div class="frame">
+    <div class="scientists" style="text-align: center;">
+      <h3>There are no scientists containing the term(s) "<%= params[:search] %>".</h3>
+    </div>
+  </div>
 <% else %>
-  <p>There are no scientists containing the term(s) <%= params[:search] %>.</p>
+<div class="frame">
+  <div class="scientists" style="text-align: center;">
+    <h3>Currently there are no scientists to show</h3>
+  </div>
+</div>
 <% end %>
+
+<br>
+
+<%= link_to "New Scientist", new_scientist_path, class: "btn btn-primary", id: "button-center" %>
