@@ -8,7 +8,7 @@
           <strong><p>Created by: <%= link_to c.created_by, user_by_email(c.created_by) %></p></strong>
           <strong><%= link_to "Edit", edit_theorem_corollary_path(c.theorem, c), class: "btn btn-primary" %>  <%= button_to "Destroy", theorem_corollary_path(c.theorem, c), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong>
         <% end %>
-        <p>----------------------------------------</p>
+        <div id="line"></div>
       <% end %>
     <% else %>
       <h3 style="text_align: middle;">No Corollaries to display</h3>

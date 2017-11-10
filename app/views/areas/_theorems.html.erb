@@ -8,7 +8,7 @@
           <li><h3><%= link_to t.name, scientist_theorem_path(t.scientist, t) %></h3></li>
           <h4><%= truncate t.statement %></h4><br>
           <strong><p>Scientist: <%= link_to t.scientist.full_name, t.scientist %></p></strong>
-          <p>----------------------------------------</p>
+          <div id="line"></div>
         <% end %>
       </ul>
     <% else %>

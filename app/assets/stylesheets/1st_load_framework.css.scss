@@ -160,6 +160,7 @@ img {
 
 .dropdown-menu > li > a {
   color: #f7ff00;
+  background-color: #262626;
 }
 
 @media (max-width: 1161px) {
@@ -205,6 +206,18 @@ img {
   color: #f7ff00;
 }
 
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+  -webkit-stroke-width: 5.3px;
+  -webkit-stroke-color: #FFFFFF;
+  -webkit-fill-color: #FFFFFF;
+  text-shadow: 1px 0px 20px yellow;
+  -webkit-transition: width 0.3s; /*Safari & Chrome*/
+  transition: width 0.3s;
+  -moz-transition: width 0.3s; /* Firefox 4 */
+  background-color: white;
+  color: black;
+}
+
 #fav-scientists, .intro {
   text-align: center;
   border: 3px solid black ;
@@ -238,7 +251,13 @@ form.button_to {
 
 .navbar-inverse .navbar-nav > li > a:hover {
     background: #F4F4F4;
-    color: black;
+    color: #333333;
+}
+
+@media (max-width: 767px) {
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a, .navbar-inverse .navbar-nav .open .dropdown-menu > li {
+    color: #f7ff00;
+  }
 }
 
 .footer-distributed{
@@ -407,4 +426,12 @@ form.button_to {
 		margin-left: 0;
 	}
 
+}
+
+#line {
+  border-bottom-color: black;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  margin-top: 5px;
+  max-width: 350px;
 }
