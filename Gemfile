@@ -42,9 +42,10 @@ gem 'omniauth-github'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'sqlite3'
   gem 'byebug', platform: :mri
-end
+ end
+gem 'pg', group: :production
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
@@ -59,11 +60,3 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'taps'
-
-group :development, :test do
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
-end
