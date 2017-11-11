@@ -2,8 +2,12 @@
 
 <br>
 
-<% current_user.scientists.take(3).each do |s| %>
-  <h4><%= link_to s.full_name, s %></h4><br>
+<% if current_user.scientists.count > 0 %>
+  <% current_user.scientists.take(3).each do |s| %>
+    <h4><%= link_to s.full_name, s %></h4><br>
+  <% end %>
+<% else %>
+  <h4>Go save your favorite scientists!</h4>
 <% end %>
 
 <br>

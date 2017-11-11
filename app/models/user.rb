@@ -1,11 +1,15 @@
 class User < ApplicationRecord
+  TEMP_EMAIL_PREFIX = 'theoremschecker@gmail'
+  TEMP_EMAIL_REGEX = /\theoremschecker@gmail/
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_and_belongs_to_many :scientists
   has_and_belongs_to_many :theorems
   has_and_belongs_to_many :corollaries
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :twitter, :github]
+
+  validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 

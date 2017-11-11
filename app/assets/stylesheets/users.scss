@@ -51,24 +51,25 @@ header {
 #saved-theorems > div {
     float: left;
     width: 50%;
-    height: 100%;
+    height: auto;
     border-top-style: solid;
     border-top-color: black;
     border-top-width: 5px;
     box-sizing: border-box;
     text-align: center;
+    border-right: 4px solid #000000;
 }
+
+#saved-theorems #right {
+  border-right: none;
+}
+
 @media (max-width: 630px) { /*breakpoint*/
     #saved-theorems > div {
         float: none;
         width: 100%;
     }
-}
-
-@media (min-width: 630px) { /*breakpoint*/
-    #right {
-      border-left-style: solid;
-      border-left-color: black;
-      border-left-width: 5px;
+    #saved-theorems #left {
+      border-right: none;
     }
 }

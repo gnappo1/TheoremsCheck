@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
   resources :users, only: [:index, :show, :destroy]
+  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
   post '/users/:id/make_admin' => 'users#make_admin'
   get '/users/:id/areas_created' => 'users#areas_created'
   get '/users/:id/subjects_created' => 'users#subjects_created'
