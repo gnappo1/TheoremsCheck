@@ -31,18 +31,9 @@
           <li><a href="/jolly">Jolly Quote</a>
           <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to "Sign Up", new_user_registration_path%><span class="glyphicon glyphicon-user"></span></li>
-          <li><%= link_to "Sign In", new_user_session_path %><span class="glyphicon glyphicon-log-in"></li>
-          <li><%= link_to "Sign in With Facebook", user_facebook_omniauth_authorize_path %></li>
-          <a class="btn btn-social-icon btn-twitter" id="inner" href="user_twitter_omniauth_authorize_path">
-            <span class="fa fa-twitter"></span>
-          </a>
-          <a class="btn btn-social-icon btn-facebook" id="inner" href="user_facebook_omniauth_authorize_path">
-            <span class="fa fa-facebook"></span>
-          </a>
-          <a class="btn btn-social-icon btn-github" id="inner" href="user_github_omniauth_authorize_path">
-            <span class="fa fa-github"></span>
-          </a>
+          <li><%= link_to "Sign Up", new_user_registration_path%></li>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
+          <%= link_to "f", user_facebook_omniauth_authorize_path, class: "btn btn-social-icon btn-facebook", stile: "margin-top:2px;" %><span class="fa fa-facebook"></span>
         <% end %>
       </ul>
     </div>
