@@ -19,23 +19,13 @@ class Scientist < ApplicationRecord
       @theorem.created_by = v['created_by']
       if v['area_id'].empty?
         @area = Area.new(v['area_attributes'])
-        if v['area_attributes']['subject_id'].nil?
-          @subject = Subject.new(v['area_attributes']['subject_attributes'])
-          @area.subject = @subject
-          @area.save
-          @theorem.subject = @subject
-          @theorem.area = @area
-          @theorem.save
-        else
-          @area.subject = Subject.find_by(id: v['area_attributes']['subject_id'])
-          @area.save
-          @theorem.area = @area
-          @theorem.subject = @area.subject
-          @theorem.save
-        end
+        @area.subject = Subject.find_by(id: v['area_attributes']['subject_id'])
+        @area.save
+        @theorem.area = @area
+        @theorem.subject = @area.subject
+        @theorem.save
       else
         @area = Area.find_by(id: v['area_id'])
-        @theorem.subject = @area.subject
         @theorem.area = @area
         @theorem.subject = @area.subject
         @theorem.save

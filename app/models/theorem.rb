@@ -9,10 +9,8 @@ class Theorem < ApplicationRecord
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 
   def area_attributes=(area_attributes)
-    area_attributes.each do |k, v|
-      @area = Area.new(name: v['name'])
-      @area.subject = Subject.find_by(id: v['subject_id'])
-      @area.created_by = v['created_by']
+    if self.area_id.nil?
+      @area = Area.new(area_attributes)
       if @area.save
         self.area = @area
         self.subject = @area.subject
@@ -21,12 +19,11 @@ class Theorem < ApplicationRecord
   end
 
   def scientist_attributes=(scientist_attributes)
-    scientist_attributes.each do |k, v|
-      @scientist = Scientist.new(full_name: v['full_name'])
-      @scientist.year_of_birth = v['year_of_birth']
-      @scientist.year_of_death = v['year_of_death']
-      @scientist.created_by = v['created_by']
-      @scientist.save
+    if self.scientist_id.nil?
+      @scientist = Scientist.new(scientist_attributes)
+      if @scientist.save
+        self.scientist = @scientist
+      end
     end
   end
 

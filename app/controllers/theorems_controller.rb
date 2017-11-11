@@ -23,7 +23,7 @@ class TheoremsController < ApplicationController
       @area = @theorem.build_area
     else
       @theorem = Theorem.new
-      @scientist = @theorem.build_scientist
+      @area = @theorem.build_area
     end
   end
 
@@ -31,9 +31,7 @@ class TheoremsController < ApplicationController
     if @scientist
       @theorem = @scientist.theorems.build(theorem_params)
     else
-      @scientist = Scientist.new(params["theorem"]["scientist_attributes"])
-      @scientist.save
-      @theorem = @scientist.theorems.build(theorem_params)
+      @theorem = Theorem.new(theorem_params)
     end
     binding.pry
     if @theorem.save
