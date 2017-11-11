@@ -81,25 +81,13 @@
       </div>
 
       <div class="form-group">
-        <%= area.label :subject_id, class: "col-md-4 control-label" %>
+        <%= area.label :subject_id, "And select a Subject", class: "col-md-4 control-label" %>
         <div class="col-md-4">
           <%= area.collection_select :subject_id, Subject.all, :id, :name, :include_blank => "Select Subject" %>
         </div>
       </div>
 
       <%= area.hidden_field :created_by, :value => current_user.email %>
-
-      <%= area.fields_for :subject do |subject| %>
-        <div class="form-group">
-          <%= subject.label :name, "Or Create New Subject", class: "col-md-4 control-label" %>
-          <div class="col-md-4">
-            <%= subject.text_field :name %>
-          </div>
-        </div>
-
-        <%= subject.hidden_field :created_by, :value => current_user.email %>
-
-      <% end %>
 
     <% end %>
   <% end %>

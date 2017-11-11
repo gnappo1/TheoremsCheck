@@ -6,9 +6,9 @@
         <div class="corollary-statement"><%= truncate c.statement %></div><br>
         <% if current_user.admin? %>
           <strong><p>Created by: <%= link_to c.created_by, user_by_email(c.created_by) %></p></strong>
-          <strong><%= link_to "Edit", edit_theorem_corollary_path(c.theorem, c), class: "btn btn-primary" %>  <%= button_to "Destroy", theorem_corollary_path(c.theorem, c), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong>
+          <strong><%= link_to "Edit", edit_theorem_corollary_path(c.theorem, c), class: "btn btn-primary btn-xs" %>  <%= button_to "Destroy", theorem_corollary_path(c.theorem, c), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong>
         <% end %>
-        <div id="line"></div>
+        <div id="line" style="margin-right:auto; margin-left:auto; margin-bottom:5px;"></div>
       <% end %>
     <% else %>
       <h3 style="text_align: middle;">No Corollaries to display</h3>

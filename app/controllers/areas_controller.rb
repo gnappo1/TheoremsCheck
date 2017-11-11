@@ -48,6 +48,6 @@ class AreasController < ApplicationController
   end
 
   def area_params
-    params.require(:area).permit(:name, :subject_id, :created_by, subject_attributes: [:id, :name, :created_by])
+    params.require(:area).permit(:name, :subject_id, :created_by)
   end
 end

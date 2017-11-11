@@ -21,14 +21,21 @@ class TheoremsController < ApplicationController
     if @scientist
       @theorem = @scientist.theorems.build
       @area = @theorem.build_area
-      @subject = @area.build_subject
     else
       @theorem = Theorem.new
+      @scientist = @theorem.build_scientist
     end
   end
 
   def create
-    @theorem = Theorem.new(theorem_params)
+    if @scientist
+      @theorem = @scientist.theorems.build(theorem_params)
+    else
+      @scientist = Scientist.new(params["theorem"]["scientist_attributes"])
+      @scientist.save
+      @theorem = @scientist.theorems.build(theorem_params)
+    end
+    binding.pry
     if @theorem.save
       redirect_to theorem_path(@theorem), notice: 'Theorem was successfully created.'
     else
@@ -76,6 +83,6 @@ class TheoremsController < ApplicationController
   end
 
   def theorem_params
-    params.require(:theorem).permit(:name, :statement, :demonstration, :created_by, :scientist_id, :subject_id, :area_id, area_attributes: [:id, :name, :created_by, :subject_id, subject_attributes: [:id, :name, :created_by]], scientist_attributes: [:id, :full_name, :year_of_birth, :year_of_death, :created_by ])
+    params.require(:theorem).permit(:name, :statement, :demonstration, :created_by, :scientist_id, :subject_id, :area_id, area_attributes: [:id, :name, :created_by, :subject_id], scientist_attributes: [:id, :full_name, :year_of_birth, :year_of_death, :created_by ])
   end
 end

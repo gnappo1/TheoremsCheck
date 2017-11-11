@@ -4,10 +4,10 @@
 
 <div class="frame">
   <div class="new-theorem-form">
-    <% if @scientist %>
+    <% if @scientist.id %>
       <%= render partial: 'form', locals: { scientist: @scientist, theorem: @theorem, area: @area, subject: @subject} %>
     <% else %>
-      <%= render partial: 'classic_form', locals: { theorem: @theorems, cientist: @scientist } %>
+      <%= render partial: 'classic_form', locals: { theorem: @theorems, scientist: @scientist } %>
     <% end %>
   </div>
 </div>

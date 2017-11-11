@@ -78,7 +78,14 @@
   <% end %>
 
 
-  <h3>Select Area: </h3>
+  <h3>Select Subject and Area: </h3>
+
+  <div class="form-group">
+    <%= f.label :subject_id, class: "col-md-4 control-label" %>
+    <div class="col-md-4">
+      <%= f.collection_select :subject_id, Subject.all, :id, :name, :include_blank => "Select Subject" %>
+    </div>
+  </div>
 
   <div class="form-group">
     <%= f.label :area_id, class: "col-md-4 control-label" %>
@@ -87,7 +94,8 @@
     </div>
   </div>
 
-  <h3>Or create a new one: </h3>
+
+  <h3>Or create a new Area: </h3>
 
   <%= f.fields_for :area do |area| %>
     <div class="form-group">
@@ -98,7 +106,7 @@
     </div>
 
     <div class="form-group">
-      <%= area.label :subject_id, class: "col-md-4 control-label" %>
+      <%= area.label :subject_id, "And select the Subject", class: "col-md-4 control-label" %>
       <div class="col-md-4">
         <%= area.collection_select :subject_id, Subject.all, :id, :name, :include_blank => "Select Subject" %>
       </div>
