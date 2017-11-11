@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108132731) do
+ActiveRecord::Schema.define(version: 20171111013612) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -38,15 +38,6 @@ ActiveRecord::Schema.define(version: 20171108132731) do
     t.integer "corollary_id", null: false
     t.index ["corollary_id", "user_id"], name: "index_corollaries_users_on_corollary_id_and_user_id"
     t.index ["user_id", "corollary_id"], name: "index_corollaries_users_on_user_id_and_corollary_id"
-  end
-
-  create_table "identities", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_identities_on_user_id"
   end
 
   create_table "quotes", force: :cascade do |t|
@@ -113,6 +104,10 @@ ActiveRecord::Schema.define(version: 20171108132731) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.text     "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

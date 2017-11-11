@@ -27,9 +27,8 @@ Rails.application.routes.draw do
   post '/theorems/:id/unsave_theorem' => 'theorems#unsave_theorem', :as => :unsave_theorem
   post '/theorems/:id/save_theorem' => 'theorems#save_theorem', :as => :save_theorem
 
-  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
+  devise_for :users, :controllers => { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :users, only: [:index, :show, :destroy]
-  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
   post '/users/:id/make_admin' => 'users#make_admin'
   get '/users/:id/areas_created' => 'users#areas_created'
   get '/users/:id/subjects_created' => 'users#subjects_created'
