@@ -3,7 +3,7 @@
     <% @theorems.each do |t| %>
       <h3><%= link_to t.name, scientist_theorem_path(t.scientist, t) %></h3><br>
       <h3>Scientist: </h3><h4><%= link_to t.scientist.full_name, t.scientist %></h4><br>
-      <div id="line"></div>
+      <div id="line" style="margin-right:auto; margin-left:auto;"></div>
     <% end %>
   <% else %>
     <h3>Currently there are no Theorems added from you</h3>

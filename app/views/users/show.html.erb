@@ -3,16 +3,16 @@
 <br><br><br><br><br><br><br><br>
 
 <div class="back-button">
-  <%= render partial: 'admin_button', locals: {user: @user} %>
+  <%= render partial: 'admin_button', locals: { user: @user } %>
 </div>
 
 
 <div class="frame-top-right">
   <div id="user-creations">
-    <strong><h4>Number of Subjects added: <%= link_to @user.subjects_added_count, { action: "subjects_created" } %></h4></strong>
-    <strong><h4>Number of Areas added: <%= link_to @user.areas_added_count, { action: "areas_created" }  %></h4></strong>
-    <strong><h4>Number of Scientists added: <%= link_to @user.scientists_added_count, { action: "scientists_created" } %></h4></strong>
-    <strong><h4>Number of Theorems added: <%= link_to @user.theorems_added_count, { action: "theorems_created" }  %></h4></strong>
+    <strong><h4>Number of Subjects added: <%= link_to @user.resources_added_count("Subject"), { action: "subjects_created" } %></h4></strong>
+    <strong><h4>Number of Areas added: <%= link_to @user.resources_added_count("Area"), { action: "areas_created" }  %></h4></strong>
+    <strong><h4>Number of Scientists added: <%= link_to @user.resources_added_count("Scientist"), { action: "scientists_created" } %></h4></strong>
+    <strong><h4>Number of Theorems added: <%= link_to @user.resources_added_count("Theorem"), { action: "theorems_created" }  %></h4></strong>
   </div>
 </div>
 
