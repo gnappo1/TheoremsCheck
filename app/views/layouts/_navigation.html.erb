@@ -33,7 +33,12 @@
         <% else %>
           <li><%= link_to "Sign Up", new_user_registration_path%></li>
           <li><%= link_to "Sign In", new_user_session_path %></li>
-          <%= link_to "f", user_facebook_omniauth_authorize_path, class: "btn btn-social-icon btn-facebook", stile: "margin-top:2px;" %><span class="fa fa-facebook"></span>
+          <a class="btn btn-social-icon btn-facebook" href="/users/auth/facebook" style="margin-top:10px; margin-right:5px;">
+            <span class="fa fa-facebook"></span>
+          </a>
+          <a class="btn btn-social-icon btn-github" href="/users/auth/github" style="margin-top:10px;">
+            <span class="fa fa-github"></span>
+          </a>
         <% end %>
       </ul>
     </div>
