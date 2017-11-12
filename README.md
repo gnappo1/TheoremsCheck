@@ -1,6 +1,6 @@
 # README
 
-This Rails application allows you to keep track of scientists, theorems, corollaries and much more. Users are able to sign in, sign in with Facebook, sign in with Github and create new accounts. Once signed in users can add subjects, areas, scientists, theorems, corollaries and quotes as well as seeing what other users created. Users can add or remove scientists and theorems from their favorite list.
+This Rails application allows you to keep track of scientists, theorems, corollaries and much more. Users are able to sign in, sign in with Facebook, sign in with Github and create new accounts. Once signed in users can add subjects, areas, scientists, theorems, corollaries and quotes as well as seeing what other users created. Users can add or remove scientists and theorems from their favorites list.
 
 Instructions
 
