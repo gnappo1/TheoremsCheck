@@ -4,4 +4,6 @@ class Subject < ApplicationRecord
   has_many :corollaries, through: :theorems
   has_many :scientists, through: :areas
   validates :name, presence: true, uniqueness: { case_sensitive: false }
+
+
 end

@@ -450,3 +450,38 @@ a.btn.btn-social-icon.btn-facebook {
     font-size: 20px;
     text-align: center;
 }
+
+#todays:after { /*clear float*/
+    content: "";
+    display: table;
+    clear: both;
+}
+#todays > div {
+    float: left;
+    width: 50%;
+    height: auto;
+    box-sizing: border-box;
+    text-align: center;
+    border-left: 4px solid #000000;
+}
+
+#todays #left {
+  border-left: none;
+}
+
+@media (max-width: 630px) { /*breakpoint*/
+    #todays > div {
+        float: none;
+        width: 100%;
+    }
+    #todays #right {
+      border-left: none;
+    }
+
+    #todays #right {
+      border-right: none;
+      border-top-style: solid;
+      border-top-color: black;
+      border-top-width: 5px;
+    }
+}

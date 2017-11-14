@@ -18,4 +18,10 @@ class WelcomeController < ApplicationController
     @quote = Quote.all.sample
     render '/quotes/jolly'
   end
+
+  def created_today
+    @theorems = Theorem.created_today
+    @scientists = Scientist.created_today
+    render '/welcome/todays'
+  end
 end

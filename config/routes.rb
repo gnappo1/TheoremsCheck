@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root to: 'welcome#home'
 
+  get '/created_today' => 'welcome#created_today'
+
   resources :subjects, except: :new do
     resources :areas, except: :index
   end

@@ -8,6 +8,11 @@ class Theorem < ApplicationRecord
   validates_presence_of :statement
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 
+  scope :created_today, -> {where("created_at >= ?", Date.today)}
+  #scope :created_today, -> { created_between_period(Time.now.midnight, Time.now.end_of_day) }
+
+
+
   def area_attributes=(area_attributes)
     if self.area_id.nil?
       @area = Area.new(area_attributes)
@@ -24,6 +29,12 @@ class Theorem < ApplicationRecord
       if @scientist.save
         self.scientist = @scientist
       end
+    end
+  end
+
+  def self.top_3
+    self.all.each do |t|
+      t.users.count
     end
   end
 
