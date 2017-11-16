@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   post '/corollaries/:id/save_corollary' => 'corollaries#save_corollary', :as => :save_corollary
   post '/scientists/:id/unsave_scientist' => 'scientists#unsave_scientist', :as => :unsave_scientist
   post '/scientists/:id/save_scientist' => 'scientists#save_scientist', :as => :save_scientist
+  get '/top_3' => 'welcome#top_3', :as => :top_3
   post '/theorems/:id/unsave_theorem' => 'theorems#unsave_theorem', :as => :unsave_theorem
   post '/theorems/:id/save_theorem' => 'theorems#save_theorem', :as => :save_theorem
 

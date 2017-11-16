@@ -68,4 +68,7 @@ class Scientist < ApplicationRecord
    where("full_name LIKE ?", "%#{search}%")
   end
 
+  def self.top_3_scientists
+    self.all.collect{|s| {name: s.full_name, count: s.users.count}}.sort{ |a,b| b.count <=> a.count }.last(3)
+  end
 end

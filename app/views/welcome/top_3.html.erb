@@ -1,0 +1,11 @@
+<h1>Top 3 Scientists</h1>
+
+<br><br><br><br><br><br><br>
+
+<div class="frame">
+  <div class="scientists">
+    <h3> 1) <%= link_to "#{@array[2][:name]}", link_to_scientist(2) %> - <%= @array[2][:count] %> users</h3>
+    <h3> 2) <%= link_to "#{@array[1][:name]}", link_to_scientist(1) %> - <%= @array[1][:count] %> users</h3>
+    <h3> 3) <%= link_to "#{@array[0][:name]}", link_to_scientist(0) %> - <%= @array[0][:count] %> users</h3>
+  </div>
+</div>

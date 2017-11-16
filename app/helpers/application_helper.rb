@@ -25,4 +25,14 @@ module ApplicationHelper
   def no_proof?(resource)
     resource.demonstration.empty? ? (return "No demonstration yet!") : resource.demonstration
   end
+
+  def find_scientist(index)
+    name = @scientists_array[index][:name]
+    @scientist = Scientist.find_by(full_name: name)
+  end
+
+  def find_theorem(index)
+    name = @theorems_array[index][:name]
+    @theorem = Theorem.find_by(name: name)
+  end
 end

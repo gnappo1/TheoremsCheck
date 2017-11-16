@@ -14,12 +14,17 @@
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
           <li><a href="/">Home</a></li>
-          <% if current_user.admin? %>
-             <li><a href="/users">Users</a></li>
-          <% end %>
-          <li><a href="/subjects">Subjects</a></li>
-          <li><a href="/scientists">Scientists</a></li>
-          <li><a href="/theorems">Theorems</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Pages <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/subjects">Subjects</a></li>
+              <li><a href="/scientists">Scientists</a></li>
+              <li><a href="/theorems">Theorems</a></li>
+              <% if current_user.admin? %>
+                 <li><a href="/users">Users</a></li>
+              <% end %>
+            </ul>
+          </li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Favorites <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -27,8 +32,9 @@
               <li><a href='/fav_theorems'>Theorems</a></li>
             </ul>
           </li>
-          <li><a href="/quotes">Quotes</a>
-          <li><a href="/jolly">Jolly Quote</a>
+          <li><a href="/quotes">Quotes</a></li>
+          <li><a href="/jolly">Jolly Quote</a></li>
+          <li><a href="/top_3">Top 3</a></li>
           <li><a href="/created_today">Today's</a>
           <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
         <% else %>

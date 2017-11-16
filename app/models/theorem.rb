@@ -9,9 +9,6 @@ class Theorem < ApplicationRecord
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 
   scope :created_today, -> {where("created_at >= ?", Date.today)}
-  #scope :created_today, -> { created_between_period(Time.now.midnight, Time.now.end_of_day) }
-
-
 
   def area_attributes=(area_attributes)
     if self.area_id.nil?
@@ -32,10 +29,8 @@ class Theorem < ApplicationRecord
     end
   end
 
-  def self.top_3
-    self.all.each do |t|
-      t.users.count
-    end
+  def self.top_3_theorems
+    self.all.collect{|t| {name: t.name, count: t.users.count}}.sort{ |a,b| b.count <=> a.count }.last(3)
   end
 
 

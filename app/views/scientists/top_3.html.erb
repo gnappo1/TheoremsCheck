@@ -1,0 +1,19 @@
+<h1>Our Top 3</h1>
+
+<br><br><br><br><br><br><br>
+
+<div class="top_3">
+  <div class="top_scientists">
+    <h2>Scientists:</h2>
+    <h3><%= link_to "#{@scientists_array[2][:name]}", find_scientist(2) %></h3>  <strong><%= @scientists_array[2][:count] %> users</strong>
+    <h3><%= link_to "#{@scientists_array[1][:name]}", find_scientist(1) %></h3>  <strong><%= @scientists_array[1][:count] %> users</strong>
+    <h3><%= link_to "#{@scientists_array[0][:name]}", find_scientist(0) %></h3>  <strong><%= @scientists_array[0][:count] %> users</strong>
+  </div>
+
+  <div class="top_theorems">
+    <h2>Theorems:</h2>
+    <h3><%= link_to "#{@theorems_array[2][:name]}", find_theorem(2) %></h3>  <strong><%= @theorems_array[2][:count] %> users</strong>
+    <h3><%= link_to "#{@theorems_array[1][:name]}", find_theorem(1) %></h3>  <strong><%= @theorems_array[1][:count] %> users</strong>
+    <h3><%= link_to "#{@theorems_array[0][:name]}", find_theorem(0) %></h3>  <strong><%= @theorems_array[0][:count] %> users</strong>
+  </div>
+</div>
