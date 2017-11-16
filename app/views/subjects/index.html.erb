@@ -12,3 +12,23 @@
     <%= render partial: 'form', locals: {subject: @subject} %>
   </div>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    $('form').submit(function(event) {
+      //prevent form from submitting the default way
+      event.preventDefault();
+
+      var values = $(this).serialize();
+
+      var posting = $.post('/subjects', values);
+
+      posting.done(function(data) {
+        var subject = data;
+        var id = subject["id"]
+        var name = <a href=`/subjects/${id}`>subject["name"]</a>
+        $("#subjectName").text(name);
+      });
+    });
+  });
+</script>

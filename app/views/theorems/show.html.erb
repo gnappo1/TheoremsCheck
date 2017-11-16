@@ -7,5 +7,13 @@
 <%= render partial: 'theorem_info', locals: {theorem: @theorem } %><br>
 
 <div class="back-button">
-  <%= link_to "See Corollaries", theorem_corollaries_path(@theorem), class: "btn btn-primary", id: "button"%>
+  <%= link_to "See Corollaries", theorem_corollaries_path(@theorem), class: "btn btn-primary", id: "corollaries_button"%>
+</div>
+
+<div class="frame">
+  <div class="corollaries">
+    <ol>
+      
+    </ol>
+  </div>
 </div>

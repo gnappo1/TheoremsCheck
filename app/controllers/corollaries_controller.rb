@@ -6,6 +6,10 @@ class CorollariesController < ApplicationController
 
   def index
     @corollaries = @theorem.corollaries
+    respond_to do |format|
+      format.html
+      format.json { render :json => @corollaries, layout: false }
+    end
   end
 
   def show
