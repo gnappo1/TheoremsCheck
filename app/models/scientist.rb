@@ -11,6 +11,9 @@ class Scientist < ApplicationRecord
   validate :year_of_birth_cannot_be_in_the_future
   validate :birth_comes_before_death
 
+  scope :created_today, -> {where("created_at >= ?", Date.today)}
+
+
   def theorems_attributes=(theorems_attributes)
     theorems_attributes.each do |k, v|
       @theorem = self.theorems.build(name: v['name'])
@@ -65,4 +68,7 @@ class Scientist < ApplicationRecord
    where("full_name LIKE ?", "%#{search}%")
   end
 
+  def self.top_3_scientists
+    self.all.collect{|s| {name: s.full_name, count: s.users.count}}.sort{ |a,b| b.count <=> a.count }.last(3)
+  end
 end

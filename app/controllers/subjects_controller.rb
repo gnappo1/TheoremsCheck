@@ -3,6 +3,7 @@ class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update, :destroy]
   before_action :check_admin, only: [:edit, :destroy]
 
+
   def index
     @subjects = Subject.order(name: :asc)
     @subject = Subject.new

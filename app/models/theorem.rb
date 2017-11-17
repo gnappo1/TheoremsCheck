@@ -8,6 +8,8 @@ class Theorem < ApplicationRecord
   validates_presence_of :statement
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 
+  scope :created_today, -> {where("created_at >= ?", Date.today)}
+
   def area_attributes=(area_attributes)
     if self.area_id.nil?
       @area = Area.new(area_attributes)
@@ -25,6 +27,10 @@ class Theorem < ApplicationRecord
         self.scientist = @scientist
       end
     end
+  end
+
+  def self.top_3_theorems
+    self.all.collect{|t| {name: t.name, count: t.users.count}}.sort{ |a,b| b.count <=> a.count }.last(3)
   end
 
 
