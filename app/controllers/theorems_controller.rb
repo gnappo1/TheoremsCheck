@@ -33,7 +33,6 @@ class TheoremsController < ApplicationController
     else
       @theorem = Theorem.new(theorem_params)
     end
-    binding.pry
     if @theorem.save
       redirect_to theorem_path(@theorem), notice: 'Theorem was successfully created.'
     else

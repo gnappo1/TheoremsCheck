@@ -1,13 +1,19 @@
+var clicks = true;
 $(function() {
   $("a#corollaries_button").on("click", function(e) {
-    $.getJSON(this.href).success(function(json) {
-      var $ol = $("div.corollaries ol")
-      $ol.html("")
+    if (clicks) {
+      $.ajax({
+        type: "GET",
+        headers: { 'Cache-Control': 'max-age=0' },
+        url: this.href,
+        datatype: 'script',
+      });
+      clicks = false;
+    } else {
+      $("div.corollaries .frame").hide()
+      clicks = true;
+    }
 
-      json.forEch(function(corollary) {
-        $ol.append("<li>" + corollary.content + "</li>");
-      })
-    })
     e.preventDefault();
   })
 })

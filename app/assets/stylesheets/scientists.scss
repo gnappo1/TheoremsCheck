@@ -89,7 +89,8 @@ a#button-top-right.btn.btn-primary, a#button-bottom-right.btn.btn-primary {
  }
 
 a.button.btn-default, input#button.btn.btn-primary,  #button-center {
-  display: flex;
+  display: inline-block;
   margin-right: auto;
   margin-left: auto;
+  text-align: center;
 }

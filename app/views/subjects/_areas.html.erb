@@ -8,7 +8,7 @@
             <div class="admin-info">
               <% if current_user.admin? %>
                 <strong><p>Created by: <%= link_to a.created_by, user_by_email(a.created_by) %></p></strong>
-                <strong><%= link_to "Edit", edit_subject_area_path(@subject, a), class: "btn btn-primary btn-xs" %>  <%= button_to "Destroy", subject_area_path(@subject, a), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong></strong>
+                <strong><%= link_to "Edit", edit_subject_area_path(@subject, a), class: "btn btn-primary btn-xs" %>  <%= button_to "Destroy", subject_area_path(@subject, a), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong>
               <% end %>
             </div>
           <% end %>

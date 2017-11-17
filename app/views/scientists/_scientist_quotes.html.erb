@@ -1,5 +1,4 @@
 <ul>
-  <%= link_to "New Quote", new_scientist_quote_path(@scientist, @quote), class: "btn btn-primary", id: "button-top-right"%>
   <% if @scientist.quotes.count == 0  %>
     <h3>No quotes to display</h3>
   <% else %>

@@ -11,7 +11,8 @@
   <h3><div class="centered">(Year of Birth: <%= @scientist.birth_before_christ? %> - Year of Death: <%= @scientist.death_before_christ? %>)</div></h3><br>
 </div>
 
-<br><br>
+<br><br><br><br>
+
 
 <div class="frame">
   <div class="scientist-theorems">
@@ -19,8 +20,15 @@
   </div>
 </div>
 
+<br><br>
+
+<%= link_to "New Quote", new_scientist_quote_path(@scientist, @quote), class: "btn btn-primary", id: "button-center"%>
+
 
 <%= render partial: 'scientist_page', locals: {scientist: @scientist} %><br>
+
+<%= link_to "New Theorem", new_scientist_theorem_path(@scientist, @theorem), class: "btn btn-primary", id: "button-center"%>
+
 
 <% if condition("theorems") %>
   <%= link_to "See all theorems", scientist_theorems_path(@scientist), class: "btn btn-primary big-btn", id: "index-button"%>

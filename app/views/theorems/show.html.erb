@@ -8,12 +8,8 @@
 
 <div class="back-button">
   <%= link_to "See Corollaries", theorem_corollaries_path(@theorem), class: "btn btn-primary", id: "corollaries_button"%>
+  &nbsp&nbsp&nbsp&nbsp
+  <%= link_to "New Corollary", new_theorem_corollary_path(@theorem), class: "btn btn-primary", id: "new_corollary_button"%>
 </div>
 
-<div class="frame">
-  <div class="corollaries">
-    <ol>
-      
-    </ol>
-  </div>
-</div>
+<div class="corollaries"></div>

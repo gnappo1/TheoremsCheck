@@ -1,7 +1,6 @@
 <div class="frame">
   <div class="scientist-theorems">
     <ul>
-      <%= link_to "New Theorem", new_scientist_theorem_path(@scientist, @theorem), class: "btn btn-primary", id: "button-top-right"%>
       <% if @scientist.theorems.count == 0  %>
         <h3>No theorems to display</h3>
       <% else %>
