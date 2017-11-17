@@ -1,3 +1,4 @@
+$(document).off('submit');
 $(function() {
   $("#new_subject").on("submit", function(e) {
 

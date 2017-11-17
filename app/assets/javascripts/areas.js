@@ -1,3 +1,4 @@
+$(document).off('submit');
 $(function() {
   $("#new_area").on("submit", function(e) {
 
