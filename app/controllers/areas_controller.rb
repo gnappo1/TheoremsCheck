@@ -12,7 +12,7 @@ class AreasController < ApplicationController
     @area = @subject.areas.build(area_params)
     @area.created_by = current_user.email
     if @area.save
-      redirect_to subject_area_path(@subject, @area), notice: 'Area was successfully created.'
+      render 'create.js'
     else
       redirect_to @subject, notice: @area.errors.full_messages.first
     end

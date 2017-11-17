@@ -2,24 +2,7 @@
   <div class="subjects">
     <ul class="subjects-list">
       <% @subjects.each do |s| %>
-<<<<<<< HEAD
-        <li id="subjectName"><h3><%= link_to s.name, s %></h3></li>
-        <div class="admin-info">
-          <% if current_user.admin? %>
-            <strong><p id="subjectCreatedBy">Created by: <%= link_to s.created_by, user_by_email(s.created_by) %></p></strong>
-            <strong><%= link_to "Edit", edit_subject_path(s), class: "btn btn-primary btn-xs", id: "edit-subject-button"%>  <%= button_to "Destroy", s, class: "btn btn-danger btn-xs", id: "delete-subject-button", method: :delete, data: {confirm: "Are you sure?"} %></strong></strong>
-          <% end %>
-        </div>
-=======
-        <li class="subject" id="subject-<%= s.id%>"><h3><%= link_to s.name, s %></h3>
-          <div class="admin-info">
-            <% if current_user.admin? %>
-              <strong><p>Created by: <%= link_to s.created_by, user_by_email(s.created_by) %></p></strong>
-              <strong><%= link_to "Edit", edit_subject_path(s), class: "btn btn-primary btn-xs" %>  <%= button_to "Destroy", s, class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong></strong>
-            <% end %>
-          </div>
-        </li>
->>>>>>> master
+        <%= render partial: 'subject', locals: {s: s} %>
       <% end %>
     </ul>
   </div>

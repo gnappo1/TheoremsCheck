@@ -1,5 +1,5 @@
 $(function() {
-  $("#new_subject").on("submit", function(e) {
+  $("#new_area").on("submit", function(e) {
 
     $.ajax({
       type: this.method,

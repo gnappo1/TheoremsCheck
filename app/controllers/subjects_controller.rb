@@ -17,10 +17,7 @@ class SubjectsController < ApplicationController
   def create
     @subject = Subject.new(subject_params)
     if @subject.save
-      respond_to do |f|
-        f.html {redirect_to subjects_path, notice: 'Subject was successfully created.'}
-        f.json {render :json => @subject, status: 201, notice: 'Subject was successfully created.'}
-      end
+      render 'create.js'
     else
       redirect_to subjects_path, notice: @subject.errors.full_messages.first
     end
