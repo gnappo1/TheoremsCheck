@@ -1,15 +1,17 @@
 <h1><%= @theorem.name %></h1>
 
-<br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
 
 <%= render partial: "fav_buttons", locals: {resource: @theorem} %>
 
 <%= render partial: 'theorem_info', locals: {theorem: @theorem } %><br>
 
 <div class="back-button">
-  <%= link_to "See Corollaries", theorem_corollaries_path(@theorem), class: "btn btn-primary", id: "corollaries_button"%>
+  <%= link_to "Corollaries", theorem_corollaries_path(@theorem), class: "btn btn-primary", id: "corollaries_button"%>
   &nbsp&nbsp&nbsp&nbsp
   <%= link_to "New Corollary", new_theorem_corollary_path(@theorem), class: "btn btn-primary", id: "new_corollary_button"%>
 </div>
 
-<div class="corollaries"></div>
+<div id="corollaries" style="display: none;"></div>
+
+<div id="new_corollary_section" style="display: none;"></div>

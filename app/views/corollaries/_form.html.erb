@@ -39,5 +39,5 @@
   <% f.hidden_field :theorem_id, :value => @theorem.id %>
   <%= f.hidden_field :created_by, :value => current_user.email %>
 
-  <%= f.submit "Submit", class: "btn btn-default btn-primary" %><br><br>
+  <%= f.submit "Submit", class: "btn btn-default btn-primary", id: "submit_new_corollary"%><br><br>
 <% end %>

@@ -15,6 +15,10 @@ class TheoremsController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @post.to_json }
+    end
   end
 
   def new
@@ -25,6 +29,7 @@ class TheoremsController < ApplicationController
       @theorem = Theorem.new
       @area = @theorem.build_area
     end
+    render :layout => false
   end
 
   def create

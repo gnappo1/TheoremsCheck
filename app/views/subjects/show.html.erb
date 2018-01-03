@@ -11,3 +11,7 @@
     <%= render partial: 'areas/form', locals: {subject: @subject, area: @area} %>
   </div>
 </div>
+
+<div class="back-button">
+  <%= link_to "Back", subjects_path, class: "btn btn-primary md-btn", id: "button"%>
+</div>

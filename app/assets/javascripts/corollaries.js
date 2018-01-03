@@ -1,18 +1,12 @@
-var clicks = true;
 $(function() {
-  $("a#corollaries_button").on("click", function(e) {
-    if (clicks) {
-      $.ajax({
-        type: "GET",
-        headers: { 'Cache-Control': 'max-age=0' },
-        url: this.href,
-        datatype: 'script',
-      });
-      clicks = false;
-    } else {
-      $("div.corollaries .frame").hide()
-      clicks = true;
-    }
+  $(document).on('submit','form#new_corollary', {} ,function(e){
+
+    $.ajax({
+      type: this.method,
+      url: this.action,
+      data: $(this).serialize(),
+      dataType: 'script'
+    });
 
     e.preventDefault();
   })

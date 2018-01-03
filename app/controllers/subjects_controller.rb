@@ -17,9 +17,9 @@ class SubjectsController < ApplicationController
   def create
     @subject = Subject.new(subject_params)
     if @subject.save
-      render 'create.js'
-    else
-      redirect_to subjects_path, notice: @subject.errors.full_messages.first
+      respond_to do |format|
+        format.js {}
+      end
     end
   end
 

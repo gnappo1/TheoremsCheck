@@ -5,11 +5,9 @@
 <%= render partial: 'corollary_info', locals: {corollary: @corollary } %><br>
 
 <div class="back-button">
-  <%= link_to "Back", theorem_corollaries_path(@corollary.theorem), class: "btn btn-primary", id: "button"%>
-  &nbsp;&nbsp;&nbsp;&nbsp;
   <%  if current_user.admin %>
-    <%= link_to "Edit", edit_theorem_corollary_path(@theorem, @corollary), class: "btn btn-primary", id: "button" %>
+    <%= link_to "Edit", edit_theorem_corollary_path(@corollary.theorem, @corollary), class: "btn btn-primary", id: "button" %>
     &nbsp;&nbsp;&nbsp;&nbsp;
-    <%= link_to "Delete", theorem_corollary_path(@theorem, @corollary), class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} , id: "button" %>
+    <%= link_to "Delete", theorem_corollary_path(@corollary.theorem, @corollary), class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} , id: "button" %>
   <% end %>
 </div>
