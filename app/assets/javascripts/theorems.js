@@ -36,7 +36,7 @@ $(function() {
 })
 
 $(function() {
-  $("body").on("click", "#new_theorem_form", function(e) {
+  $("#new_theorem_form").on("click", function(e) {
     btn = $(this);
     $.ajax({
       type: "GET",
@@ -44,12 +44,24 @@ $(function() {
       cache: false,
       data: $(this).serialize(),
       success: function(data) {
-        debugger
         $("#form_div").html(data);
         $('#form_div').toggle();
       }
     });
 
+    e.preventDefault();
+  })
+})
+
+$(function() {
+  $(document).on('submit','form#new_theorem', {} ,function(e){
+
+    $.ajax({
+      type: this.method,
+      url: this.action,
+      data: $(this).serialize(),
+      dataType: 'script'
+    });
     e.preventDefault();
   })
 })

@@ -39,9 +39,15 @@ class TheoremsController < ApplicationController
       @theorem = Theorem.new(theorem_params)
     end
     if @theorem.save
-      redirect_to theorem_path(@theorem), notice: 'Theorem was successfully created.'
+      respond_to do |format|
+        format.js   {render :layout => false, notice: 'Theorem was successfully created.'}
+        format.html {redirect_to @theorem, notice: 'Theorem was successfully created.'}
+      end
     else
-      render 'new', notice: @theorem.errors.full_messages.first
+      respond_to do |format|
+        format.html { render 'new', notice: @theorem.errors.full_messages.first }
+        format.js   { render json: @corollary.errors}
+      end
     end
   end
 

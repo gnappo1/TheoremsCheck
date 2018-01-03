@@ -1,0 +1,7 @@
+<h3><%= link_to theorem.name, theorem %></h3><br><br>
+<div class="theorem-statement"><%= truncate theorem.statement %></div><br>
+<% if current_user.admin? %>
+  <strong><p>Created by: <%= link_to theorem.created_by, user_by_email(theorem.created_by) %></p></strong>
+  <strong><%= link_to "Edit", edit_theorem_path(theorem), class: "btn btn-primary btn-xs" %>  <%= button_to "Destroy", theorem_path(theorem), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong>
+<% end %>
+<div id="line"></div>

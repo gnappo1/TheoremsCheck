@@ -3,13 +3,7 @@
 
     <ul>
       <% @theorems.each do |t| %>
-        <h3><%= link_to t.name, t %></h3><br><br>
-        <div class="theorem-statement"><%= truncate t.statement %></div><br>
-        <% if current_user.admin? %>
-          <strong><p>Created by: <%= link_to t.created_by, user_by_email(t.created_by) %></p></strong>
-          <strong><%= link_to "Edit", edit_theorem_path(t), class: "btn btn-primary btn-xs" %>  <%= button_to "Destroy", theorem_path(t), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong>
-        <% end %>
-        <div id="line"></div>
+       <%= render partial: 'theorem_summary', locals: {theorem: t } %><br>
       <% end %>
     </ul>
 
