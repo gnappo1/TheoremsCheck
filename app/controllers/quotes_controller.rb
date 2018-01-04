@@ -17,6 +17,7 @@ class QuotesController < ApplicationController
 
   def new
     @quote = @scientist.quotes.build
+    render :layout => false
   end
 
   def create

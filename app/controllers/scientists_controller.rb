@@ -19,15 +19,22 @@ class ScientistsController < ApplicationController
     @scientist = Scientist.new
     @theorem = @scientist.theorems.build
     @area = @theorem.build_area
+    render :layout => false
   end
 
 
   def create
     @scientist = Scientist.new(scientist_params)
     if @scientist.save
-      redirect_to @scientist, notice: 'Scientist, Theorem and area were successfully created.'
+      respond_to do |format|
+        format.js   {render :layout => false}
+        format.html {redirect_to @scientist, notice: 'Scientist, Theorem and area were successfully created.'}
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render 'new', notice: @scientist.errors.full_messages.first }
+        format.js   { render json: @scientist.errors}
+      end
     end
   end
 

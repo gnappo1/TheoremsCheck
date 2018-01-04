@@ -22,14 +22,13 @@
 
 <br><br>
 
-<%= link_to "New Quote", new_scientist_quote_path(@scientist, @quote), class: "btn btn-primary", id: "button-center"%>
+<%= link_to "New Quote", new_scientist_quote_path(@scientist, @quote), class: "btn btn-primary", id: "new_quote_form"%>
+
+<div id="form_div"></div>
 
 
 <%= render partial: 'scientist_page', locals: {scientist: @scientist} %><br>
 
-<%= link_to "New Theorem", new_scientist_theorem_path(@scientist, @theorem), class: "btn btn-primary", id: "button-center"%>
+<%= link_to "New Theorem", new_scientist_theorem_path(@scientist, @theorem), class: "btn btn-primary", id: "nested_theorem_form"%>
 
-
-<% if condition("theorems") %>
-  <%= link_to "See all theorems", scientist_theorems_path(@scientist), class: "btn btn-primary big-btn", id: "index-button"%>
-<% end %>
+<div id="form_theorem_div"></div>

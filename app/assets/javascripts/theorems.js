@@ -39,7 +39,7 @@ $(function() {
   $("#new_theorem_form").on("click", function(e) {
     btn = $(this);
     $.ajax({
-      type: "GET",
+      type: this.method,
       url: this.href,
       cache: false,
       data: $(this).serialize(),

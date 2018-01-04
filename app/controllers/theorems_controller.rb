@@ -46,7 +46,7 @@ class TheoremsController < ApplicationController
     else
       respond_to do |format|
         format.html { render 'new', notice: @theorem.errors.full_messages.first }
-        format.js   { render json: @corollary.errors}
+        format.js   { render json: @theorem.errors}
       end
     end
   end

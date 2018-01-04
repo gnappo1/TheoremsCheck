@@ -1,0 +1,7 @@
+<li><h3><%= link_to scientist.full_name, scientist %></h3></li><br>
+<div class="admin-info">
+  <% if current_user.admin? %>
+    <strong><p>Created by: <%= link_to scientist.created_by, user_by_email(scientist.created_by) %></p></strong>
+    <strong><%= link_to "Edit", edit_scientist_path(scientist), class: "btn btn-primary btn-xs" %>  <%= button_to "Destroy", scientist, class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong></strong>
+  <% end %>
+</div>

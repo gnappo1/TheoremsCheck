@@ -19,5 +19,10 @@
         <% end %>
       <% end %>
     </ul>
+
+    <% if condition("theorems") %>
+      <%= link_to "All theorems", scientist_theorems_path(@scientist), class: "btn btn-primary", id: "index_theorems"%>
+    <% end %>
+    
   </div>
 </div>

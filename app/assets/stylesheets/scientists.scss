@@ -94,3 +94,11 @@ a.button.btn-default, input#button.btn.btn-primary,  #button-center {
   margin-left: auto;
   text-align: center;
 }
+
+ #new_scientist_form, #index_quote, #index_theorems {
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  width: 110px;
+  text-align: center;
+}
