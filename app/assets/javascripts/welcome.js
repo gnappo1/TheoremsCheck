@@ -1,6 +1,5 @@
 $(function() {
   $("#jolly_button").on("click", function(e) {
-    btn = $(this);
 
     $.ajax({
       type: "GET",

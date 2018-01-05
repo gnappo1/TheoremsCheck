@@ -1,6 +1,5 @@
 $(function() {
   $("#new_scientist_form").on("click", function(e) {
-    btn = $(this);
 
     $.ajax({
       type: "GET",
@@ -33,7 +32,6 @@ $(function() {
 
 $(function() {
   $("#index_quote").on("click", function(e) {
-    btn = $(this);
 
     $.ajax({
       type: "GET",
@@ -51,7 +49,6 @@ $(function() {
 
 $(function() {
   $("#index_theorems").on("click", function(e) {
-    btn = $(this);
 
     $.ajax({
       type: "GET",
@@ -69,7 +66,7 @@ $(function() {
 
 $(function() {
   $("#new_quote_form").on("click", function(e) {
-    btn = $(this);
+
     $.ajax({
       type: "GET",
       url: this.href,

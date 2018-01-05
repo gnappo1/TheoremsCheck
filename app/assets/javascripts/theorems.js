@@ -1,6 +1,5 @@
 $(function() {
   $("#corollaries_button").on("click", function(e) {
-    btn = $(this);
 
     $.ajax({
       type: "GET",
@@ -19,7 +18,7 @@ $(function() {
 
 $(function() {
   $("#new_corollary_button").on("click", function(e) {
-    btn = $(this);
+
     $.ajax({
       type: "GET",
       url: this.href,
@@ -37,7 +36,7 @@ $(function() {
 
 $(function() {
   $("#new_theorem_form").on("click", function(e) {
-    btn = $(this);
+
     $.ajax({
       type: this.method,
       url: this.href,
@@ -68,7 +67,6 @@ $(function() {
 
 $(function() {
   $("#nested_theorem_form").on("click", function(e) {
-    btn = $(this);
 
     $.ajax({
       type: "GET",
