@@ -37,6 +37,4 @@ Rails.application.routes.draw do
   get '/users/:id/subjects_created' => 'users#subjects_created'
   get '/users/:id/theorems_created' => 'users#theorems_created'
   get '/users/:id/scientists_created' => 'users#scientists_created'
-  get '/fav_theorems' => 'welcome#fav_theorems'
-  get '/fav_scientists' => 'welcome#fav_scientists'
 end

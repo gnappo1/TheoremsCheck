@@ -5,23 +5,21 @@
 <div class="frame">
   <div id="todays" class="intro">
     <div id="left">
-      <%#= render partial: 'scientists/scientists', locals: {scientists: @scientists} %>
       <% if !@scientists.empty? %>
         <% @scientists.each do |s| %>
           <h3><%= link_to s.full_name, s %></h3><br>
         <% end %>
       <% else %>
-        <h3>Currently no scientists have been created today. Be the first today to <%= link_to "create", new_scientist_path %> a new one!</h3>
+        <h3>Currently no scientists have been created today. Be the first today to <%= link_to "create", scientists_path %> a new one!</h3>
       <% end %>
     </div>
     <div id="right">
-      <%#= render partial: 'theorems/theorems', locals: {theorems: @theorems} %>
       <% if !@theorems.empty? %>
         <% @theorems.each do |t| %>
           <h3><%= link_to t.name, t %></h3><br>
         <% end %>
       <% else %>
-        <h3>Currently no theorems have been created today. Be the first today to <%= link_to "create", new_theorem_path %> a new one!</h3>
+        <h3>Currently no theorems have been created today. Be the first today to <%= link_to "create", theorems_path %> a new one!</h3>
       <% end %>
     </div>
   </div>

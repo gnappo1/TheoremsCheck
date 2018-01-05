@@ -3,15 +3,9 @@
 <br>
 
 <% if current_user.theorems.count > 0 %>
-  <% current_user.theorems.take(3).each do |t| %>
+  <% current_user.theorems.each do |t| %>
     <h4><%= link_to t.name, t %></h4><br>
   <% end %>
 <% else %>
   <h4>Go save your favorite theorems!</h4>
-<% end %>
-
-<br>
-
-<% if conditions %>
-  <%= link_to "See more", {controller: 'welcome', action: 'fav_theorems' }, class: 'btn btn-primary' %>
 <% end %>
