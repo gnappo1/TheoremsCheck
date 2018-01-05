@@ -6,7 +6,10 @@ class WelcomeController < ApplicationController
 
   def jolly
     @quote = Quote.all.sample
-    render '/quotes/jolly'
+    respond_to do |format|
+      format.js {render "quotes/jolly.js"}
+      format.html {render '/quotes/jolly'}
+    end
   end
 
   def created_today

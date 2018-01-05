@@ -2,9 +2,15 @@
 
 <br><br><br><br>
 
-<%= render partial: '/quotes/quote_display', locals: { quote: @quote} %>
+<div class="frame">
+  <div id="jolly_quote_div">
+    <h4>Are you ready for it?</h4>
+  </div>
+</div>
+
+<%#= render partial: '/quotes/quote_display', locals: { quote: @quote} %>
 
 <br>
 <div id="back-button">
-  <%= link_to 'Jolly button', jolly_path, id: "button", class: "btn btn-primary" %>
+  <%= link_to 'Jolly button', jolly_path, id: "jolly_button", class: "btn btn-primary" %>
 </div>
