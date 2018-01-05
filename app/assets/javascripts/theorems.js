@@ -65,3 +65,22 @@ $(function() {
     e.preventDefault();
   })
 })
+
+$(function() {
+  $("#nested_theorem_form").on("click", function(e) {
+    btn = $(this);
+
+    $.ajax({
+      type: "GET",
+      url: this.href,
+      cache: false,
+      data: $(this).serialize(),
+      success: function(data) {
+        $("#form_for_theorem").html(data);
+        $('#form_for_theorem').toggle();
+      }
+    });
+
+    e.preventDefault();
+  })
+})

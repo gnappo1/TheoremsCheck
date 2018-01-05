@@ -4,7 +4,7 @@
       <h3><%= link_to s.full_name, s %></h3><br>
     <% end %>
   <% else %>
-    <h3>Currently no scientists have been created today. Be the first today to <%= link_to "create", new_scientist_path %> a new one!</h3>
+    <h3>Currently no scientists have been created today. Be the first today to <%= link_to "A new one", scientists_path %>!</h3>
   <% end %>
 </div>
 <div id="right">
@@ -13,6 +13,6 @@
       <h3><%= link_to t.name, t %></h3><br>
     <% end %>
   <% else %>
-    <h3>Currently no theorems have been created today. Be the first today to <%= link_to "create", new_theorem_path %> a new one!</h3>
+    <h3>Currently no theorems have been created today. Be the first today to <%= link_to "A new one", theorems_path %>!</h3>
   <% end %>
 </div>

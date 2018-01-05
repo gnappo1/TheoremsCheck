@@ -7,6 +7,7 @@ class QuotesController < ApplicationController
   def index
     if set_scientist
       @quotes = @scientist.quotes.order(scientist_id: :desc)
+      render :template => "quotes/_quotes_display", layout: false
     else
       @quotes = Quote.all.order(scientist_id: :desc)
     end
@@ -23,9 +24,15 @@ class QuotesController < ApplicationController
   def create
     @quote = @scientist.quotes.build(quote_params)
     if @quote.save
-      redirect_to @scientist, notice: 'Quote was successfully created.'
+      respond_to do |format|
+        format.js   {render :layout => false}
+        format.html {redirect_to @quote, notice: 'Quote was successfully created.'}
+      end
     else
-      render 'new'
+      respond_to do |format|
+        format.html { render 'new', notice: @quote.errors.full_messages.first }
+        format.js   { render json: @quote.errors}
+      end
     end
   end
 

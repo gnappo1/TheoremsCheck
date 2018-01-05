@@ -9,6 +9,7 @@ class TheoremsController < ApplicationController
       @theorems = Theorem.search(params[:search]).order(name: :desc)
     elsif set_scientist
       @theorems = @scientist.theorems.sort { |a,b| a.name.downcase <=> b.name.downcase }
+      render :template => "theorems/_theorems_display", layout: false
     else
       @theorems = Theorem.order(name: :desc)
     end
@@ -17,7 +18,7 @@ class TheoremsController < ApplicationController
   def show
     respond_to do |format|
       format.html { render :show }
-      format.json { render json: @post.to_json }
+      format.js { }
     end
   end
 
@@ -40,7 +41,7 @@ class TheoremsController < ApplicationController
     end
     if @theorem.save
       respond_to do |format|
-        format.js   {render :layout => false, notice: 'Theorem was successfully created.'}
+        format.js   {render :layout => false}
         format.html {redirect_to @theorem, notice: 'Theorem was successfully created.'}
       end
     else

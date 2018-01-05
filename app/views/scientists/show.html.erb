@@ -14,21 +14,17 @@
 <br><br><br><br>
 
 
-<div class="frame">
-  <div class="scientist-theorems">
-    <%= render partial: 'scientist_quotes', locals: {scientist: @scientist} %><br>
-  </div>
+<div class="scientist-buttons">
+  <%= link_to "Quotes", scientist_quotes_path(@scientist), class: "btn btn-primary", id: "index_quote"%>
+  <%= link_to "New Quote", new_scientist_quote_path(@scientist, @quote), class: "btn btn-primary", id: "new_quote_form"%>
+  <%= link_to "All theorems", scientist_theorems_path(@scientist), class: "btn btn-primary", id: "index_theorems"%>
+  <%= link_to "New Theorem", new_scientist_theorem_path(@scientist, @theorem), class: "btn btn-primary", id: "nested_theorem_form"%>
 </div>
 
-<br><br>
+<div id="quotes_by_scientist"></div>
 
-<%= link_to "New Quote", new_scientist_quote_path(@scientist, @quote), class: "btn btn-primary", id: "new_quote_form"%>
+<div id="form_for_quote"></div>
 
-<div id="form_div"></div>
+<div id="theorems_by_scientist"></div>
 
-
-<%= render partial: 'scientist_page', locals: {scientist: @scientist} %><br>
-
-<%= link_to "New Theorem", new_scientist_theorem_path(@scientist, @theorem), class: "btn btn-primary", id: "nested_theorem_form"%>
-
-<div id="form_theorem_div"></div>
+<div id="form_for_theorem"></div>

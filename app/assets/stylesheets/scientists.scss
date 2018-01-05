@@ -52,7 +52,14 @@ input[type=text] {
   padding: 5px;
 }
 
-.scientist-theorems {
+#search-form #button {
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.scientist-theorems, .scientist-quotes {
   border: 3px solid black ;
   width: 100%;
   background-color: white;
@@ -62,6 +69,15 @@ input[type=text] {
 }
 
 .frame-too {
+  border: 5px solid black ;
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 10px;
+  background-color: #00FE7F;
+}
+
+.scientist-buttons {
   border: 5px solid black ;
   width: 60%;
   margin-right: auto;
@@ -95,10 +111,19 @@ a.button.btn-default, input#button.btn.btn-primary,  #button-center {
   text-align: center;
 }
 
- #new_scientist_form, #index_quote, #index_theorems {
+ #new_scientist_form {
   display: flex;
   margin-right: auto;
   margin-left: auto;
   width: 110px;
   text-align: center;
+}
+
+.scientist-buttons #index_quote, #index_theorems, #new_quote_form, #nested_theorem_form {
+ display: inline-block;
+ margin-right: auto;
+ margin-left: auto;
+ width: 110px;
+ text-align: center;
+ position: relative;
 }
