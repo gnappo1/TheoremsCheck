@@ -1,8 +1,11 @@
-<li class="subject" id="subject-<%= s.id%>"><h3><%= link_to s.name, s %></h3>
+<div class="subject" id="subject-<%= s.id%>"><h3><%= link_to s.name, s %></h3>
   <div class="admin-info">
     <% if current_user.admin? %>
       <strong><p>Created by: <%= link_to s.created_by, user_by_email(s.created_by) %></p></strong>
-      <strong><%= link_to "Edit", edit_subject_path(s), class: "btn btn-primary btn-xs" %>  <%= button_to "Destroy", s, class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong></strong>
+      <div id="edit-<%= s.id%>" style="display: inline;"><strong><%= link_to "Edit", edit_subject_path(s), class: "btn btn-primary btn-xs", id: "edit-button"%></strong></div>
+      <div id="delete-<%= s.id%>" style="display: inline;"><strong><%= button_to "Destroy", s, class: "btn btn-danger btn-xs", id: "delete", method: :delete, data: {confirm: "Are you sure?"} %></strong></div>
+      <div id="edit-subject-<%= s.id%>-div"></div>
     <% end %>
   </div>
-</li>
+</div>
+<div id="line" style="margin-right:auto; margin-left:auto;"></div>

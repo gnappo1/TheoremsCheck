@@ -82,3 +82,21 @@ $(function() {
     e.preventDefault();
   })
 })
+
+$(function() {
+  $("#edit-theorem-button").on("click", function(e) {
+
+    $.ajax({
+      type: "GET",
+      url: this.href,
+      cache: false,
+      data: $(this).serialize(),
+      success: function(data) {
+        $("div.edit_form").html(data);
+        $('div.edit_form').toggle();
+      }
+    });
+
+    e.preventDefault();
+  })
+})

@@ -7,6 +7,7 @@ end
 
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'pry'
+gem 'handlebars_assets'
 gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -24,6 +24,10 @@ class SubjectsController < ApplicationController
   end
 
   def edit
+    respond_to do |format|
+      format.html { redirect_to edit_subject_path(@subject) }
+      format.js   { render :layout => false }
+    end
   end
 
   def update
@@ -39,7 +43,11 @@ class SubjectsController < ApplicationController
     @subject.theorems.each{|t| t.destroy}
     @subject.corollaries.each{|c| c.destroy}
     @subject.destroy
-    redirect_to subjects_path
+    respond_to do |format|
+      format.html { redirect_to subjects_path }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
   end
 
   private

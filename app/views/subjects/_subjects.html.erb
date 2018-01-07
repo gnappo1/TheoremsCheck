@@ -1,6 +1,6 @@
 <div class="frame">
   <div class="subjects">
-    <ul class="subjects-list">
+    <ul class="subjects-list" style="text-align: center;">
       <% @subjects.each do |s| %>
         <%= render partial: 'subject', locals: {s: s} %>
       <% end %>

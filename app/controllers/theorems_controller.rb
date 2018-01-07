@@ -16,10 +16,6 @@ class TheoremsController < ApplicationController
   end
 
   def show
-    respond_to do |format|
-      format.html { render :show }
-      format.js { }
-    end
   end
 
   def new
@@ -53,6 +49,7 @@ class TheoremsController < ApplicationController
   end
 
   def edit
+    render layout: false
   end
 
   def update
