@@ -39,6 +39,10 @@ class ScientistsController < ApplicationController
   end
 
   def edit
+    respond_to do |format|
+      format.html { redirect_to edit_scientist_path(@scientist) }
+      format.js   { render :layout => false }
+    end
   end
 
   def update
