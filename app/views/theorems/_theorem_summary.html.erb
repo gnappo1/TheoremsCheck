@@ -2,8 +2,8 @@
 <div class="theorem-statement"><%= truncate theorem.statement %></div>
 <% if current_user.admin? %>
   <strong><p>Created by: <%= link_to theorem.created_by, user_by_email(theorem.created_by) %></p></strong>
-  <div id="edit-<%= theorem.id%>" style="display: inline;"><strong><%= link_to "Edit", edit_theorem_path(theorem), class: "btn btn-primary btn-xs", id: "edit-button" %>
-  <div id="delete-<%= theorem.id%>" style="display: inline;"><strong><%= button_to "Destroy", theorem_path(theorem), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong>
+  <div id="edit-<%= theorem.id%>" style="display: inline;"><strong><%= link_to "Edit", edit_theorem_path(theorem), class: "btn btn-primary btn-xs", id: "edit-button" %></strong></div>
+  <div id="delete-<%= theorem.id%>" style="display: inline;"><strong><%= button_to "Destroy", theorem_path(theorem), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong></div>
   <div id="edit-theorem-<%= theorem.id%>-div"></div>
 <% end %>
 <div id="line" style="margin-right:auto; margin-left:auto;"></div>

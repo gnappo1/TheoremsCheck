@@ -1,9 +1,11 @@
-<h4 style="text-align: center;"><%= link_to (truncate @quote.text), scientist_quote_path(@quote.scientist, @quote) %></h4>
-<div style="text-align: center;"><strong>By: <%= link_to @quote.scientist.full_name, @quote.scientist %></strong></div>
+<div class="quote" id="quote-<%= q.id%>"></div><h4 style="text-align: center;"><%= link_to (truncate q.text), scientist_quote_path(q.scientist, q) %></h4>
+<div style="text-align: center;"><strong>By: <%= link_to q.scientist.full_name, q.scientist %></strong></div>
 <div class="admin-info" style="text-align: center;">
   <% if current_user.admin? %>
-    <strong><p>Created by: <%= link_to @quote.created_by, user_by_email(@quote.created_by) %></p></strong>
-    <strong><%= link_to "Edit", edit_scientist_quote_path(@quote.scientist, @quote), class: "btn btn-primary btn-xs" %>  <%= button_to "Destroy", [@quote.scientist, @quote], class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong>
+    <strong><p>Created by: <%= link_to q.created_by, user_by_email(q.created_by) %></p></strong>
+    <div id="edit-<%= q.id%>" style="display: inline;"><strong><%= link_to "Edit", edit_scientist_quote_path(q.scientist, q), class: "btn btn-primary btn-xs", id: "edit-button" %></strong></div>
+    <div id="delete-<%= q.id%>" style="display: inline;"><strong><%= button_to "Destroy", [q.scientist, q], class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong></div>
+    <div id="edit-quote-<%= q.id%>-div"></div>
   <% end %>
 </div>
 <div id="line" style="margin-right:auto; margin-left:auto;"></div>

@@ -1,7 +1,7 @@
 class QuotesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_quote, only: [:show, :edit, :update, :destroy, :save_quote, :unsave_quote]
-  before_action :set_scientist, only: [:new, :create, :destroy]
+  before_action :set_scientist, only: [:new, :create, :edit, :destroy]
   before_action :check_admin, only: [:edit, :destroy]
 
   def index
@@ -37,6 +37,10 @@ class QuotesController < ApplicationController
   end
 
   def edit
+    respond_to do |format|
+      format.html { redirect_to edit_quote_path(@quote) }
+      format.js   { render :layout => false }
+    end
   end
 
   def update
