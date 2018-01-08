@@ -19,6 +19,10 @@ class AreasController < ApplicationController
   end
 
   def edit
+    respond_to do |format|
+      format.html { redirect_to edit_subject_area_path(@subject, @area) }
+      format.js   { render :layout => false }
+    end
   end
 
   def update

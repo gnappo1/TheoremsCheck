@@ -1,8 +1,10 @@
-<h3><%= link_to a.name, subject_area_path(a.subject, a) %></h3><br>
+<div class="area" id="area-<%= a.id%>"></div><h3><%= link_to a.name, subject_area_path(a.subject, a) %></h3><br>
 <div class="admin-info">
   <% if current_user.admin? %>
     <strong><p>Created by: <%= link_to a.created_by, user_by_email(a.created_by) %></p></strong>
-    <strong><%= link_to "Edit", edit_subject_area_path(a.subject, a), class: "btn btn-primary btn-xs" %>  <%= button_to "Destroy", subject_area_path(a.subject, a), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong>
+    <div id="edit-<%= a.id%>" style="display: inline;"><strong><%= link_to "Edit", edit_subject_area_path(a.subject, a), class: "btn btn-primary btn-xs", id: "edit-button" %></strong></div>
+    <div id="delete-<%= a.id%>" style="display: inline;"><strong><%= button_to "Destroy", subject_area_path(a.subject, a), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong></div>
+    <div id="edit-area-<%= a.id%>-div"></div>
   <% end %>
 </div>
 <div id="line" style="margin-right:auto; margin-left:auto;"></div>
