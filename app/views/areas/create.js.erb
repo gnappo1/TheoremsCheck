@@ -1,4 +1,8 @@
 var html = "<%= j render 'subjects/area', a: @area %>"
-var $ul = $("div#areas ul")
-$ul.append(html)
-$('#area_name').val('');
+if (document.getElementById("empty-list")) {
+  $('h3#empty-list').replaceWith(html)
+  $('#area_name').val('');
+} else {
+  $("div#areas ul").append(html)
+  $('#area_name').val('');
+}
