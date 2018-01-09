@@ -13,22 +13,6 @@ $(function() {
   })
 })
 
-$(function() {
-  $("input#delete").on("click", function(e) {
-
-    $.ajax({
-      type: ($("input[name='_method']").val() || this.method),
-      url: this.action,
-      data: $(this).serialize(),
-      dataType: 'script',
-      success: function(response) {
-        debugger
-      }
-    });
-
-    e.preventDefault();
-  })
-})
 
 $(function() {
   $(document).on("click", "#edit-button", function(e) {
@@ -36,6 +20,20 @@ $(function() {
     $.ajax({
       type: "GET",
       url: this.href,
+      data: $(this).serialize(),
+      dataType: 'script'
+    });
+
+    e.preventDefault();
+  })
+})
+
+$(function() {
+  $(document).on("submit", "form#edit_subject_82", function(e) {
+
+    $.ajax({
+      type: 'patch',
+      url: this.action,
       data: $(this).serialize(),
       dataType: 'script'
     });

@@ -1,4 +1,4 @@
-<div class="quote" id="quote-<%= q.id%>"></div><h4 style="text-align: center;"><%= link_to (truncate q.text), scientist_quote_path(q.scientist, q) %></h4>
+<h4 style="text-align: center;"><%= link_to (truncate q.text), scientist_quote_path(q.scientist, q) %></h4>
 <div style="text-align: center;"><strong>By: <%= link_to q.scientist.full_name, q.scientist %></strong></div>
 <div class="admin-info" style="text-align: center;">
   <% if current_user.admin? %>

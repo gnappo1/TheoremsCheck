@@ -26,3 +26,18 @@ $(function() {
     e.preventDefault();
   })
 })
+
+$(function() {
+  $(document).on("submit", "form#edit_area_65", function(e) {
+
+    $.ajax({
+      type: 'patch',
+      url: this.action,
+      data: $(this).serialize(),
+      dataType: 'script'
+    });
+
+    debugger
+    e.preventDefault();
+  })
+})

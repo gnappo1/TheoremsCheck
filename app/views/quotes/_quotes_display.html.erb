@@ -3,7 +3,9 @@
     <% if !@quotes.empty? %>
       <ul>
         <% @quotes.each do |q| %>
-          <%= render partial: 'quotes/quote_summary', locals: {q: q} %>
+          <div class="quote" id="quote-section">
+            <%= render partial: 'quotes/quote_summary', locals: {q: q} %>
+          </div>
         <% end %>
       </ul>
     <% else %>

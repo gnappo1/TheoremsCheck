@@ -27,9 +27,15 @@ class AreasController < ApplicationController
 
   def update
     if @area.update(area_params)
-      redirect_to subject_area_path(@area.subject, @area), notice: 'Area was successfully updated!'
+      respond_to do |format|
+        format.html { redirect_to subject_area_path(@area.subject, @area), notice: 'Area was successfully updated!'}
+        format.js   { render :layout => false }
+      end
     else
-      render 'edit', notice: 'Oops!'
+      respond_to do |format|
+        format.html { render 'edit', notice: 'Oops!' }
+        format.js   {}
+      end
     end
   end
 

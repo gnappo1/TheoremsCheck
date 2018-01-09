@@ -1,4 +1,4 @@
-<div class="subject" id="subject-<%= s.id%>"></div><h3><%= link_to s.name, s %></h3>
+<h3><%= link_to s.name, s %></h3>
 <div class="admin-info">
   <% if current_user.admin? %>
     <strong><p>Created by: <%= link_to s.created_by, user_by_email(s.created_by) %></p></strong>

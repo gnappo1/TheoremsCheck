@@ -45,9 +45,15 @@ class QuotesController < ApplicationController
 
   def update
     if @quote.update(quote_params)
-      redirect_to @quote, notice: 'Quote was successfully updated!'
+      respond_to do |format|
+        format.html { redirect_to @quote, notice: 'Quote was successfully updated!' }
+        format.js { render layout: false }
+      end
     else
-      render 'edit'
+      respond_to do |format|
+        format.html { render 'edit'}
+        format.js {}
+      end
     end
   end
 
