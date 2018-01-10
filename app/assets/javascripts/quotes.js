@@ -25,3 +25,17 @@ $(function() {
     e.preventDefault();
   })
 })
+
+$(function() {
+  $(document).on("submit", "form.button_to", function(e) {
+
+    $.ajax({
+      type: 'delete',
+      url: this.action,
+      data: $(this).serialize(),
+      dataType: 'script'
+    });
+
+    e.preventDefault();
+  })
+})

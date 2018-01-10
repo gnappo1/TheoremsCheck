@@ -59,7 +59,10 @@ class QuotesController < ApplicationController
 
   def destroy
     @quote.destroy
-    redirect_to @scientist
+    respond_to do |format|
+      format.html { redirect_to @scientist, notice: 'Quote was successfully deleted!' }
+      format.js   { render :layout => false }
+    end
   end
 
   def save_quote
