@@ -8,21 +8,20 @@ $(function() {
       dataType: 'script'
     });
 
-    debugger
     e.preventDefault();
   })
 })
 
 $(function() {
-  $(document).on("submit", "#edit_quote_5", function(e) {
+  $(document).on("submit", ".form-horizontal", function(e) {
     debugger
+
     $.ajax({
-      type: ($("input[name='_method']").val() || this.method),
+      type: 'patch',
       url: this.href,
       data: $(this).serialize(),
       dataType: 'script'
     });
-
     e.preventDefault();
   })
 })

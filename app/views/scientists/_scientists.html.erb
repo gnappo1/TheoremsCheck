@@ -3,7 +3,9 @@
     <ul>
       <% if !@scientists.empty? %>
         <% @scientists.each do |s| %>
-          <%= render partial: 'scientist_summary', locals: {scientist: s} %>
+          <div class="scientist" id="scientist-<%= s.id%>">
+            <%= render partial: 'scientist_summary', locals: {scientist: s} %>
+          </div>
         <% end %>
       <% else %>
         <h3>Currently there are no scientists to show</h3>

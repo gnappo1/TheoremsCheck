@@ -3,7 +3,9 @@
 
     <ul>
       <% @theorems.each do |t| %>
-       <%= render partial: 'theorem_summary', locals: {theorem: t } %><br>
+        <div class="theorem" id="theorem-<%= t.id%>">
+          <%= render partial: 'theorem_summary', locals: {theorem: t } %><br>
+        </div>
       <% end %>
     </ul>
 

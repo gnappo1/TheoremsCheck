@@ -54,9 +54,15 @@ class TheoremsController < ApplicationController
 
   def update
     if @theorem.update(theorem_params)
-      redirect_to @theorem, notice: 'Theorem was successfully updated!'
+      respond_to do |format|
+        format.html { redirect_to @theorem, notice: 'Theorem was successfully updated!'}
+        format.js   { render :layout => false }
+      end
     else
-      render 'edit', notice: 'Oops!'
+      respond_to do |format|
+        format.html { render 'edit', notice: 'Oops!' }
+        format.js   {}
+      end
     end
   end
 
