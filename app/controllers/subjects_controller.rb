@@ -50,8 +50,7 @@ class SubjectsController < ApplicationController
     @subject.corollaries.each{|c| c.destroy}
     @subject.destroy
     respond_to do |format|
-      format.html { redirect_to subjects_path }
-      format.json { head :no_content }
+      format.html { redirect_to subjects_path, notice: 'Subject was successfully deleted!' }
       format.js   { render :layout => false }
     end
   end
