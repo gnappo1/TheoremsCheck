@@ -64,7 +64,10 @@ class ScientistsController < ApplicationController
     @scientist.corollaries.each{|c| c.destroy}
     @scientist.quotes.each{ |q| q.destroy }
     @scientist.destroy
-    redirect_to scientists_path
+    respond_to do |format|
+      format.html { redirect_to scientists_path, notice: 'Scientist was successfully deleted!' }
+      format.js   { render :layout => false }
+    end
   end
 
   def save_scientist
