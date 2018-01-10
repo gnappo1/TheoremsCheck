@@ -132,7 +132,7 @@ $(function() {
       data: $(this).serialize(),
       dataType: 'script'
     });
-    debugger
+
     e.preventDefault();
   })
 })

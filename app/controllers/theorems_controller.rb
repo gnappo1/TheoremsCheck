@@ -69,7 +69,10 @@ class TheoremsController < ApplicationController
   def destroy
     @theorem.corollaries.each{|c| c.destroy}
     @theorem.destroy
-    redirect_to theorems_path
+    respond_to do |format|
+      format.html { redirect_to theorems_path, notice: 'Theorem was successfully deleted!' }
+      format.js   { render :layout => false }
+    end
   end
 
   def save_theorem
