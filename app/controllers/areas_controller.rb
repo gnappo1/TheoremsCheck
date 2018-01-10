@@ -43,7 +43,10 @@ class AreasController < ApplicationController
     @area.theorems.each{|t| t.destroy}
     @area.corollaries.each{|c| c.destroy}
     @area.destroy
-    redirect_to @subject
+    respond_to do |format|
+      format.html { redirect_to @subject, notice: 'Area was successfully deleted!' }
+      format.js   { render :layout => false }
+    end
   end
 
   private
