@@ -12,6 +12,11 @@ module ApplicationHelper
     @user = User.find_by(email: email)
   end
 
+  def id_user_by_email(email)
+    @user = User.find_by(email: email)
+    @id = @user.id
+  end
+
   def save(resource)
     str = "save_"
     return str + resource.class.name.downcase

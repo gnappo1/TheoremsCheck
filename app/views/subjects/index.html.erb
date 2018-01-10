@@ -13,18 +13,23 @@
   </div>
 </div>
 
-<script id="subject-template" type="text/x-handlebars-template">
-  <li class="subject" id="subject-{{id}}">
-    <h3><a href="/subjects/{{id}}"></a></h3>
-    <div class="admin-info"></div>
-  </li>
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 
-<script id="entry-template" type="text/x-handlebars-template">
-  <div class="entry">
-    <h1>{{title}}</h1>
-    <div class="body">
-      {{body}}
+<script id="subject-template" type="text/x-handlebars-template">
+
+  <div class="subject" id="subject-{{id}}">
+    <h3><a href="/subjects/{{id}}">{{name}}</a></h3>
+    <div class="admin-info">
+        <strong><p>Created by: <a href="/users/<%= user_by_email(@subject.created_by) %>/">{{created_by}}</a></p></strong>
+        <div id="edit-{{id}}" style="display: inline;"><strong><a class="btn btn-primary btn-xs" id="edit-button" href="/subjects/{{id}}/edit">Edit</a></strong></div>
+        <div id="delete-{{id}}" style="display: inline;"><strong><form class="button_to" method="post" action="/subjects/{{id}}/">
+          <input type="hidden" name="_method" value="delete">
+          <input class="btn btn-danger btn-xs" id="delete" data-confirm="Are you sure?" type="submit" value="Destroy">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        </form></strong></div>
+        <div id="edit-subject-{{id}}-div"></div>
     </div>
+    <div id="line" style="margin-right:auto; margin-left:auto;"></div>
+
   </div>
 </script>

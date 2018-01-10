@@ -18,7 +18,8 @@ class SubjectsController < ApplicationController
     @subject = Subject.new(subject_params)
     if @subject.save
       respond_to do |format|
-        format.js {}
+        format.html {redirect_to @subject, notice: "Subject was successfully created!"}
+        format.json {render json: @subject}
       end
     end
   end
