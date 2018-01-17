@@ -27,12 +27,12 @@ Rails.application.routes.draw do
   post '/scientists/:id/unsave_scientist' => 'scientists#unsave_scientist', :as => :unsave_scientist
   post '/scientists/:id/save_scientist' => 'scientists#save_scientist', :as => :save_scientist
   get '/top_3' => 'welcome#top_3', :as => :top_3
-  post '/theorems/:id/unsave_theorem' => 'theorems#unsave_theorem', :as => :unsave_theorem
-  post '/theorems/:id/save_theorem' => 'theorems#save_theorem', :as => :save_theorem
+  get '/theorems/:id/unsave_theorem' => 'theorems#unsave_theorem', :as => :unsave_theorem
+  get '/theorems/:id/save_theorem' => 'theorems#save_theorem', :as => :save_theorem
 
   devise_for :users, :controllers => { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :users, only: [:index, :show, :destroy]
-  post '/users/:id/make_admin' => 'users#make_admin'
+  get '/users/:id/make_admin' => 'users#make_admin'
   get '/users/:id/areas_created' => 'users#areas_created'
   get '/users/:id/subjects_created' => 'users#subjects_created'
   get '/users/:id/theorems_created' => 'users#theorems_created'

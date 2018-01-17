@@ -1,2 +1,6 @@
-$("#edit-subject-<%= @subject.id%>-div").html("<%= j render 'subjects/form', subject: @subject %>");
-$("#edit-subject-<%= @subject.id%>-div").toggle();
+$('body').off('click');
+if( $("#edit-subject-<%= @subject.id%>-div").children().length == 0 ) {
+ $("#edit-subject-<%= @subject.id%>-div").html("<%= j render 'subjects/form', subject: @subject %>");
+} else {
+  $("#edit-subject-<%= @subject.id%>-div").toggle();
+}

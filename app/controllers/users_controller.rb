@@ -17,8 +17,11 @@ class UsersController < ApplicationController
   end
 
   def make_admin
-    admin!
-    redirect_to @user, success: "Successfully changed into admin!"
+    if admin!
+      redirect_to @user, success: "Successfully changed into admin!"
+    else
+      redirect_to @user, notice: "Oops!"
+    end
   end
 
   def areas_created

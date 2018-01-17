@@ -1,4 +1,5 @@
 $(document).off('submit');
+
 $(function() {
   $("#new_area").on("submit", function(e) {
 
@@ -14,7 +15,7 @@ $(function() {
 })
 
 $(function() {
-  $(document).on("click", "#edit-button", function(e) {
+  $('body').on("click", "#edit-button", function(e) {
 
     $.ajax({
       type: "GET",

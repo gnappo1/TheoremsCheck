@@ -18,8 +18,8 @@ class SubjectsController < ApplicationController
     @subject = Subject.new(subject_params)
     if @subject.save
       respond_to do |format|
-        format.html {redirect_to @subject, notice: "Subject was successfully created!"}
         format.json {render json: @subject}
+        format.html {redirect_to @subject, notice: "Subject was successfully created!"}
       end
     end
   end
@@ -46,13 +46,14 @@ class SubjectsController < ApplicationController
   end
 
   def destroy
-    @subject.areas.each{|a| a.destroy}
-    @subject.theorems.each{|t| t.destroy}
-    @subject.corollaries.each{|c| c.destroy}
-    @subject.destroy
-    respond_to do |format|
-      format.html { redirect_to subjects_path, notice: 'Subject was successfully deleted!' }
-      format.js   { render :layout => false }
+    if @subject.destroy
+      @subject.areas.each{|a| a.destroy}
+      @subject.theorems.each{|t| t.destroy}
+      @subject.corollaries.each{|c| c.destroy}
+      respond_to do |format|
+        format.html { redirect_to subjects_path, notice: 'Subject was successfully deleted!' }
+        format.js   { render :layout => false }
+      end
     end
   end
 

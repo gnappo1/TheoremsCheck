@@ -1,5 +1,7 @@
-//creates new subject instance with handlebars templates and delegates responsabilities to specific functions eg. 'success', 'error', 'formSubmit'
+$(document).off('submit');
+$('body').off('click');
 
+//create new subject instance with handlebars templates and delegates responsabilities to specific functions eg. 'success', 'error', 'formSubmit'
 //set the properties of the newly instanciated JSON object
 function Subject(attributes) {
   this.name = attributes.name;
@@ -53,7 +55,7 @@ $(function() {
 
 // loads with AJAX the edit form
 $(function() {
-  $(document).on("click", "#edit-button", function(e) {
+  $('body').on("click", "#edit-button", function(e) {
 
     $.ajax({
       type: "GET",
@@ -83,7 +85,7 @@ $(function() {
 
 //deletes with AJAX a specific resource of the list on 'submit'
 $(function() {
-  $(document).on("submit", "form.button_to", function(e) {
+  $('body').off().on("submit", "form.button_to", function(e) {
 
     $.ajax({
       type: 'delete',
