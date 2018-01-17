@@ -43,7 +43,7 @@ $(function() {
 })
 
 $(function() {
-  $(document).off().on("submit", "form.button_to", function(e) {
+  $(document).on("submit", "form.button_to", function(e) {
 
     $.ajax({
       type: 'delete',

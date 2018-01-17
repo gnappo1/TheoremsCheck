@@ -1,2 +1,6 @@
-$("#edit-scientist-<%= @scientist.id%>-div").html("<%= j render 'scientists/form', scientist: @scientist %>");
-$("#edit-scientist-<%= @scientist.id%>-div").toggle();
+$('body').off('click');
+if( $("#edit-scientist-<%= @scientist.id%>-div").children().length == 0 ) {
+  $("#edit-scientist-<%= @scientist.id%>-div").html("<%= j render 'scientists/form', scientist: @scientist %>");
+} else {
+  $("#edit-scientist-<%= @scientist.id%>-div").toggle();
+}
