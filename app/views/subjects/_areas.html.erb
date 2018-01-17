@@ -4,9 +4,7 @@
       <ul>
         <% @subject.areas.each do |a| %>
           <% if a.id %>
-            <div class="area" id="area-<%= a.id%>">
-              <%= render partial: 'area', locals: {a: a} %>
-            </div>
+            <%= render partial: 'area', locals: {a: a} %>
           <% end %>
         <% end %>
       </ul>

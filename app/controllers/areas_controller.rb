@@ -13,6 +13,7 @@ class AreasController < ApplicationController
     @area.created_by = current_user.email
     if @area.save
       respond_to do |format|
+        format.html { redirect_to subject_path(@subject), notice: 'Area was successfully created!' }
         format.js  {}
       end
     end

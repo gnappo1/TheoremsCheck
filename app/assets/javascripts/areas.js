@@ -1,4 +1,3 @@
-$(document).off('submit');
 
 $(function() {
   $("#new_area").on("submit", function(e) {
@@ -44,7 +43,7 @@ $(function() {
 })
 
 $(function() {
-  $(document).on("submit", "form.button_to", function(e) {
+  $(document).off().on("submit", "form.button_to", function(e) {
 
     $.ajax({
       type: 'delete',
