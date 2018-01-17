@@ -1,2 +1,6 @@
-$("#edit-theorem-<%= @theorem.id%>-div").html("<%= j render 'theorems/form', theorem: @theorem %>");
-$("#edit-theorem-<%= @theorem.id%>-div").toggle();
+$('body').off('click');
+if( $("#edit-theorem-<%= @theorem.id%>-div").children().length == 0 ) {
+  $("#edit-theorem-<%= @theorem.id%>-div").html("<%= j render 'theorems/form', theorem: @theorem %>");
+} else {
+  $("#edit-theorem-<%= @theorem.id%>-div").toggle();
+}

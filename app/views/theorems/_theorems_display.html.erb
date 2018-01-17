@@ -2,10 +2,12 @@
   <div class="all-theorems">
 
     <ul>
-      <% @theorems.each do |t| %>
-        <div class="theorem" id="theorem-<%= t.id%>">
+      <% if !@theorems.empty? %>
+        <% @theorems.each do |t| %>
           <%= render partial: 'theorem_summary', locals: {theorem: t } %><br>
-        </div>
+        <% end %>
+      <% else %>
+        <h3 id="empty-space">Currently there are no theorems to show</h3>
       <% end %>
     </ul>
 
