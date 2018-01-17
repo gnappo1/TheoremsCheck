@@ -3,13 +3,11 @@
     <% if !@quotes.empty? %>
       <ul>
         <% @quotes.each do |q| %>
-          <div class="quote" id="quote-<%= q.id%>">
-            <%= render partial: 'quotes/quote_summary', locals: {q: q} %>
-          </div>
+          <%= render partial: 'quotes/quote_summary', locals: {q: q} %>
         <% end %>
       </ul>
     <% else %>
-      <h3>Currently there are no quotes to show</h3>
+      <h3 id="empty">Currently there are no quotes to show</h3>
     <% end %>
   </div>
 </div>

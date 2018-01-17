@@ -1,2 +1,6 @@
-$("#edit-quote-<%= @quote.id%>-div").html("<%= j render 'quotes/form', quote: @quote %>");
-$("#edit-quote-<%= @quote.id%>-div").toggle();
+$('body').off('click');
+if( $("#edit-quote-<%= @quote.id%>-div").children().length == 0 ) {
+  $("#edit-quote-<%= @quote.id%>-div").html("<%= j render 'scientists/form', scientist: @scientist %>");
+} else {
+  $("#edit-quote-<%= @quote.id%>-div").toggle();
+}

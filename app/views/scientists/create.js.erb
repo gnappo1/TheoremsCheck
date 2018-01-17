@@ -1,2 +1,8 @@
-$(".scientists ul").append("<%= j render 'scientists/scientist_summary', scientist: @scientist %>")
-$('#form_div').hide();
+var html = "<%= j render 'scientists/scientist_summary', scientist: @scientist %>"
+if (document.getElementById("empty-list")) {
+  $('h3#empty_list').replaceWith(html)
+  $('#form_div').hide();
+} else {
+  $(".scientists ul").append(html)
+  $('#form_div').hide();
+}

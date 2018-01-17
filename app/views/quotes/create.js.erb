@@ -1,2 +1,8 @@
-$("div.all-quotes ul").append("<%= j render 'quotes/quote_summary', quote: @quote %>")
-$('#form_for_quote').hide();
+var html = "<%= j render 'quotes/quote_summary', q: @quote %>"
+if (document.getElementById("empty")) {
+  $('h3#empty').replaceWith(html)
+  $('#form_for_quote').hide();
+} else {
+  $("div.all-quotes ul").append(html)
+  $('#form_for_quote').hide();
+}
