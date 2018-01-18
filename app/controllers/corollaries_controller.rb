@@ -31,13 +31,16 @@ class CorollariesController < ApplicationController
     else
       respond_to do |format|
         format.html { render 'new', notice: @corollary.errors.full_messages.first }
-        format.json { render json: @corollary.errors}
         format.js   { render json: @corollary.errors}
       end
     end
   end
 
   def edit
+    respond_to do |format|
+      format.html { redirect_to edit_theorem_corollary_path(@theorem, @corollary) }
+      format.js   { render :layout => false }
+    end
   end
 
   def update
@@ -50,7 +53,10 @@ class CorollariesController < ApplicationController
 
   def destroy
     @corollary.destroy
-    redirect_to theorem_corollaries_path(@theorem)
+    respond_to do |format|
+      format.html { redirect_to theorem_corollaries_path(@theorem), notice: 'Corollary was successfully deleted!' }
+      format.js   { render :layout => false }
+    end
   end
 
   private

@@ -1,6 +1,6 @@
-$('body').off('click');
 if( $("#edit-area-<%= @area.id%>-div").children().length == 0 ) {
- $("#edit-area-<%= @area.id%>-div").html("<%= j render 'areas/form', locals: {subject: @subject, area: @area} %>");
+  $("#edit-area-<%= @area.id%>-div").html("<%= j render 'areas/form', locals: {subject: @subject, area: @area} %>");
 } else {
+  $('body').off('click');
   $("#edit-area-<%= @area.id%>-div").toggle();
 }

@@ -13,6 +13,8 @@
 
     <h3>Area: </h3><h4><%= link_to @corollary.area.name, subject_area_path(@corollary.subject, @corollary.area) %></h4><br>
 
-    <h3>Added by: </h3><h4><%= link_to @corollary.created_by, user_by_email(@corollary.created_by) %></h3>
+    <% if current_user.admin? %>
+      <h3>Added by: </h3><h4><%= link_to @corollary.created_by, user_by_email(@corollary.created_by) %></h3>
+    <% end %>
   </div>
 </div>

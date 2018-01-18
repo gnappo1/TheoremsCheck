@@ -1,0 +1,6 @@
+if( $("#edit-corollary-<%= @corollary.id%>-div").children().length == 0 ) {
+  $("#edit-corollary-<%= @corollary.id%>-div").html("<%= j render 'corollaries/form', locals: {corollary: @corollary} %>");
+} else {
+  $('body').off('click');
+  $("#edit-corollary-<%= @corollary.id%>-div").toggle();
+}

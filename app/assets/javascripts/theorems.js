@@ -1,40 +1,4 @@
 $(function() {
-  $("#corollaries_button").on("click", function(e) {
-
-    $.ajax({
-      type: "GET",
-      url: this.href,
-      cache: false,
-      data: $(this).serialize(),
-      success: function(data) {
-        $("#corollaries").html(data);
-        $('#corollaries').toggle();
-      }
-    });
-
-    e.preventDefault();
-  })
-})
-
-$(function() {
-  $("#new_corollary_button").on("click", function(e) {
-
-    $.ajax({
-      type: "GET",
-      url: this.href,
-      cache: false,
-      data: $(this).serialize(),
-      success: function(data) {
-        $("#new_corollary_section").html(data);
-        $('#new_corollary_section').toggle();
-      }
-    });
-
-    e.preventDefault();
-  })
-})
-
-$(function() {
   $(document).off().on("click", "#new_theorem_form_div", function(e) {
     debugger
 
@@ -45,7 +9,7 @@ $(function() {
       data: $(this).serialize(),
       dataType: 'script',
       success: function(data) {
-        $("#form_divs").html(data);
+        $("div#form_divs").html(data);
         $('#form_divs').toggle();
       }
     });

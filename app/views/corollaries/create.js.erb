@@ -1,2 +1,8 @@
-$(".intro ul").append("<%= j render 'corollaries/corollary_summary', corollary: @corollary %>")
-$('#new_corollary_section').hide();
+var html = "<%= j render 'corollaries/corollary_summary', c: @corollary %>"
+if (document.getElementById("empty-list")) {
+  $('h3#empty-list').replaceWith(html)
+  $('#new_corollary_section').hide();
+} else {
+  $(".intro ul").append(html)
+  $('#new_corollary_section').hide();
+}

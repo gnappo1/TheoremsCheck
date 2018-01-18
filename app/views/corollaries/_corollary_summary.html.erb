@@ -1,7 +1,13 @@
-<h3><%= link_to @corollary.name, theorem_corollary_path(@corollary.theorem, @corollary) %></h3><br><br>
-<div class="corollary-statement"><%= truncate @corollary.statement %></div><br>
-<% if current_user.admin? %>
-  <strong><p>Created by: <%= link_to @corollary.created_by, user_by_email(@corollary.created_by) %></p></strong>
-  <strong><%= link_to "Edit", edit_theorem_corollary_path(@corollary.theorem, @corollary), class: "btn btn-primary btn-xs" %>  <%= button_to "Destroy", theorem_corollary_path(@corollary.theorem, @corollary), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong>
-<% end %>
-<div id="line" style="margin-right:auto; margin-left:auto; margin-bottom:5px;"></div>
+<div class="corollary" id="corollary-<%= c.id%>">
+  <h3><%= link_to c.name, theorem_corollary_path(c.theorem, c) %></h3><br><br>
+  <div class="corollary-statement"><%= truncate c.statement %></div><br>
+  <div class="admin-info">
+    <% if current_user.admin? %>
+      <strong><p>Created by: <%= link_to c.created_by, user_by_email(c.created_by) %></p></strong>
+      <div id="edit-<%= c.id%>" style="display: inline;"><strong><%= link_to "Edit", edit_theorem_corollary_path(c.theorem, c), class: "btn btn-primary btn-xs", id: "edit-button" %></strong></div>
+      <div id="delete-<%= c.id%>" style="display: inline;"><strong><%= button_to "Destroy", theorem_corollary_path(c.theorem, c), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: "Are you sure?"} %></strong></div>
+      <div id="edit-corollary-<%= c.id%>-div"></div>
+    <% end %>
+  </div>
+  <div id="line" style="margin-right:auto; margin-left:auto; margin-bottom:5px;"></div>
+</div>
