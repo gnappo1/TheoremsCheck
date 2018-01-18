@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
+  protect_from_forgery except: :jolly
 
   def home
     redirect_to current_user if user_signed_in?
@@ -7,7 +8,7 @@ class WelcomeController < ApplicationController
   def jolly
     @quote = Quote.all.sample
     respond_to do |format|
-      format.js {render "quotes/jolly.js"}
+      format.js {render '/quotes/jolly.js'}
       format.html {render '/quotes/jolly'}
     end
   end

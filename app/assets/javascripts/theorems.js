@@ -35,16 +35,18 @@ $(function() {
 })
 
 $(function() {
-  $("#new_theorem_form").on("click", function(e) {
+  $(document).off().on("click", "#new_theorem_form_div", function(e) {
+    debugger
 
     $.ajax({
-      type: this.method,
+      type: "GET",
       url: this.href,
       cache: false,
       data: $(this).serialize(),
+      dataType: 'script',
       success: function(data) {
-        $("#form_div").html(data);
-        $('#form_div').toggle();
+        $("#form_divs").html(data);
+        $('#form_divs').toggle();
       }
     });
 
