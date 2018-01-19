@@ -1,10 +1,10 @@
 <% if resource_save?(resource) %>
   <div class="save-favorites-button">
-    <%= button_to "Save", :action => save(resource), class: "btn btn-primary" %>
+    <%= link_to "Save", {:action => save(resource)}, class: "favs_green" %>
   </div>
 <% else %>
   <div class="unsave-favorites-button">
-    <%= button_to "Remove from Favorites", :action => unsave(resource), class: "btn btn-primary" %>
+    <%= link_to "Remove from Favorites", {:action => unsave(resource)}, class: "favs_red" %>
   </div>
 <% end %>
 </div>

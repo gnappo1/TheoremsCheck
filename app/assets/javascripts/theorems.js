@@ -1,16 +1,14 @@
 $(function() {
-  $(document).off().on("click", "#new_theorem_form_div", function(e) {
+  $("body").on("click", "#new_theorem_form_div", function(e) {
     debugger
-
     $.ajax({
       type: "GET",
       url: this.href,
       cache: false,
       data: $(this).serialize(),
-      dataType: 'script',
       success: function(data) {
-        $("div#form_divs").html(data);
-        $('#form_divs').toggle();
+        $("#div_for_form").html(data);
+        $('#div_for_form').toggle();
       }
     });
 
