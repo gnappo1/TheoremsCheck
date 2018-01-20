@@ -1,8 +1,9 @@
 var html = "<%= j render 'scientists/scientist_summary', scientist: @scientist %>"
 if (document.getElementById("empty-list")) {
-  $('h3#empty_list').replaceWith(html)
+  $('h3#empty_list').replaceWith(html);
+  $('form#new_scientist').reset();
   $('#form_div').hide();
 } else {
-  $(".scientists ul").append(html)
+  $(".scientists ul").append(html);
   $('#form_div').hide();
 }

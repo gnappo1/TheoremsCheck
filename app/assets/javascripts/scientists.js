@@ -6,10 +6,7 @@ $(function() {
       url: this.href,
       cache: false,
       data: $(this).serialize(),
-      success: function(data) {
-        $("#form_div").html(data);
-        $('#form_div').toggle();
-      }
+      dataType: 'script'
     });
 
     e.preventDefault();
