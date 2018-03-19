@@ -1,0 +1,7 @@
+var html = "<%= j render 'theorems/form', theorem: @theorem %>"
+if ($("#div_for_form").children().length == 0) {
+  $('#div_for_form').append("<div class='frame'><div class='centered'></div></div>")
+  $('.centered').append(html)
+} else {
+  $('#div_for_form').toggle()
+}

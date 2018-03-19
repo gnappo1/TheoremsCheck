@@ -24,7 +24,9 @@ Subject.success = function(json) {
   var subject = new Subject(json);
   var subjectDiv = subject.renderDiv();
   $("ul.subjects-list").append(subjectDiv);
-  $('#subject_name').val('')
+  $('#subject_name').val('');
+  debugger
+  $(".subject_list .subject").sort();
 }
 
 // what to do in case of ajax:error

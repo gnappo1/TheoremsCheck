@@ -14,6 +14,12 @@
       <h3>There are no theorems containing the term(s) "<%= params[:search] %>".</h3>
     </div>
   </div>
+<% else %>
+  <div class="frame">
+    <div id="theorem-info" style="text-align: center;">
+      <h3 id="empty-space">Currently there are no theorems to show</h3>
+    </div>
+  </div>
 <% end %>
 
 <br><br>

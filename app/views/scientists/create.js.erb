@@ -1,5 +1,5 @@
 var html = "<%= j render 'scientists/scientist_summary', scientist: @scientist %>"
-if (document.getElementById("empty-list")) {
+if (document.getElementById("empty_list")) {
   $('h3#empty_list').replaceWith(html);
   $('form#new_scientist').reset();
   $('#form_div').hide();

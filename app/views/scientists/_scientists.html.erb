@@ -5,8 +5,6 @@
         <% @scientists.each do |s| %>
           <%= render partial: 'scientist_summary', locals: {scientist: s} %>
         <% end %>
-      <% else %>
-        <h3 id="empty_list">Currently there are no scientists to show</h3>
       <% end %>
     </ul>
   </div>

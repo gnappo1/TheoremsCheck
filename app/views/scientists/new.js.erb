@@ -1,7 +1,0 @@
-var html = "<%= j render 'scientists/form', scientist: @scientist %>"
-if ($("#form_div").children().length == 0) {
-  $('#form_div').append("<div class='frame'><div class='centered'></div></div>")
-  $('.centered').append(html)
-} else {
-  $('#form_div').toggle()
-}

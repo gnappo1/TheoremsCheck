@@ -1,22 +1,4 @@
 $(function() {
-  $("body").on("click", "#new_theorem_form_div", function(e) {
-    debugger
-    $.ajax({
-      type: "GET",
-      url: this.href,
-      cache: false,
-      data: $(this).serialize(),
-      success: function(data) {
-        $("#div_for_form").html(data);
-        $('#div_for_form').toggle();
-      }
-    });
-
-    e.preventDefault();
-  })
-})
-
-$(function() {
   $(document).on('submit','form#new_theorem', {} ,function(e){
 
     $.ajax({

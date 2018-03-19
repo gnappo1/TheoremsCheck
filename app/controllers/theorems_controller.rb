@@ -26,7 +26,7 @@ class TheoremsController < ApplicationController
       @theorem = Theorem.new
       @area = @theorem.build_area
     end
-    render :layout => false
+    render layout: false 
   end
 
   def create

@@ -6,7 +6,10 @@ $(function() {
       url: this.href,
       cache: false,
       data: $(this).serialize(),
-      dataType: 'script'
+      success: function(data) {
+        $("#form_div").html(data);
+        $('#form_div').toggle();
+      }
     });
 
     e.preventDefault();
@@ -161,6 +164,23 @@ $(function() {
       data: $(this).serialize(),
       dataType: 'script'
     });
+    e.preventDefault();
+  })
+})
+
+$(function() {
+  $("#new_theorem_form_div").on("click", function(e) {
+    $.ajax({
+      type: "GET",
+      url: this.href,
+      cache: false,
+      data: $(this).serialize(),
+      success: function(data) {
+        $("#div_for_form").html(data);
+        $('#div_for_form').toggle();
+      }
+    });
+
     e.preventDefault();
   })
 })

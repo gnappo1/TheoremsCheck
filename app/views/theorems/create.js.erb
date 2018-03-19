@@ -1,6 +1,7 @@
 var html = "<%= j render 'theorems/theorem_summary', theorem: @theorem %>"
 if (document.getElementById("empty-space")) {
   $('h3#empty-space').replaceWith(html)
+  $('form#new_theorem').reset();
   $('#form_for_theorem').hide();
 } else {
   $(".all-theorems ul").append(html)

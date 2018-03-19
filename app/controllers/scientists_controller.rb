@@ -19,10 +19,7 @@ class ScientistsController < ApplicationController
     @scientist = Scientist.new
     @theorem = @scientist.theorems.build
     @area = @theorem.build_area
-    respond_to do |format|
-      format.js   {render 'new.js', :layout => false}
-      format.html {render 'new'}
-    end
+    render :layout => false
   end
 
 
