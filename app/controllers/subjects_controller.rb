@@ -15,6 +15,7 @@ class SubjectsController < ApplicationController
 
 
   def create
+    binding.pry
     @subject = Subject.new(subject_params)
     if @subject.save
       respond_to do |format|
